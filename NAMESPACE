@@ -3,4 +3,5 @@
 export("%not in%")
 export(clean_path_name)
 export(db_connection)
+export(global_env_hack)
 export(set_env_vars)
