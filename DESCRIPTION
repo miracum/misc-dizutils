@@ -1,6 +1,6 @@
 Package: DIZutils
 Title: Utilities for DIZ R package development
-Version: 0.0.0.9001
+Version: 0.0.1.9001
 Date: 2020-04-09
 Authors@R: 
     c(person(given = "Jonathan M.",
@@ -23,6 +23,7 @@ BugReports:
 Depends: 
     R (>= 2.10)
 Imports: 
+    config,
     DBI,
     RJDBC,
     RPostgres,
@@ -40,4 +41,3 @@ biocViews:
 Copyright: Universitätsklinikum Erlangen
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.0

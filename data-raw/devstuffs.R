@@ -32,7 +32,7 @@ my_desc$set("Copyright", "Universitätsklinikum Erlangen")
 my_desc$del("Maintainer")
 
 # Set the version
-my_desc$set_version("0.0.0.9001")
+my_desc$set_version("0.0.1.9001")
 
 # The title of your package
 my_desc$set(Title = "Utilities for DIZ R package development")
@@ -91,6 +91,7 @@ usethis::use_package("RJDBC", type="Imports")
 usethis::use_package("RPostgres", type = "Imports")
 usethis::use_package("shiny", type = "Imports")
 usethis::use_package("shinyjs", type = "Imports")
+usethis::use_package("config", type = "Imports")
 
 ## Suggests
 usethis::use_package("testthat", type = "Suggests")
