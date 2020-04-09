@@ -32,7 +32,7 @@ my_desc$set("Copyright", "Universitätsklinikum Erlangen")
 my_desc$del("Maintainer")
 
 # Set the version
-my_desc$set_version("0.0.0.9000")
+my_desc$set_version("0.0.0.9001")
 
 # The title of your package
 my_desc$set(Title = "Utilities for DIZ R package development")
@@ -80,23 +80,28 @@ usethis::use_gpl3_license(name="Universitätsklinikum Erlangen")
 # Depends
 usethis::use_package("R", min_version = "2.10", type = "Depends")
 
-# Imports
-usethis::use_package("data.table", type="Imports")
-usethis::use_package("shiny", type="Imports")
-usethis::use_package("RJDBC", type="Imports")
-usethis::use_package("RPostgres", type="Imports")
+## Imports
+# usethis::use_package("data.table", type = "Imports")
+# usethis::use_package("ggplot2", type = "Imports")
+# usethis::use_package("ggpubr", type = "Imports")
+# usethis::use_package("magrittr", type = "Imports")
+# usethis::use_package("polynom", type = "Imports")
 usethis::use_package("DBI", type="Imports")
+usethis::use_package("RJDBC", type="Imports")
+usethis::use_package("RPostgres", type = "Imports")
+usethis::use_package("shiny", type = "Imports")
+usethis::use_package("shinyjs", type = "Imports")
 
-# Suggests
+## Suggests
 usethis::use_package("testthat", type = "Suggests")
 usethis::use_package("lintr", type = "Suggests")
-# for vignettes
+## for vignettes
 usethis::use_package("rmarkdown", type = "Suggests")
 usethis::use_package("qpdf", type = "Suggests")
 usethis::use_package("knitr", type = "Suggests")
 
 
-# buildignore
+## buildignore
 usethis::use_build_ignore("LICENSE.md")
 usethis::use_build_ignore(".gitlab-ci.yml")
 usethis::use_build_ignore("data-raw")

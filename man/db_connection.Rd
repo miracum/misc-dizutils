@@ -24,6 +24,9 @@ run only in the console (headless = TRUE) or on a GUI frontend
 Values below 2 seconds are not recommended.
 Default is 30 seconds.}
 
+\item{logfile_dir}{The absolute path to folder where the logfile
+will be stored.}
+
 \item{lib_path}{A character string. The path to the ojdbc7.jar file.}
 }
 \description{

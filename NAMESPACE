@@ -2,6 +2,9 @@
 
 export("%not in%")
 export(clean_path_name)
+export(cleanup_old_logfile)
 export(db_connection)
+export(feedback)
+export(firstup)
 export(global_env_hack)
 export(set_env_vars)
