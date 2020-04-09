@@ -9,7 +9,8 @@
 #' @param timeout A timeout in sec. for the db-connection establishment.
 #'   Values below 2 seconds are not recommended.
 #'   Default is 30 seconds.
-#' @param db_name A character. Name of the database system. Currently
+#' @param db_name A character. Name of the database system.
+#' @param db_type A character. Type of the database system. Currently
 #'   implemented systems are: 'postgres', 'oracle'.
 #' @param lib_path A character string. The path to the ojdbc7.jar file.
 #'
@@ -19,11 +20,13 @@
 #'
 # test db connection
 db_connection <- function(db_name,
+                          db_type,
                           headless = FALSE,
                           timeout = 30,
                           logfile_dir = NULL,
                           lib_path = NULL) {
 
+  db_type <- toupper(db_type)
   db_name <- toupper(db_name)
 
   host <- Sys.getenv(
@@ -39,7 +42,7 @@ db_connection <- function(db_name,
     paste0(db_name, "_PASSWORD")
   )
 
-  if (db_name == "ORACLE") {
+  if (db_type == "ORACLE") {
     ## create driver
     drv <- RJDBC::JDBC(
       "oracle.jdbc.OracleDriver",
@@ -71,7 +74,7 @@ db_connection <- function(db_name,
       return(conn)
     })
 
-  } else if (db_name == "POSTGRES") {
+  } else if (db_type == "POSTGRES") {
     drv <- RPostgres::Postgres()
 
     dbname <- Sys.getenv(

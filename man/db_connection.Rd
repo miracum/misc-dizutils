@@ -6,6 +6,7 @@
 \usage{
 db_connection(
   db_name,
+  db_type,
   headless = FALSE,
   timeout = 30,
   logfile_dir = NULL,
@@ -13,7 +14,9 @@ db_connection(
 )
 }
 \arguments{
-\item{db_name}{A character. Name of the database system. Currently
+\item{db_name}{A character. Name of the database system.}
+
+\item{db_type}{A character. Type of the database system. Currently
 implemented systems are: 'postgres', 'oracle'.}
 
 \item{headless}{A boolean (default: FALSE). Indicating, if the function is
