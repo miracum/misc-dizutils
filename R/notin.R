@@ -7,7 +7,7 @@
 #'
 #' @export
 # define %notin% function
-"%!in%" <- function(x, y) { # nolint
+"%not in%" <- function(x, y) { # nolint
   return(
     !("%in%"(x, y)) # nolint
   )

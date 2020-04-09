@@ -17,4 +17,3 @@
 clean_path_name <- function(pathname) {
   return(gsub("([[:alnum:]])$", "\\1/", pathname))
 }
-

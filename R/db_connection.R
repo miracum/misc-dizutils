@@ -11,8 +11,9 @@
 #'   Default is 30 seconds.
 #' @param db_name A character. Name of the database system. Currently
 #'   implemented systems are: 'postgres', 'oracle'.
+#' @param lib_path A character string. The path to the ojdbc7.jar file.
 #'
-#' @inheritParams dqa
+#' @inheritParams feedback
 #'
 #' @export
 #'
@@ -20,28 +21,81 @@
 db_connection <- function(db_name,
                           headless = FALSE,
                           timeout = 30,
-                          logfile_dir = NULL) {
+                          logfile_dir = NULL,
+                          lib_path = NULL) {
 
-  drv <- RPostgres::Postgres()
+  db_name <- toupper(db_name)
 
-  db_con <- tryCatch({
-    db_con <- RPostgres::dbConnect(
-      drv = drv,
-      dbname = settings$dbname,
-      host = settings$host,
-      port = settings$port,
-      user = settings$user,
-      password = settings$password,
-      connect_timeout = timeout
+  host <- Sys.getenv(
+    paste0(db_name, "_HOST")
+  )
+  port <- Sys.getenv(
+    paste0(db_name, "_PORT")
+  )
+  user <- Sys.getenv(
+    paste0(db_name, "_USER")
+  )
+  password <- Sys.getenv(
+    paste0(db_name, "_PASSWORD")
+  )
+
+  if (db_name == "ORACLE") {
+    ## create driver
+    drv <- RJDBC::JDBC(
+      "oracle.jdbc.OracleDriver",
+      classPath = paste0(
+        lib_path, "/ojdbc7.jar"
+      )
     )
-    db_con
-  }, error = function(e) {
-    db_con <- NULL
-    db_con
-  }, finally = function(f) {
-    return(db_con)
-  })
 
+    sid <- Sys.getenv(
+      paste0(db_name, "_SID")
+    )
+
+    ## create URL
+    url <- paste0("jdbc:oracle:thin:@//", host, ":", port, "/", sid)
+
+    ## create connection
+    db_con <- tryCatch({
+      conn <- DBI::dbConnect(
+        drv = drv,
+        url = url,
+        user = user,
+        password = password
+      )
+      conn
+    }, error = function(e) {
+      conn <- NULL
+      conn
+    }, finally = function(f) {
+      return(conn)
+    })
+
+  } else if (db_name == "POSTGRES") {
+    drv <- RPostgres::Postgres()
+
+    dbname <- Sys.getenv(
+      paste0(db_name, "_DBNAME")
+    )
+
+    db_con <- tryCatch({
+      conn <- RPostgres::dbConnect(
+        drv = drv,
+        dbname = dbname,
+        host = host,
+        port = port,
+        user = user,
+        password = password,
+        connect_timeout = timeout
+      )
+      conn
+    }, error = function(e) {
+      conn <- NULL
+      conn
+    }, finally = function(f) {
+      return(conn)
+    })
+  }
   if (is.null(db_con)) {
     feedback("DB connection error",
              findme = "9431c8c61f",

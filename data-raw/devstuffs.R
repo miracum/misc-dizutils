@@ -83,10 +83,9 @@ usethis::use_package("R", min_version = "2.10", type = "Depends")
 # Imports
 usethis::use_package("data.table", type="Imports")
 usethis::use_package("shiny", type="Imports")
-usethis::use_package("ggplot2", type="Imports")
-usethis::use_package("magrittr", type="Imports")
-usethis::use_package("polynom", type="Imports")
-usethis::use_package("ggpubr", type="Imports")
+usethis::use_package("RJDBC", type="Imports")
+usethis::use_package("RPostgres", type="Imports")
+usethis::use_package("DBI", type="Imports")
 
 # Suggests
 usethis::use_package("testthat", type = "Suggests")
