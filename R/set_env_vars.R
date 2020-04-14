@@ -18,7 +18,7 @@ set_env_vars <- function(env_file) {
     # split variables by "="
     l <- unlist(strsplit(x, "="))
     # needed, if value contains "="
-    env <- paste(l[2:length(l)], collapse = "")
+    env <- paste(l[2:length(l)], collapse = "=")
     # name value
     names(env) <- unlist(strsplit(x, "="))[[1]]
     return(env)

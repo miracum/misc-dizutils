@@ -7,8 +7,15 @@
 #'
 #' @export
 # define %notin% function
-"%notin%" <- function(x, y) { # nolint
-  return(
-    !("%in%"(x, y)) # nolint
-  )
+# nolint start
+"%notin%" <- function(x, y) {
+  # workaround until DIZutils is on CRAN
+  # (when using 'importFrom DIZutils %notin%', error exists due to
+  # referencing package in NAMESPACE but not as Import in DESCRIPTION)
+  # "%notin%" <- utils::getFromNamespace(
+  #   x = "%notin%",
+  #   ns = "DIZutils"
+  # )
+  return(!("%in%"(x, y)))
 }
+# nolint end
