@@ -13,9 +13,13 @@ my_desc$set("Package", packagename)
 # http://r-pkgs.had.co.nz/description.html
 # Full list of roles: http://www.loc.gov/marc/relators/relaterm.html
 my_desc$set_authors(c(
-  person("Jonathan M.", "Mang", role = c("aut", "cre"),
-         email = "jonathan.mang@uk-erlangen.de",
-         comment = c(ORCID = "0000-0003-0518-4710")),
+  person(
+    "Jonathan M.",
+    "Mang",
+    role = c("aut", "cre"),
+    email = "jonathan.mang@uk-erlangen.de",
+    comment = c(ORCID = "0000-0003-0518-4710")
+  ),
   person(
     "Lorenz A.",
     "Kapsner",

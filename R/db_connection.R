@@ -32,7 +32,6 @@ db_connection <- function(db_name,
                           timeout = 30,
                           logfile_dir = NULL,
                           lib_path = NULL) {
-
   stopifnot(
     is.character(db_name),
     is.character(db_type),
@@ -48,21 +47,11 @@ db_connection <- function(db_name,
   db_name <- toupper(db_name)
 
   if (isTRUE(from_env)) {
-    dbname <- Sys.getenv(
-        paste0(db_name, "_DBNAME")
-      )
-    host <- Sys.getenv(
-        paste0(db_name, "_HOST")
-      )
-      port <- Sys.getenv(
-        paste0(db_name, "_PORT")
-      )
-      user <- Sys.getenv(
-        paste0(db_name, "_USER")
-      )
-      password <- Sys.getenv(
-        paste0(db_name, "_PASSWORD")
-      ) 
+    dbname <- Sys.getenv(paste0(db_name, "_DBNAME"))
+    host <- Sys.getenv(paste0(db_name, "_HOST"))
+    port <- Sys.getenv(paste0(db_name, "_PORT"))
+    user <- Sys.getenv(paste0(db_name, "_USER"))
+    password <- Sys.getenv(paste0(db_name, "_PASSWORD"))
 
   } else if (isFALSE(from_env)) {
     stopifnot(is.list(settings))
@@ -75,17 +64,11 @@ db_connection <- function(db_name,
 
   if (db_type == "ORACLE") {
     ## create driver
-    drv <- RJDBC::JDBC(
-      "oracle.jdbc.OracleDriver",
-      classPath = paste0(
-        lib_path, "/ojdbc7.jar"
-      )
-    )
+    drv <- RJDBC::JDBC("oracle.jdbc.OracleDriver",
+                       classPath = paste0(lib_path, "/ojdbc7.jar"))
 
     if (isTRUE(from_env)) {
-        sid <- Sys.getenv(
-          paste0(db_name, "_SID")
-        )
+      sid <- Sys.getenv(paste0(db_name, "_SID"))
     } else if (isFALSE(from_env)) {
       sid <- settings$sid
     }
@@ -131,10 +114,12 @@ db_connection <- function(db_name,
     })
   }
   if (is.null(db_con)) {
-    feedback("DB connection error",
-             findme = "9431c8c61f",
-             logfile_dir = logfile_dir,
-             headless = headless)
+    feedback(
+      "DB connection error",
+      findme = "9431c8c61f",
+      logfile_dir = logfile_dir,
+      headless = headless
+    )
   }
   return(db_con)
 }

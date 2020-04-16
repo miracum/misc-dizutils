@@ -8,6 +8,8 @@ db_connection(
   db_name,
   db_type,
   headless = FALSE,
+  from_env = TRUE,
+  settings = NULL,
   timeout = 30,
   logfile_dir = NULL,
   lib_path = NULL
@@ -22,6 +24,13 @@ implemented systems are: 'postgres', 'oracle'.}
 \item{headless}{A boolean (default: FALSE). Indicating, if the function is
 run only in the console (headless = TRUE) or on a GUI frontend
 (headless = FALSE).}
+
+\item{from_env}{A boolean (default: TRUE). Should database connection
+be read from the environment or from a settings file.}
+
+\item{settings}{A list. Required if `from_env=TRUE`. A list containing
+settings for the database connection. Required fields are 'host', 'db_name',
+'port', 'user' and 'password'. Additionally for Oracle DB's: 'sid'.}
 
 \item{timeout}{A timeout in sec. for the db-connection establishment.
 Values below 2 seconds are not recommended.
