@@ -9,8 +9,9 @@
 #' @param from_env A boolean (default: TRUE). Should database connection
 #'   be read from the environment or from a settings file.
 #' @param settings A list. Required if `from_env=TRUE`. A list containing
-#'   settings for the database connection. Required fields are 'host', 'db_name',
-#'   'port', 'user' and 'password'. Additionally for Oracle DB's: 'sid'.
+#'   settings for the database connection. Required fields are 'host',
+#'   'db_name', 'port', 'user' and 'password'.
+#'   Additionally for Oracle DB's: 'sid'.
 #' @param timeout A timeout in sec. for the db-connection establishment.
 #'   Values below 2 seconds are not recommended.
 #'   Default is 30 seconds.

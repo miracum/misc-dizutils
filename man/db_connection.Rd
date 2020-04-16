@@ -29,8 +29,9 @@ run only in the console (headless = TRUE) or on a GUI frontend
 be read from the environment or from a settings file.}
 
 \item{settings}{A list. Required if `from_env=TRUE`. A list containing
-settings for the database connection. Required fields are 'host', 'db_name',
-'port', 'user' and 'password'. Additionally for Oracle DB's: 'sid'.}
+settings for the database connection. Required fields are 'host',
+'db_name', 'port', 'user' and 'password'.
+Additionally for Oracle DB's: 'sid'.}
 
 \item{timeout}{A timeout in sec. for the db-connection establishment.
 Values below 2 seconds are not recommended.

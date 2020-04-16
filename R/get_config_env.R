@@ -17,24 +17,14 @@ get_config_env <-
     res <- tryCatch({
       system_name <- toupper(system_name)
       elements <- list(
-        dbname = "_DBNAME",
-        host = "_HOST",
-        port = "_PORT",
-        user = "_USER",
-        password = "_PASSWORD",
-        sid = "_SID",
-        path = "_PATH",
+        dbname = "_DBNAME"
+        , host = "_HOST"
+        , port = "_PORT"
+        , user = "_USER"
+        , password = "_PASSWORD"
+        , sid = "_SID"
+        , path = "_PATH"
       )
-
-      # #DEBUGGING:
-      # system_name <- "TEST"
-      # Sys.setenv("TEST_DBNAME" = "dbbbb")
-      # Sys.setenv("TEST_HOST" = "hostttt")
-      # Sys.setenv("TEST_PORT" = "porttt")
-      # Sys.setenv("TEST_USER" = "userrrr")
-      # Sys.setenv("TEST_PASSWORD" = "passwordddd")
-      # Sys.setenv("TEST_SID" = "siddddd")
-      # Sys.setenv("TEST_PATH" = "pathhh")
 
       # Get the environment variable for each all keys:
       res <- lapply(
