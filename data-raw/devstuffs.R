@@ -36,13 +36,18 @@ my_desc$set("Copyright", "Universitätsklinikum Erlangen")
 my_desc$del("Maintainer")
 
 # Set the version
-my_desc$set_version("0.0.1.9001")
+my_desc$set_version("0.0.1.9002")
 
 # The title of your package
 my_desc$set(Title = "Utilities for DIZ R package development")
 
 # The description of your package
-my_desc$set(Description = "The package provides utilities functions used in DIZ R package development.")
+my_desc$set(Description = paste0(
+  "The package provides utilities functions used in R package development ",
+  "infrastructure inside data integration centers (DIZ)."
+  )
+)
+
 
 # The date when description file has been created
 my_desc$set("Date" = as.character(Sys.Date()))
