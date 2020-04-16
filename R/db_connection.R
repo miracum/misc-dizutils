@@ -6,6 +6,11 @@
 #' @param headless A boolean (default: FALSE). Indicating, if the function is
 #'   run only in the console (headless = TRUE) or on a GUI frontend
 #'   (headless = FALSE).
+#' @param from_env A boolean (default: TRUE). Should database connection
+#'   be read from the environment or from a settings file.
+#' @param settings A list. Required if `from_env=TRUE`. A list containing
+#'   settings for the database connection. Required fields are 'host', 'db_name',
+#'   'port', 'user' and 'password'. Additionally for Oracle DB's: 'sid'.
 #' @param timeout A timeout in sec. for the db-connection establishment.
 #'   Values below 2 seconds are not recommended.
 #'   Default is 30 seconds.
@@ -22,25 +27,51 @@
 db_connection <- function(db_name,
                           db_type,
                           headless = FALSE,
+                          from_env = TRUE,
+                          settings = NULL,
                           timeout = 30,
                           logfile_dir = NULL,
                           lib_path = NULL) {
 
+  stopifnot(
+    is.character(db_name),
+    is.character(db_type),
+    is.logical(headless),
+    is.logical(from_env),
+    ifelse(is.null(settings), TRUE, is.list(settings)),
+    is.numeric(timeout),
+    ifelse(is.null(logfile_dir), TRUE, is.character(logfile_dir)),
+    ifelse(is.null(lib_path), TRUE, is.character(lib_path))
+  )
+
   db_type <- toupper(db_type)
   db_name <- toupper(db_name)
 
-  host <- Sys.getenv(
-    paste0(db_name, "_HOST")
-  )
-  port <- Sys.getenv(
-    paste0(db_name, "_PORT")
-  )
-  user <- Sys.getenv(
-    paste0(db_name, "_USER")
-  )
-  password <- Sys.getenv(
-    paste0(db_name, "_PASSWORD")
-  )
+  if (isTRUE(from_env)) {
+    dbname <- Sys.getenv(
+        paste0(db_name, "_DBNAME")
+      )
+    host <- Sys.getenv(
+        paste0(db_name, "_HOST")
+      )
+      port <- Sys.getenv(
+        paste0(db_name, "_PORT")
+      )
+      user <- Sys.getenv(
+        paste0(db_name, "_USER")
+      )
+      password <- Sys.getenv(
+        paste0(db_name, "_PASSWORD")
+      ) 
+
+  } else if (isFALSE(from_env)) {
+    stopifnot(is.list(settings))
+
+    host <- settings$host
+    port <- settings$port
+    user <- settings$user
+    password <- settings$password
+  }
 
   if (db_type == "ORACLE") {
     ## create driver
@@ -51,9 +82,13 @@ db_connection <- function(db_name,
       )
     )
 
-    sid <- Sys.getenv(
-      paste0(db_name, "_SID")
-    )
+    if (isTRUE(from_env)) {
+        sid <- Sys.getenv(
+          paste0(db_name, "_SID")
+        )
+    } else if (isFALSE(from_env)) {
+      sid <- settings$sid
+    }
 
     ## create URL
     url <- paste0("jdbc:oracle:thin:@//", host, ":", port, "/", sid)
@@ -76,10 +111,6 @@ db_connection <- function(db_name,
 
   } else if (db_type == "POSTGRES") {
     drv <- RPostgres::Postgres()
-
-    dbname <- Sys.getenv(
-      paste0(db_name, "_DBNAME")
-    )
 
     db_con <- tryCatch({
       conn <- RPostgres::dbConnect(
