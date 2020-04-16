@@ -17,10 +17,15 @@ set_env_vars <- function(env_file) {
   args <- sapply(envs, FUN = function(x) {
     # split variables by "="
     l <- unlist(strsplit(x, "="))
-    # needed, if value contains "="
-    env <- paste(l[2:length(l)], collapse = "=")
-    # name value
-    names(env) <- unlist(strsplit(x, "="))[[1]]
+    if (length(l) > 1) {
+      # needed, if value contains "="
+      env <- paste(l[2:length(l)], collapse = "=")
+      # name value
+      names(env) <- unlist(strsplit(x, "="))[[1]]
+    } else {
+      env <- ""
+      names(env) <- l
+    }
     return(env)
   }, USE.NAMES = F)
 
