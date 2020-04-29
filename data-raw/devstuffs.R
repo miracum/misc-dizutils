@@ -36,7 +36,7 @@ my_desc$set("Copyright", "Universitätsklinikum Erlangen")
 my_desc$del("Maintainer")
 
 # Set the version
-my_desc$set_version("0.0.2")
+my_desc$set_version("0.0.2.9001")
 
 # The title of your package
 my_desc$set(Title = "Utilities for DIZ R package development")
