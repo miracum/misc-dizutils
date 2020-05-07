@@ -37,8 +37,8 @@ Additionally for Oracle DB's: 'sid'.}
 Values below 2 seconds are not recommended.
 Default is 30 seconds.}
 
-\item{logfile_dir}{The absolute path to folder where the logfile
-will be stored.}
+\item{logfile_dir}{(Optional, String, default: "tempdir()")
+The absolute path to folder where the logfile will be stored.}
 
 \item{lib_path}{A character string. The path to the ojdbc7.jar file.}
 }

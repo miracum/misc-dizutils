@@ -20,40 +20,47 @@ feedback(
 )
 }
 \arguments{
-\item{print_this}{(Optional, String)}
+\item{print_this}{(Optional, String, default: "")}
 
-\item{type}{(Optional, String) E.g. "Warning", "Error. Default: "Info"}
+\item{type}{(Optional, String, default: "Info")
+E.g. "Warning", "Error. Default: "Info"}
 
-\item{ui}{(Optional, Boolean/String) If true, the message will
-also be printed to the user in form of a modal. Can also be a string.}
+\item{ui}{(Optional, Boolean/String, default: FALSE)
+If true, the message will also be printed to the user in form of a modal.
+Can also be a string.}
 
-\item{console}{(Optional, Boolean/String) If true, the message will also
-be printed to the console as is. Can also be a string.}
+\item{console}{(Optional, Boolean/String, default: TRUE)
+If true, the message will also be printed to the console as is.
+Can also be a string.}
 
-\item{logfile}{(Optional, Boolean) If true (default) the print_this string
-will also be printed to the console.}
+\item{logfile}{(Optional, Boolean, default: TRUE)
+If true (default) the print_this string will also be printed
+to the console.}
 
-\item{logjs}{(Optional, Boolean) If true (default: false) the print_this
+\item{logjs}{(Optional, Boolean, default: FALSE)
+If true (default: false) the print_this
 string will also be printed to the javascript-console.
 This only makes sense, if the gui is active.}
 
-\item{prefix}{Prefix (Optional, String) This is useful if
-print_this is an array/list.
+\item{prefix}{Prefix (Optional, String, default: "")
+This is useful if print_this is an array/list.
 Each entry will then be new row with this prefix.}
 
-\item{suffix}{Suffix (Optional, String). Same like prefix but at the
-end of each line.}
+\item{suffix}{Suffix (Optional, String, default: "")
+Same like prefix but at the end of each line.}
 
-\item{findme}{(Optional, String) String to find the message in the code.
+\item{findme}{(Optional, String, default: "")
+Recommended with length 10.
+String to find the message in the code.
 E.g. 10-digit random hex from https://www.browserling.com/tools/random-hex
 or https://onlinerandomtools.com/generate-random-hexadecimal-numbers}
 
-\item{logfile_dir}{The absolute path to folder where the logfile
-will be stored.}
+\item{logfile_dir}{(Optional, String, default: "tempdir()")
+The absolute path to folder where the logfile will be stored.}
 
-\item{headless}{A boolean (default: FALSE). Indicating, if the function is
-run only in the console (headless = TRUE) or on a GUI frontend
-(headless = FALSE).}
+\item{headless}{(Optional, Boolean, default: TRUE)
+Indicating, if the function is run only in the console (headless = TRUE)
+or on a GUI frontend (headless = FALSE).}
 }
 \description{
 This function provides the functionality to publish

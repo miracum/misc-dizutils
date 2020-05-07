@@ -14,12 +14,12 @@ containing the database configuration.}
 database. This string must be conform with the corresponding config
 section in the config.yml-file.}
 
-\item{logfile_dir}{The absolute path to folder where the logfile
-will be stored.}
+\item{logfile_dir}{(Optional, String, default: "tempdir()")
+The absolute path to folder where the logfile will be stored.}
 
-\item{headless}{A boolean (default: FALSE). Indicating, if the function is
-run only in the console (headless = TRUE) or on a GUI frontend
-(headless = FALSE).}
+\item{headless}{(Optional, Boolean, default: TRUE)
+Indicating, if the function is run only in the console (headless = TRUE)
+or on a GUI frontend (headless = FALSE).}
 }
 \description{
 Internal function to read config files

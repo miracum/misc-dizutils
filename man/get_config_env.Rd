@@ -10,8 +10,8 @@ get_config_env(system_name, logfile_dir, headless)
 \item{system_name}{The name of the system (This is also the prefix used
 to get the environment variables with 'SYSTEM_KEY', e.g. 'I2B2_DBNAME')}
 
-\item{logfile_dir}{The absolute path to folder where the logfile
-will be stored.}
+\item{logfile_dir}{(Optional, String, default: "tempdir()")
+The absolute path to folder where the logfile will be stored.}
 
 \item{headless}{A boolean (default: FALSE). Indicating, if the function is
 run only in the console (headless = TRUE) or on a GUI frontend
