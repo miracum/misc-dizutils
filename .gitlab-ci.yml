@@ -17,6 +17,7 @@ stages:
 
 Markdown Spellcheck (pipelinecomponents):
   stage: build
+  allow_failure: true
   image: pipelinecomponents/markdown-spellcheck:latest
   before_script: []
   script:
