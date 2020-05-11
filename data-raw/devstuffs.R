@@ -36,7 +36,7 @@ my_desc$set("Copyright", "Universitätsklinikum Erlangen")
 my_desc$del("Maintainer")
 
 # Set the version
-my_desc$set_version("0.0.3")
+my_desc$set_version("0.0.4")
 
 # The title of your package
 my_desc$set(Title = "Utilities for DIZ R package development")
@@ -90,7 +90,7 @@ usethis::use_gpl3_license(name="Universitätsklinikum Erlangen")
 usethis::use_package("R", min_version = "2.10", type = "Depends")
 
 ## Imports
-# usethis::use_package("data.table", type = "Imports")
+usethis::use_package("data.table", type = "Imports")
 # usethis::use_package("ggplot2", type = "Imports")
 # usethis::use_package("ggpubr", type = "Imports")
 # usethis::use_package("magrittr", type = "Imports")

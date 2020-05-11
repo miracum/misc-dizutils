@@ -1,5 +1,5 @@
 variables:
-  _R_CHECK_CRAN_INCOMING_: "false"
+  _R_CHECK_CRAN_INCOMING_: "true"
   _R_CHECK_FORCE_SUGGESTS_: "true"
   CI_IMAGE_NAME: "rocker/verse"
   CI_IMAGE_TAG: "3.6.2"
@@ -15,11 +15,19 @@ stages:
   - build
   - deploy
 
+Markdown Spellcheck (pipelinecomponents):
+  stage: build
+  image: pipelinecomponents/markdown-spellcheck:latest
+  script:
+    - mdspell --ignore-acronyms "**/*.md" --report
+    - ls -al
+
 check:
   stage: build
   allow_failure: true # necessary when having development-packages (in remotes-section of DESCRIPTION)
   script:
     - R -e "devtools::install_dev_deps(pkg = '.', upgrade = 'always')"
+    - R -e "remotes::install_deps(dependencies = TRUE, upgrade = "always")"
     - R -e "devtools::check(pkg = '.', args = c('--no-tests, --no-vignettes'), build_args = c('--no-build-vignettes'), check_dir = '${CI_PROJECT_DIR}/ci')"
   artifacts:
     paths:
