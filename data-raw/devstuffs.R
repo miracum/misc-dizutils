@@ -52,12 +52,15 @@ my_desc$set(Description = paste0(
 # The date when description file has been created
 my_desc$set("Date" = as.character(Sys.Date()))
 
+# The date package language:
+my_desc$set("Language" = "en-US")
+
 # The urls
 my_desc$set("URL", "https://gitlab.miracum.org/miracum/dqa/dizutils")
 my_desc$set("BugReports", "https://gitlab.miracum.org/miracum/dqa/dizutils/issues")
 
 # Vignette Builder
-my_desc$set("VignetteBuilder" = "knitr")
+# my_desc$set("VignetteBuilder" = "knitr")
 
 # License
 my_desc$set("License", "GPL-3")
@@ -96,7 +99,7 @@ usethis::use_package("data.table", type = "Imports")
 # usethis::use_package("magrittr", type = "Imports")
 # usethis::use_package("polynom", type = "Imports")
 usethis::use_package("DBI", type="Imports")
-usethis::use_package("RJDBC", type="Imports")
+usethis::use_package("RJDBC", type = "Imports")
 usethis::use_package("RPostgres", type = "Imports")
 usethis::use_package("shiny", type = "Imports")
 usethis::use_package("shinyjs", type = "Imports")

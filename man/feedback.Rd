@@ -52,8 +52,9 @@ Same like prefix but at the end of each line.}
 \item{findme}{(Optional, String, default: "")
 Recommended with length 10.
 String to find the message in the code.
-E.g. 10-digit random hex from https://www.browserling.com/tools/random-hex
-or https://onlinerandomtools.com/generate-random-hexadecimal-numbers}
+E.g. 10-digit random hex from
+(<https://www.browserling.com/tools/random-hex>) or
+(<https://onlinerandomtools.com/generate-random-hexadecimal-numbers>)}
 
 \item{logfile_dir}{(Optional, String, default: "tempdir()")
 The absolute path to folder where the logfile will be stored.}
