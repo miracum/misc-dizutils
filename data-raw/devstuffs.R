@@ -39,11 +39,11 @@ my_desc$del("Maintainer")
 my_desc$set_version("0.0.4")
 
 # The title of your package
-my_desc$set(Title = "Utilities for DIZ R package development")
+my_desc$set(Title = "Utilities for DIZ R Package Development")
 
 # The description of your package
 my_desc$set(Description = paste0(
-  "The package provides utilities functions used in R package development ",
+  "Utility functions used in R package development ",
   "infrastructure inside data integration centers (DIZ)."
   )
 )
@@ -117,6 +117,7 @@ usethis::use_build_ignore(".gitlab-ci.yml")
 usethis::use_build_ignore("data-raw")
 usethis::use_build_ignore(".vscode")
 usethis::use_build_ignore(".lintr")
+usethis::use_build_ignore(".spelling")
 
 # gitignore
 usethis::use_git_ignore("/*")

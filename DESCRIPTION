@@ -1,5 +1,5 @@
 Package: DIZutils
-Title: Utilities for DIZ R package development
+Title: Utilities for DIZ R Package Development
 Version: 0.0.4
 Date: 2020-05-11
 Authors@R: 
@@ -14,9 +14,8 @@ Authors@R:
              comment = c(ORCID = "0000-0003-1866-860X")),
       person(given = "MIRACUM - Medical Informatics in Research and Care in University Medicine",
              role = "fnd"))
-Description: The package provides utilities functions used
-    in R package development infrastructure inside data integration
-    centers (DIZ).
+Description: Utility functions used in R package development
+    infrastructure inside data integration centers (DIZ).
 License: GPL-3
 URL: https://gitlab.miracum.org/miracum/dqa/dizutils
 BugReports: 
