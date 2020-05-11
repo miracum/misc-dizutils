@@ -18,6 +18,7 @@ stages:
 Markdown Spellcheck (pipelinecomponents):
   stage: build
   image: pipelinecomponents/markdown-spellcheck:latest
+  before_script: []
   script:
     - mdspell --ignore-acronyms "**/*.md" --report
     - ls -al
