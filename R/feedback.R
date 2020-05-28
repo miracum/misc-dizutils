@@ -39,6 +39,16 @@
 #' @param headless (Optional, Boolean, default: TRUE)
 #'   Indicating, if the function is run only in the console (headless = TRUE)
 #'   or on a GUI frontend (headless = FALSE).
+#' @return No return value, called for publishing a message.
+#' @examples
+#' feedback(
+#'   print_this = "Error occured when counting source_data",
+#'   type = "Error",
+#'   findme = "255bb3695c",
+#'   logfile_dir = rv$logfile_dir,
+#'   headless = rv$headless
+#' )
+
 #'
 #' @export
 #'
@@ -96,6 +106,7 @@ feedback <-
 #'   Internal use. Use the robust 'feedback' function instead.
 #'
 #' @inheritParams feedback
+#' @return No return value, called for side effects (see description)
 #'
 feedback_to_console <-
   function(print_this,
@@ -165,6 +176,7 @@ feedback_to_console <-
 #'   to the gui/user. Everything will also be added to the logfile.
 #'   Internal use. Use the robust 'feedback' function instead.
 #' @inheritParams feedback
+#' @return No return value, called for side effects (see description)
 #'
 feedback_to_ui <-
   function(print_this, type, logfile_dir, headless) {
@@ -205,6 +217,7 @@ feedback_to_ui <-
 #'   messages to the gui/user via the browser console.
 #'   Internal use. Use the robust 'feedback' function instead.
 #' @inheritParams feedback
+#' @return No return value, called for side effects (see description)
 #'
 feedback_to_logjs <- function(print_this, logfile_dir, headless) {
   catch_msg <- paste0("Something went wrong while trying",
@@ -237,6 +250,7 @@ feedback_to_logjs <- function(print_this, logfile_dir, headless) {
 #'   to the logfile. Internal use.
 #'   Use the robust 'feedback' function instead.
 #' @inheritParams feedback
+#' @return No return value, called for side effects (see description)
 #'
 feedback_to_logfile <-
   function(print_this,
@@ -276,6 +290,8 @@ feedback_to_logfile <-
 #'   by hand and call this function several times!
 #'   Internal use. Use the robust 'feedback' function instead.
 #' @inheritParams feedback
+#' @return Returns a properly an consistent formatted string containing
+#'   the parameters handed over to this function.
 #'
 feedback_get_formatted_string <-
   function(print_this, type, findme, prefix, suffix) {
@@ -300,6 +316,9 @@ feedback_get_formatted_string <-
 #'   Then a new, empty, logfile "logfile.log" is created.
 #'
 #' @inheritParams feedback
+#' @return No return value, called for side effects (see description)
+#' @examples
+#' cleanup_old_logfile("path/to/logfile/dir/")
 #'
 #' @export
 #'

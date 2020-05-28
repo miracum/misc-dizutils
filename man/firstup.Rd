@@ -9,6 +9,13 @@ firstup(x)
 \arguments{
 \item{x}{A character string. E.g. "hello world" will become "Hello world".}
 }
+\value{
+Returns the input string but with a capital first letter.
+}
 \description{
 Converts the first letter of the input string to uppercase
+}
+\examples{
+firstup("first letter will be upper case as return")
+
 }

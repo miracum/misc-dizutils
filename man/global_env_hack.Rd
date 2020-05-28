@@ -7,14 +7,25 @@
 global_env_hack(key, val, pos = 1)
 }
 \arguments{
-\item{key}{A character string. The name of the assigned variable}
+\item{key}{A character (!) string. The name of the assigned variable}
 
 \item{val}{An object. The object that will be assigned to 'key'.}
 
 \item{pos}{An integer. The position of the environment (default: 1).}
 }
+\value{
+No return value, called for side effects (see description).
+}
 \description{
 Hack variable into global env (bypasses R CMD checks).
+}
+\examples{
+global_env_hack(
+  key = "utils_path",
+  val = utils_path,
+  pos = 1L
+)
+
 }
 \seealso{
 \url{http://adv-r.had.co.nz/Environments.html}

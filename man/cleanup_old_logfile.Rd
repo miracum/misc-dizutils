@@ -10,9 +10,16 @@ cleanup_old_logfile(logfile_dir)
 \item{logfile_dir}{(Optional, String, default: "tempdir()")
 The absolute path to folder where the logfile will be stored.}
 }
+\value{
+No return value, called for side effects (see description)
+}
 \description{
 This function is called once at the beginning of the
   runtime of the tool. It checks whether there is an old logfile
   and renames it (if existing) to "logfile_20xx-xx-xx-xxxxxx.log".
   Then a new, empty, logfile "logfile.log" is created.
+}
+\examples{
+cleanup_old_logfile("path/to/logfile/dir/")
+
 }

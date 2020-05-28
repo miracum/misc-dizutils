@@ -7,6 +7,13 @@
 #'   to get the environment variables with 'SYSTEM_KEY', e.g. 'I2B2_DBNAME')
 #'
 #' @inheritParams db_connection
+#' @return If successful it returns the config, null otherwise.
+#' @examples
+#' get_config_env(
+#'   system_name = "i2b2",
+#'   logfile_dir = "/path/to/logfile/",
+#'   headless = FALSE
+#' )
 #'
 #' @export
 #'

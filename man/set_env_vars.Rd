@@ -10,9 +10,16 @@ set_env_vars(env_file)
 \item{env_file}{A character. The full path including the file name to
 the file containing the environment variable defintions to be loaded.}
 }
+\value{
+No return value, called for side effects (see description)
+}
 \description{
 Internal function to set environment variables that are
   necessary for the database connections with \code{db_connection}.
+}
+\examples{
+set_env_vars("./.env")
+
 }
 \seealso{
 \code{Sys.setenv}

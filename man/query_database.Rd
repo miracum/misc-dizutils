@@ -11,7 +11,17 @@ query_database(db_con, sql_statement)
 
 \item{sql_statement}{A character string containing a valid SQL statement.}
 }
+\value{
+Returns the result of the db-query.
+}
 \description{
 Internal function to query the database. The function
   sends a sql statement to the database and returns a data.table.
+}
+\examples{
+query_database(
+  db_con = db_con,
+  sql_statement = "SELECT * FROM table_name;"
+)
+
 }

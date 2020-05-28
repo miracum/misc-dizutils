@@ -3,6 +3,9 @@
 #'   run of the app. It will close all open connections to files.
 #'
 #' @inheritParams feedback
+#' @return No return value, called for side effects (see description)
+#' @examples
+#' close_all_connections("path/to/logfile/dir/")
 #'
 #' @export
 #'

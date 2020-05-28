@@ -5,6 +5,12 @@
 #'
 #' @param db_con A DBI database connection.
 #' @param sql_statement A character string containing a valid SQL statement.
+#' @return Returns the result of the db-query.
+#' @examples
+#' query_database(
+#'   db_con = db_con,
+#'   sql_statement = "SELECT * FROM table_name;"
+#' )
 #'
 #' @export
 #'

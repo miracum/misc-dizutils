@@ -14,7 +14,14 @@ The absolute path to folder where the logfile will be stored.}
 Indicating, if the function is run only in the console (headless = TRUE)
 or on a GUI frontend (headless = FALSE).}
 }
+\value{
+No return value, called for side effects (see description)
+}
 \description{
 This function is meant to be called at the end of a
   run of the app. It will close all open connections to files.
+}
+\examples{
+close_all_connections("path/to/logfile/dir/")
+
 }

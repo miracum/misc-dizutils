@@ -2,6 +2,9 @@
 #' @description Converts the first letter of the input string to uppercase
 #'
 #' @param x A character string. E.g. "hello world" will become "Hello world".
+#' @return Returns the input string but with a capital first letter.
+#' @examples
+#' firstup("first letter will be upper case as return")
 #'
 #' @export
 #'

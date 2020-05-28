@@ -26,6 +26,10 @@ Each entry will then be new row with this prefix.}
 \item{suffix}{Suffix (Optional, String, default: "")
 Same like prefix but at the end of each line.}
 }
+\value{
+Returns a properly an consistent formatted string containing
+  the parameters handed over to this function.
+}
 \description{
 Helper function for the feedback function to combine the input
   parameters in proper manner to ge a pretty and informative string which

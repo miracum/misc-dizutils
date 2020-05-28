@@ -21,6 +21,18 @@ The absolute path to folder where the logfile will be stored.}
 Indicating, if the function is run only in the console (headless = TRUE)
 or on a GUI frontend (headless = FALSE).}
 }
+\value{
+If successful it returns the config, Null otherwise.
+}
 \description{
 Internal function to read config files
+}
+\examples{
+config <- get_config(
+  config_file = paste0(utils_path, "/MISC/email.yml"),
+  config_key = "email",
+  logfile_dir = rv$logfile_dir,
+  headless = rv$headless
+)
+
 }

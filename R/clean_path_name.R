@@ -4,6 +4,10 @@
 #'
 #' @param pathname A character string. A path name to be cleaned
 #'   (to have a tailing slash).
+#' @return The result is the input but with an tailing slash.
+#' @examples
+#' clean_path_name("./path/to/file/structure")
+#' > "./path/to/file/structure/"
 #'
 #' @export
 #'

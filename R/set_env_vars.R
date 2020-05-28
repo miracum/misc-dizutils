@@ -7,6 +7,9 @@
 #'   the file containing the environment variable defintions to be loaded.
 #'
 #' @seealso \code{Sys.setenv}
+#' @return No return value, called for side effects (see description)
+#' @examples
+#' set_env_vars("./.env")
 #'
 #' @export
 #'

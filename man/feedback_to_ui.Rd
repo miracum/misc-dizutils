@@ -19,6 +19,9 @@ The absolute path to folder where the logfile will be stored.}
 Indicating, if the function is run only in the console (headless = TRUE)
 or on a GUI frontend (headless = FALSE).}
 }
+\value{
+No return value, called for side effects (see description)
+}
 \description{
 Helper function for the feedback function to show modals
   to the gui/user. Everything will also be added to the logfile.

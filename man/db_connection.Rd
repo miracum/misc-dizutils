@@ -42,7 +42,20 @@ The absolute path to folder where the logfile will be stored.}
 
 \item{lib_path}{A character string. The path to the ojdbc7.jar file.}
 }
+\value{
+If successful, the result will be the established connection.
+  Otherwise the result will be null.
+}
 \description{
 Internal function to test and get the database connection of
   the target data system.
+}
+\examples{
+db_con <- DIZutils::db_connection(
+  db_name = "i2b2",
+  db_type = "postgres",
+  headless = true,
+  logfile_dir = "./path/to/logfile/dir/"
+)
+
 }

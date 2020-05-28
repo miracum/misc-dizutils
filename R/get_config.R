@@ -9,6 +9,14 @@
 #'   section in the config.yml-file.
 #'
 #' @inheritParams feedback
+#' @return If successful it returns the config, Null otherwise.
+#' @examples
+#' config <- get_config(
+#'   config_file = paste0(utils_path, "/MISC/email.yml"),
+#'   config_key = "email",
+#'   logfile_dir = rv$logfile_dir,
+#'   headless = rv$headless
+#' )
 #'
 #' @export
 #'

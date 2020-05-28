@@ -10,10 +10,16 @@ clean_path_name(pathname)
 \item{pathname}{A character string. A path name to be cleaned
 (to have a tailing slash).}
 }
+\value{
+The result is the input but with an tailing slash.
+}
 \description{
 Function to clean paths to have a tailing slash
 }
 \examples{
+clean_path_name("./path/to/file/structure")
+> "./path/to/file/structure/"
+
 \dontrun{
 # Both function calls will return "home/test/"
 clean_path_name("home/test")

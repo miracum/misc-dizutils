@@ -17,7 +17,18 @@ The absolute path to folder where the logfile will be stored.}
 run only in the console (headless = TRUE) or on a GUI frontend
 (headless = FALSE).}
 }
+\value{
+If successful it returns the config, null otherwise.
+}
 \description{
 Internal function to read settings for a certain system
   from the environment
+}
+\examples{
+get_config_env(
+  system_name = "i2b2",
+  logfile_dir = "/path/to/logfile/",
+  headless = FALSE
+)
+
 }

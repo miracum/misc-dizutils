@@ -29,6 +29,9 @@ Same like prefix but at the end of each line.}
 \item{logfile_dir}{(Optional, String, default: "tempdir()")
 The absolute path to folder where the logfile will be stored.}
 }
+\value{
+No return value, called for side effects (see description)
+}
 \description{
 Helper function for the feedback function to add content
   to the logfile. Internal use.

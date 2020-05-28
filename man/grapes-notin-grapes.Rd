@@ -11,6 +11,14 @@ x \%notin\% y
 
 \item{y}{Object 2.}
 }
+\value{
+Returns the result of !%in%(x,y)
+}
 \description{
 Function to return elements of x that are not in y.
+}
+\examples{
+tmp1 <- c("a","b","c")
+tmp2 <- c("b", "c", "d")
+tmp1 \%notin\% tmp2
 }

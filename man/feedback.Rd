@@ -63,6 +63,9 @@ The absolute path to folder where the logfile will be stored.}
 Indicating, if the function is run only in the console (headless = TRUE)
 or on a GUI frontend (headless = FALSE).}
 }
+\value{
+No return value, called for publishing a message.
+}
 \description{
 This function provides the functionality to publish
   any kind of information to the user, the console and/or to the logfile.
@@ -71,4 +74,14 @@ This function provides the functionality to publish
   If no output is selected, the print_this string will be printed to the
   console and to logfile.
   One of these must be a string with length > 0: print_me, console, ui
+}
+\examples{
+feedback(
+  print_this = "Error occured when counting source_data",
+  type = "Error",
+  findme = "255bb3695c",
+  logfile_dir = rv$logfile_dir,
+  headless = rv$headless
+)
+
 }
