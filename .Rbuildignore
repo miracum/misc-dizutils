@@ -6,5 +6,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.spelling$
-^tic\.R$
+^\.ccache$
 ^\.github$
+^tic\.R$
