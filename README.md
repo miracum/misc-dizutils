@@ -1,4 +1,4 @@
-# DIZutils (!!!under development!!!)
+# DIZutils
 
 <!-- badges: start -->
 [![R CMD Check via {tic}](https://github.com/miracum/misc-dizutils/workflows/R%20CMD%20Check%20via%20{tic}/badge.svg?branch=master)](https://github.com/miracum/misc-dizutils/actions)
