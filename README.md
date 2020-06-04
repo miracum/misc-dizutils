@@ -13,6 +13,8 @@ The R package `DIZutils` provides utility functions used for the R package devel
 
 # Installation
 
+You can install `DIZutils` directly from CRAN:
+
 ```r
 install.packages("DIZutils")
 ```

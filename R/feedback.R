@@ -69,7 +69,7 @@ feedback <-
 
     # If the gui is active, show the message to the user.
     # If its an error message, also show the error messages in the gui
-    # even if the user did not explicitely said it should be displayed
+    # even if the user did not explicitly said it should be displayed
     # in the gui
     if (isTRUE(ui) ||
         (isFALSE(headless) &&
