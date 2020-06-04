@@ -90,7 +90,7 @@ jobs:
       - name: "[Stage] Prepare & Install (macOS-devel)"
         if: matrix.config.os == 'macOS-latest' && matrix.config.r == 'devel'
         run: |
-          brew install java8
+          brew cask install java8
           sudo R CMD javareconf
           echo -e 'options(Ncpus = 4, pkgType = "source", repos = structure(c(CRAN = "https://cloud.r-project.org/")))' > $HOME/.Rprofile
 
