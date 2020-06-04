@@ -51,12 +51,13 @@ Internal function to test and get the database connection of
   the target data system.
 }
 \examples{
+/dontrun{
 db_con <- DIZutils::db_connection(
   db_name = "i2b2",
   db_type = "postgres",
   headless = true,
   logfile_dir = "./path/to/logfile/dir/"
-)
+)}
 
 }
 \seealso{

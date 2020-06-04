@@ -24,3 +24,5 @@
 /.vscode
 !/.lintr
 inst/doc
+!/.github/
+!/tic.R
