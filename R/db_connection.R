@@ -18,7 +18,7 @@
 #' @param db_name A character. Name of the database system.
 #' @param db_type A character. Type of the database system. Currently
 #'   implemented systems are: 'postgres', 'oracle'.
-#' @param lib_path A character string. The path to the ojdbc7.jar file.
+#' @param lib_path A character string. The path to the ojdbc*.jar file.
 #'
 #' @inheritParams feedback
 #' @return If successful, the result will be the established connection.
@@ -30,6 +30,8 @@
 #'   headless = true,
 #'   logfile_dir = "./path/to/logfile/dir/"
 #' )
+#'
+#' @seealso \code{\link{DBI::dbConnect}}, \code{\link{RPostgres::dbConnect}}
 #'
 #' @export
 #'
@@ -64,7 +66,10 @@ db_connection <- function(db_name,
     password <- Sys.getenv(paste0(db_name, "_PASSWORD"))
 
   } else if (isFALSE(from_env)) {
-    stopifnot(is.list(settings))
+    stopifnot(
+      is.list(settings),
+      length(settings) >= 4
+    )
 
     host <- settings$host
     port <- settings$port
@@ -75,7 +80,7 @@ db_connection <- function(db_name,
   if (db_type == "ORACLE") {
     ## create driver
     drv <- RJDBC::JDBC("oracle.jdbc.OracleDriver",
-                       classPath = paste0(lib_path, "/ojdbc7.jar"))
+                       classPath = lib_path)
 
     if (isTRUE(from_env)) {
       sid <- Sys.getenv(paste0(db_name, "_SID"))
