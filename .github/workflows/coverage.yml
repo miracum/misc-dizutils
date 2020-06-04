@@ -95,7 +95,9 @@ jobs:
 
       - name: "[Stage] Configure R Java"
         if: runner.os != 'Windows'
-        run: sudo R CMD javareconf
+        run: |
+          sudo R CMD javareconf
+          R -e "install.packages('rJava', type = 'source')"
 
       # macOS devel needs its own stage because we need to work with an option to suppress the usage of binaries
       - name: "[Stage] Prepare & Install (macOS-devel)"
