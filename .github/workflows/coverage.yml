@@ -21,7 +21,6 @@ jobs:
           # use a different tic template type if you do not want to build on all listed platforms
           - { os: windows-latest, r: "release" }
           - { os: macOS-latest, r: "release", pkgdown: "true", latex: "true" }
-          - { os: macOS-latest, r: "devel" }
           - { os: ubuntu-latest, r: "release" }
 
     env:
@@ -95,16 +94,8 @@ jobs:
 
       - name: "[Stage] Configure R Java"
         if: runner.os != 'Windows'
-        run: |
-          sudo R CMD javareconf
-          R -e "install.packages('rJava', type = 'source')"
+        run: sudo R CMD javareconf
 
-      # macOS devel needs its own stage because we need to work with an option to suppress the usage of binaries
-      - name: "[Stage] Prepare & Install (macOS-devel)"
-        if: matrix.config.os == 'macOS-latest' && matrix.config.r == 'devel'
-        run: |
-          echo -e "CPPFLAGS=${CPPFLAGS-'-ldl'}" >> $HOME/.Renviron
-          echo -e 'options(Ncpus = 4, pkgType = "source", repos = structure(c(CRAN = "https://cloud.r-project.org/")))' > $HOME/.Rprofile
 
       - name: Install dependencies
         run: |
