@@ -2,8 +2,8 @@
 
 <!-- badges: start -->
 [![R CMD Check via {tic}](https://github.com/miracum/misc-dizutils/workflows/R%20CMD%20Check%20via%20{tic}/badge.svg?branch=master)](https://github.com/miracum/misc-dizutils/actions)
-[![R CMD Check via {tic}](https://github.com/miracum/misc-dizutils/workflows/lint/badge.svg?branch=master)](https://github.com/miracum/misc-dizutils/actions)
-[![R CMD Check via {tic}](https://github.com/miracum/misc-dizutils/workflows/test-coverage/badge.svg?branch=master)](https://github.com/miracum/misc-dizutils/actions)
+[![linting](https://github.com/miracum/misc-dizutils/workflows/lint/badge.svg?branch=master)](https://github.com/miracum/misc-dizutils/actions)
+[![test-coverage](https://github.com/miracum/misc-dizutils/workflows/test-coverage/badge.svg?branch=master)](https://github.com/miracum/misc-dizutils/actions)
 [![pipeline status](https://gitlab.miracum.org/miracum/dqa/dizutils/badges/master/pipeline.svg)](https://gitlab.miracum.org/miracum/dqa/dizutils/commits/master)
 [![coverage report](https://gitlab.miracum.org/miracum/dqa/dizutils/badges/master/coverage.svg)](https://gitlab.miracum.org/miracum/dqa/dizutils/commits/master)
 <!-- badges: end -->
