@@ -95,7 +95,7 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           sudo apt install libbz2-dev r-cran-rjava liblzma-dev openjdk-8-jdk
-          R CMD javareconf
+          sudo R CMD javareconf
 
       - name: "[Stage] Install"
         if: matrix.config.os != 'macOS-latest' || matrix.config.r != 'devel'
