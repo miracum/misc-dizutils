@@ -24,3 +24,4 @@
 /.vscode
 !/.lintr
 inst/doc
+docs/

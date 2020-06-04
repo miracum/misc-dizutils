@@ -5,7 +5,20 @@
 [![coverage report](https://gitlab.miracum.org/miracum/dqa/dizutils/badges/master/coverage.svg)](https://gitlab.miracum.org/miracum/dqa/dizutils/commits/master)
 <!-- badges: end -->
 
-The R package `DIZutils` provides utility functions used for R package development infrastructure inside the data integration centers ('DIZ'), to standardize and facilitate repetitive tasks such as setting up a database connection or issuing notification messages and to avoid redundancy.
+The R package `DIZutils` provides utility functions used for the R package development infrastructure inside the data integration centers ('DIZ'), to standardize and facilitate repetitive tasks such as setting up a database connection or issuing notification messages and to avoid redundancy.
+
+# Installation
+
+```r
+install.packages("DIZutils")
+```
+
+The development version can be installed using
+
+```r
+install.packages("devtools")
+devtools::install_github("miracum/misc-dizutils", ref = "development")
+```
 
 # Basic functions 
 
@@ -19,7 +32,7 @@ The following database types are currently supported:
 
 ### postgres
 
-The following environment variables need to be set to the active environment in order to connect with a postgres database: 
+The following environment variables need to be set to the active environment in order to connect with a postgres database with "i2b2" as name of the database to connect with: 
 
 | Variable          | Description                                                               |
 | ----------------- | ------------------------------------------------------------------------- |
@@ -29,7 +42,7 @@ The following environment variables need to be set to the active environment in 
 | I2B2_USER         | The name of the 'I2B2_USER'.                                              |
 | I2B2_PASSWORD     | The password of the 'I2B2_USER' of your pg instance.                      |
 
-To establish the connection, please set those environment variables accordingly and execute the following command. The argument `db_name` is used to detect the corresponding enviroment variables and thus must match with the environment variables' prefix. 
+To establish the connection, please set those environment variables accordingly and execute the following command. The argument `db_name` is used to detect the corresponding environment variables and thus must match with the environment variables' prefix. 
 
 ```r
 db_con <- DIZutils::db_connection(

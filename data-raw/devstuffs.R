@@ -44,7 +44,7 @@ my_desc$set(Title = "Utilities for 'DIZ' R Package Development")
 # The description of your package
 my_desc$set(
   Description = paste0(
-    "Utility functions used for R package development",
+    "Utility functions used for the R package development",
     " infrastructure inside the data integration centers ('DIZ')",
     " to standardize and facilitate repetitive tasks",
     " such as setting up a database connection",
