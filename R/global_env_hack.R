@@ -8,11 +8,12 @@
 #' @seealso \url{http://adv-r.had.co.nz/Environments.html}
 #' @return No return value, called for side effects (see description).
 #' @examples
+#' \dontrun{
 #' global_env_hack(
 #'   key = "utils_path",
 #'   val = utils_path,
 #'   pos = 1L
-#' )
+#' )}
 #'
 #' @export
 #'

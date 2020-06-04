@@ -41,14 +41,14 @@
 #'   or on a GUI frontend (headless = FALSE).
 #' @return No return value, called for publishing a message.
 #' @examples
+#' \dontrun{
 #' feedback(
 #'   print_this = "Error occured when counting source_data",
 #'   type = "Error",
 #'   findme = "255bb3695c",
 #'   logfile_dir = rv$logfile_dir,
 #'   headless = rv$headless
-#' )
-
+#' )}
 #'
 #' @export
 #'

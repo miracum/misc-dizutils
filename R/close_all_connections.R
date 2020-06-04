@@ -5,8 +5,11 @@
 #' @inheritParams feedback
 #' @return No return value, called for side effects (see description)
 #' @examples
-#' close_all_connections("path/to/logfile/dir/")
-#'
+#' \dontrun{
+#' close_all_connections(
+#'   logfile_dir = "path/to/logfile/dir/",
+#'   headless = TRUE
+#' )}
 #' @export
 #'
 close_all_connections <- function(logfile_dir, headless) {

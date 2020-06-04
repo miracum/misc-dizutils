@@ -125,6 +125,8 @@ usethis::use_build_ignore("data-raw")
 usethis::use_build_ignore(".vscode")
 usethis::use_build_ignore(".lintr")
 usethis::use_build_ignore(".spelling")
+usethis::use_build_ignore("tic.R")
+usethis::use_build_ignore(".github")
 
 # gitignore
 usethis::use_git_ignore("/*")
@@ -148,6 +150,8 @@ usethis::use_git_ignore("/.Rproj*")
 usethis::use_git_ignore("/.RData")
 usethis::use_git_ignore("/.vscode")
 usethis::use_git_ignore("!/.lintr")
+usethis::use_git_ignore("!/tic.R")
+usethis::use_git_ignore("!/.github/")
 
 # code coverage
 # covr::package_coverage()

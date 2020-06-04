@@ -18,7 +18,7 @@ Internal function to set environment variables that are
   necessary for the database connections with \code{db_connection}.
 }
 \examples{
-set_env_vars("./.env")
+\dontrun{set_env_vars("./.env")}
 
 }
 \seealso{

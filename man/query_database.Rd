@@ -19,9 +19,10 @@ Internal function to query the database. The function
   sends a sql statement to the database and returns a data.table.
 }
 \examples{
+\dontrun{
 query_database(
   db_con = db_con,
   sql_statement = "SELECT * FROM table_name;"
-)
+)}
 
 }

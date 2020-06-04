@@ -51,7 +51,7 @@ Internal function to test and get the database connection of
   the target data system.
 }
 \examples{
-/dontrun{
+\dontrun{
 db_con <- DIZutils::db_connection(
   db_name = "i2b2",
   db_type = "postgres",
@@ -61,5 +61,7 @@ db_con <- DIZutils::db_connection(
 
 }
 \seealso{
-\code{\link{DBI::dbConnect}}, \code{\link{RPostgres::dbConnect}}
+{
+\code{\link[DBI]{dbConnect}}, \code{\link[RPostgres]{RPostgres}}
+}
 }
