@@ -17,9 +17,6 @@ The result is the input but with an tailing slash.
 Function to clean paths to have a tailing slash
 }
 \examples{
-clean_path_name("./path/to/file/structure")
-> "./path/to/file/structure/"
-
 \dontrun{
 # Both function calls will return "home/test/"
 clean_path_name("home/test")
