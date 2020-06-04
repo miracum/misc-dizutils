@@ -80,6 +80,12 @@ jobs:
         if: runner.os == 'Linux'
         run: sudo apt install libcurl4-openssl-dev
 
+      - name: "[Stage] [Linux] Install javastuff"
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt install libbz2-dev r-cran-rjava liblzma-dev openjdk-8-jdk
+          R CMD javareconf
+
       - name: Query dependencies
         run: |
           saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)

@@ -91,6 +91,12 @@ jobs:
         if: runner.os == 'Linux'
         run: sudo apt install libcurl4-openssl-dev
 
+      - name: "[Stage] [Linux] Install javastuff"
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt install libbz2-dev r-cran-rjava liblzma-dev openjdk-8-jdk
+          R CMD javareconf
+
       - name: "[Stage] Install"
         if: matrix.config.os != 'macOS-latest' || matrix.config.r != 'devel'
         run: Rscript -e "remotes::install_github('ropensci/tic')" -e "print(tic::dsl_load())" -e "tic::prepare_all_stages()" -e "tic::before_install()" -e "tic::install()"
