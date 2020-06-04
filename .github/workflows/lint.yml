@@ -86,11 +86,6 @@ jobs:
           sudo apt install libbz2-dev r-cran-rjava liblzma-dev openjdk-8-jdk
           sudo R CMD javareconf
 
-      - name: Query dependencies
-        run: |
-          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
-        shell: Rscript {0}
-
       - name: Install dependencies
         run: |
           install.packages(c("remotes"))

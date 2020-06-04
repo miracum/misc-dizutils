@@ -88,10 +88,10 @@ jobs:
           sudo apt install libbz2-dev r-cran-rjava liblzma-dev openjdk-8-jdk
           sudo R CMD javareconf
 
-      - name: Query dependencies
-        run: |
-          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
-        shell: Rscript {0}
+      # macOS devel needs its own stage because we need to work with an option to suppress the usage of binaries
+      - name: "[Stage] Prepare & Install (macOS-devel)"
+        if: matrix.config.os == 'macOS-latest' && matrix.config.r == 'devel'
+        run: echo -e 'options(Ncpus = 4, pkgType = "source", repos = structure(c(CRAN = "https://cloud.r-project.org/")))' > $HOME/.Rprofile
 
       - name: Install dependencies
         run: |
