@@ -53,15 +53,6 @@ jobs:
           r-version: ${{ matrix.config.r }}
           Ncpus: 4
 
-      # LaTeX. Installation time:
-      # Linux: ~ 1 min
-      # macOS: ~ 1 min 30s
-      # Windows: never finishes
-      - uses: r-lib/actions/setup-tinytex@master
-        if: matrix.config.latex == 'true'
-
-      - uses: r-lib/actions/setup-pandoc@master
-
       - uses: actions/setup-java@v1
         with:
           java-version: '8'
