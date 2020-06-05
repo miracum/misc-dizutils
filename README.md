@@ -5,8 +5,8 @@
 [![linting](https://github.com/miracum/misc-dizutils/workflows/lint/badge.svg?branch=master)](https://github.com/miracum/misc-dizutils/actions)
 [![test-coverage](https://github.com/miracum/misc-dizutils/workflows/test-coverage/badge.svg?branch=master)](https://github.com/miracum/misc-dizutils/actions)
 [![codecov](https://codecov.io/gh/miracum/misc-dizutils/branch/master/graph/badge.svg)](https://codecov.io/gh/miracum/misc-dizutils)
-[![pipeline status](https://gitlab.miracum.org/miracum/dqa/dizutils/badges/master/pipeline.svg)](https://gitlab.miracum.org/miracum/dqa/dizutils/commits/master)
-[![coverage report](https://gitlab.miracum.org/miracum/dqa/dizutils/badges/master/coverage.svg)](https://gitlab.miracum.org/miracum/dqa/dizutils/commits/master)
+[![pipeline status](https://gitlab.miracum.org/miracum/misc/dizutils/badges/master/pipeline.svg)](https://gitlab.miracum.org/miracum/misc/dizutils/commits/master)
+[![coverage report](https://gitlab.miracum.org/miracum/misc/dizutils/badges/master/coverage.svg)](https://gitlab.miracum.org/miracum/misc/dizutils/commits/master)
 <!-- badges: end -->
 
 The R package `DIZutils` provides utility functions used for the R package development infrastructure inside the data integration centers ('DIZ'), to standardize and facilitate repetitive tasks such as setting up a database connection or issuing notification messages and to avoid redundancy.
