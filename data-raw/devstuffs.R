@@ -26,11 +26,9 @@ my_desc$set_authors(c(
     role = c("aut"),
     comment = c(ORCID = "0000-0003-1866-860X")
   ),
-  person("MIRACUM - Medical Informatics in Research and Care in University Medicine", role = c("fnd"))
+  person("MIRACUM - Medical Informatics in Research and Care in University Medicine", role = c("fnd")),
+  person("Universitätsklinikum Erlangen", role = "cph")
 ))
-
-# Set copyright
-my_desc$set("Copyright", "Universitätsklinikum Erlangen")
 
 # Remove some author fields
 my_desc$del("Maintainer")
@@ -68,11 +66,6 @@ my_desc$set("BugReports", "https://gitlab.miracum.org/miracum/dqa/dizutils/issue
 
 # License
 my_desc$set("License", "GPL-3")
-
-# for BioConductor stuff
-# see: https://bioinformatics.stackexchange.com/questions/3365/r-package-development-how-does-one-automatically-install-bioconductor-packages
-# and: https://github.com/r-lib/devtools/issues/700
-my_desc$set("biocViews" = "")
 
 # Save everyting
 my_desc$write(file = "DESCRIPTION")
