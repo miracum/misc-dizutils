@@ -33,8 +33,8 @@ devtools::install_github("miracum/misc-dizutils", ref = "development")
 The function `DIZutils::db_connection` provides one simple interface for connecting to various types of databases. It reads neccessary connection settings from the active environment (see below how to use the function `set_env_vars` to set environment variables). 
 
 The following database types are currently supported: 
-* postgres (via the R package [`RPostgres`](https://cran.r-project.org/web/packages/RPostgres/index.html)) 
-* oracle (via the R packages [`RJDBC::JDBC`](https://cran.r-project.org/web/packages/RJDBC/) and [`DBI`](https://cran.r-project.org/web/packages/DBI/))
+* postgres (via the R package [`RPostgres`](https://CRAN.R-project.org/package=RPostgres)) 
+* oracle (via the R packages [`RJDBC`](https://CRAN.R-project.org/package=RJDBC) and [`DBI`](https://CRAN.R-project.org/package=DBI/))
 
 ### postgres
 

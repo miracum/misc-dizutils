@@ -105,10 +105,6 @@ usethis::use_package("config", type = "Imports")
 ## Suggests
 usethis::use_package("testthat", type = "Suggests")
 usethis::use_package("lintr", type = "Suggests")
-## for vignettes
-usethis::use_package("rmarkdown", type = "Suggests")
-usethis::use_package("qpdf", type = "Suggests")
-usethis::use_package("knitr", type = "Suggests")
 
 
 ## buildignore
