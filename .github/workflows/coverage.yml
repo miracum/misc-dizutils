@@ -62,7 +62,7 @@ jobs:
         if: matrix.config.latex == 'true'
 
       - uses: actions/setup-java@master
-        if: matrix.config.latex == 'true'
+        if: matrix.config.java == 'true'
         with:
           java-version: '8'
 
