@@ -9,11 +9,12 @@
 #' @inheritParams db_connection
 #' @return If successful it returns the config, null otherwise.
 #' @examples
+#' \donttest{
 #' get_config_env(
 #'   system_name = "i2b2",
-#'   logfile_dir = "/path/to/logfile/",
+#'   logfile_dir = tempdir(),
 #'   headless = FALSE
-#' )
+#' )}
 #'
 #' @export
 #'

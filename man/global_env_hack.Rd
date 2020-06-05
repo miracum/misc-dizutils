@@ -20,12 +20,12 @@ No return value, called for side effects (see description).
 Hack variable into global env (bypasses R CMD checks).
 }
 \examples{
-\dontrun{
+utils_path <- tempdir()
 global_env_hack(
   key = "utils_path",
   val = utils_path,
   pos = 1L
-)}
+)
 
 }
 \seealso{

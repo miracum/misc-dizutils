@@ -11,12 +11,13 @@
 #' @inheritParams feedback
 #' @return If successful it returns the config, Null otherwise.
 #' @examples
-#' \dontrun{
+#' \donttest{
+#' utils_path <- tempdir()
 #' config <- get_config(
 #'   config_file = paste0(utils_path, "/MISC/email.yml"),
 #'   config_key = "email",
-#'   logfile_dir = rv$logfile_dir,
-#'   headless = rv$headless
+#'   logfile_dir = tempdir(),
+#'   headless = TRUE
 #' )}
 #'
 #' @export

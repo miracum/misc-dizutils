@@ -25,10 +25,11 @@ Internal function to read settings for a certain system
   from the environment
 }
 \examples{
+\donttest{
 get_config_env(
   system_name = "i2b2",
-  logfile_dir = "/path/to/logfile/",
+  logfile_dir = tempdir(),
   headless = FALSE
-)
+)}
 
 }

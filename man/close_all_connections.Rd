@@ -22,9 +22,9 @@ This function is meant to be called at the end of a
   run of the app. It will close all open connections to files.
 }
 \examples{
-\dontrun{
+\donttest{
 close_all_connections(
-  logfile_dir = "path/to/logfile/dir/",
+  logfile_dir = tempdir(),
   headless = TRUE
 )}
 }

@@ -16,6 +16,6 @@ Returns the input string but with a capital first letter.
 Converts the first letter of the input string to uppercase
 }
 \examples{
-firstup("first letter will be upper case as return")
+firstup("first letter of this string will be upper case as return")
 
 }

@@ -5,9 +5,9 @@
 #' @inheritParams feedback
 #' @return No return value, called for side effects (see description)
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' close_all_connections(
-#'   logfile_dir = "path/to/logfile/dir/",
+#'   logfile_dir = tempdir(),
 #'   headless = TRUE
 #' )}
 #' @export

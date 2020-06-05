@@ -28,8 +28,8 @@
 #' db_con <- DIZutils::db_connection(
 #'   db_name = "i2b2",
 #'   db_type = "postgres",
-#'   headless = true,
-#'   logfile_dir = "./path/to/logfile/dir/"
+#'   headless = TRUE,
+#'   logfile_dir = tempdir()
 #' )}
 #'
 #' @seealso{

@@ -76,13 +76,12 @@ This function provides the functionality to publish
   One of these must be a string with length > 0: print_me, console, ui
 }
 \examples{
-\dontrun{
 feedback(
   print_this = "Error occured when counting source_data",
   type = "Error",
   findme = "255bb3695c",
-  logfile_dir = rv$logfile_dir,
-  headless = rv$headless
-)}
+  logfile_dir = tempdir(),
+  headless = TRUE
+)
 
 }

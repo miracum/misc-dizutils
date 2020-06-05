@@ -8,6 +8,11 @@
 #' @return Returns the result of the db-query.
 #' @examples
 #' \dontrun{
+#' db_con <- DIZutils::db_connection(
+#'   db_name = "i2b2",
+#'   db_type = "postgres"
+#' )
+#'
 #' query_database(
 #'   db_con = db_con,
 #'   sql_statement = "SELECT * FROM table_name;"
