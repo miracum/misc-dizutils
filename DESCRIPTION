@@ -1,7 +1,7 @@
 Package: DIZutils
 Title: Utilities for 'DIZ' R Package Development
-Version: 0.0.4.9002
-Date: 2020-06-05
+Version: 0.0.4.9003
+Date: 2020-06-17
 Authors@R: 
     c(person(given = "Jonathan M.",
              family = "Mang",
@@ -41,4 +41,3 @@ Suggests:
 Encoding: UTF-8
 Language: en-US
 LazyData: true
-RoxygenNote: 7.1.0
