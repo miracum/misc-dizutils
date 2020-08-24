@@ -7,6 +7,8 @@
 [![codecov](https://codecov.io/gh/miracum/misc-dizutils/branch/master/graph/badge.svg)](https://codecov.io/gh/miracum/misc-dizutils)
 [![pipeline status](https://gitlab.miracum.org/miracum/misc/dizutils/badges/master/pipeline.svg)](https://gitlab.miracum.org/miracum/misc/dizutils/commits/master)
 [![coverage report](https://gitlab.miracum.org/miracum/misc/dizutils/badges/master/coverage.svg)](https://gitlab.miracum.org/miracum/misc/dizutils/commits/master)
+[![CRAN Status Badge](https://www.r-pkg.org/badges/version-ago/DIZutils)](https://cran.r-project.org/package=DIZutils)
+[![Cran Checks](https://cranchecks.info/badges/worst/DIZutils)](https://cran.r-project.org/web/checks/check_results_DIZutils.html)
 <!-- badges: end -->
 
 The R package `DIZutils` provides utility functions used for the R package development infrastructure inside the data integration centers ('DIZ'), to standardize and facilitate repetitive tasks such as setting up a database connection or issuing notification messages and to avoid redundancy.
