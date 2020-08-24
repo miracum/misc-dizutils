@@ -19,7 +19,7 @@ close_all_connections <- function(logfile_dir, headless) {
     logfile_dir = logfile_dir,
     headless = headless
   )
-  lapply(showConnections(), close)
+  closeAllConnections()
   feedback(
     "Closed all file-connections.",
     findme = "0c5cb72ecc",
