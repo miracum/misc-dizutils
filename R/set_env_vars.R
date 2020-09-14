@@ -4,7 +4,7 @@
 #'   necessary for the database connections with \code{db_connection}.
 #'
 #' @param env_file A character. The full path including the file name to
-#'   the file containing the environment variable defintions to be loaded.
+#'   the file containing the environment variable definitions to be loaded.
 #'
 #' @seealso \code{Sys.setenv}
 #' @return No return value, called for side effects (see description)

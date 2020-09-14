@@ -32,7 +32,7 @@ devtools::install_github("miracum/misc-dizutils", ref = "development")
 
 ## db_connection
 
-The function `DIZutils::db_connection` provides one simple interface for connecting to various types of databases. It reads neccessary connection settings from the active environment (see below how to use the function `set_env_vars` to set environment variables). 
+The function `DIZutils::db_connection` provides one simple interface for connecting to various types of databases. It reads necessary connection settings from the active environment (see below how to use the function `set_env_vars` to set environment variables). 
 
 The following database types are currently supported: 
 * postgres (via the R package [`RPostgres`](https://CRAN.R-project.org/package=RPostgres)) 
@@ -71,7 +71,7 @@ The following environment variables need to be set to the active environment in 
 | MYORACLEDB_USER         | The name of the 'MYORACLEDB_USER'.                                  |
 | MYORACLEDB_PASSWORD     | The password of the 'MYORACLEDB_USER' of your oracle instance.      |
 
-To establish the connection, please set those environment variables accordingly and execute the following command. The argument `db_name` is used to detect the corresponding enviroment variables and thus must match with the environment variables' prefix. Furthermore, an ojdbc*.jar-file needs to be provided via the function's `lib_path` argument.
+To establish the connection, please set those environment variables accordingly and execute the following command. The argument `db_name` is used to detect the corresponding environment variables and thus must match with the environment variables' prefix. Furthermore, an ojdbc*.jar-file needs to be provided via the function's `lib_path` argument.
 
 ```r
 db_con <- DIZutils::db_connection(
@@ -89,9 +89,9 @@ In order to set up a database connection using the function `DIZutils::db_connec
 DIZutils::set_env_vars("path/to/envfile")
 ```
 
-The design of the `envfile` is based on the [`.env` file for defining environment variables when using docker-compose commands](https://docs.docker.com/compose/env-file/) (currently, neither empty lines nor the using of comments ('#') is being supporte by `DIZutils::set_env_vars`). 
+The design of the `envfile` is based on the [`.env` file for defining environment variables when using docker-compose commands](https://docs.docker.com/compose/env-file/) (currently, neither empty lines nor the using of comments ('#') is being supported by `DIZutils::set_env_vars`). 
 
-To create an `envfile` for connecting with an i2b2 database, the following examplary definitions of environment variables should be written to a simple textfile, e.g. named `envfile`, which can then be passed as argument to `DIZutils::set_env_vars`.
+To create an `envfile` for connecting with an i2b2 database, the following exemplary definitions of environment variables should be written to a simple textfile, e.g. named `envfile`, which can then be passed as argument to `DIZutils::set_env_vars`.
 
 ```
 I2B2_HOST=123.45.56.8

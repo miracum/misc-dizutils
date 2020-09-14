@@ -1,7 +1,7 @@
 Package: DIZutils
 Title: Utilities for 'DIZ' R Package Development
-Version: 0.0.4.9004
-Date: 2020-08-24
+Version: 0.0.5
+Date: 2020-09-14
 Authors@R: 
     c(person(given = "Jonathan M.",
              family = "Mang",
