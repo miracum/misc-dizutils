@@ -9,3 +9,4 @@
 ^\.ccache$
 ^\.github$
 ^tic\.R$
+^CRAN-RELEASE$
