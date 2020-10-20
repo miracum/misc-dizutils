@@ -34,7 +34,7 @@ my_desc$set_authors(c(
 my_desc$del("Maintainer")
 
 # Set the version
-my_desc$set_version("0.0.5")
+my_desc$set_version("0.0.5.9000")
 
 # The title of your package
 my_desc$set(Title = "Utilities for 'DIZ' R Package Development")
@@ -58,8 +58,8 @@ my_desc$set("Date" = as.character(Sys.Date()))
 my_desc$set("Language" = "en-US")
 
 # The urls
-my_desc$set("URL", "https://gitlab.miracum.org/miracum/dqa/dizutils")
-my_desc$set("BugReports", "https://gitlab.miracum.org/miracum/dqa/dizutils/issues")
+my_desc$set("URL", "https://github.com/miracum/misc-dizutils")
+my_desc$set("BugReports", "https://github.com/miracum/misc-dizutils/issues")
 
 # Vignette Builder
 # my_desc$set("VignetteBuilder" = "knitr")
