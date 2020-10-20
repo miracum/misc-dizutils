@@ -40,4 +40,5 @@ Suggests:
 Encoding: UTF-8
 Language: en-US
 LazyData: true
-RoxygenNote: 7.1.1
+SystemRequirements: libpq >= 9.0: libpq-dev (deb) or
+    postgresql-devel (rpm)
