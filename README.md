@@ -67,6 +67,7 @@ The following environment variables need to be set to the active environment in 
 | ----------------- | ------------------------------------------------------------------------- |
 | MYORACLEDB_HOST         | The hostname/ IP address of your oracle instance.                   |
 | MYORACLEDB_DBNAME       | The name of the oracle-database.                                    |
+| MYORACLEDB_SID          | The SID of the oracle-database.                                     |
 | MYORACLEDB_PORT         | The port, your oracle postgres instance is running on.              |
 | MYORACLEDB_USER         | The name of the 'MYORACLEDB_USER'.                                  |
 | MYORACLEDB_PASSWORD     | The password of the 'MYORACLEDB_USER' of your oracle instance.      |

@@ -1,7 +1,7 @@
 Package: DIZutils
 Title: Utilities for 'DIZ' R Package Development
-Version: 0.0.5.9001
-Date: 2020-10-20
+Version: 0.0.5.9002
+Date: 2020-10-28
 Authors@R: 
     c(person(given = "Jonathan M.",
              family = "Mang",
@@ -42,3 +42,4 @@ Language: en-US
 LazyData: true
 SystemRequirements: libpq >= 9.0: libpq-dev (deb) or
     postgresql-devel (rpm)
+RoxygenNote: 7.1.1
