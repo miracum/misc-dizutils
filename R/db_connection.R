@@ -81,6 +81,15 @@ db_connection <- function(db_name,
   }
 
   if (db_type == "ORACLE") {
+
+    if (is.null(lib_path)) {
+      lib_path <- Sys.getenv(paste0(db_name, "_DRIVER"))
+    }
+
+    stopifnot(
+      lib_path != "" || !is.null(lib_path)
+    )
+
     ## create driver
     drv <- RJDBC::JDBC("oracle.jdbc.OracleDriver",
                        classPath = lib_path)
