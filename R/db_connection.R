@@ -86,7 +86,6 @@ db_connection <- function(db_name,
           lib_path <- settings$lib_path
         }
       }
-      print(lib_path)
 
       stopifnot(lib_path != "" || !is.null(lib_path))
 
@@ -103,8 +102,6 @@ db_connection <- function(db_name,
       ## create URL
       url <- paste0("jdbc:oracle:thin:@//", host, ":", port, "/", sid)
 
-      print("Test 1")
-
       ## create connection
       db_con <- tryCatch({
         conn <- DBI::dbConnect(
@@ -120,8 +117,6 @@ db_connection <- function(db_name,
       }, finally = function(f) {
         return(conn)
       })
-      print("Test 2")
-
     } else if (db_type == "POSTGRES") {
       drv <- RPostgres::Postgres()
 
