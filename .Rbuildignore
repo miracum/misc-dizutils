@@ -10,3 +10,4 @@
 ^\.github$
 ^tic\.R$
 ^CRAN-RELEASE$
+^cran-comments\.md$

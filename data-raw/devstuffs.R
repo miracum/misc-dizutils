@@ -34,7 +34,7 @@ my_desc$set_authors(c(
 my_desc$del("Maintainer")
 
 # Set the version
-my_desc$set_version("0.0.5.9004")
+my_desc$set_version("0.0.6")
 
 # The title of your package
 my_desc$set(Title = "Utilities for 'DIZ' R Package Development")
@@ -90,7 +90,7 @@ usethis::use_gpl3_license(name="Universitätsklinikum Erlangen")
 ##      You can see the currently attached packages with search().
 
 # Depends
-usethis::use_package("R", min_version = "2.10", type = "Depends")
+usethis::use_package("R", min_version = "3.1.0", type = "Depends")
 
 ## Imports
 usethis::use_package("data.table", type = "Imports")
@@ -98,7 +98,7 @@ usethis::use_package("data.table", type = "Imports")
 # usethis::use_package("ggpubr", type = "Imports")
 # usethis::use_package("magrittr", type = "Imports")
 # usethis::use_package("polynom", type = "Imports")
-usethis::use_package("DBI", type="Imports")
+usethis::use_package("DBI", type="Imports", min_version = "1.1.0")
 usethis::use_package("RJDBC", type = "Imports")
 usethis::use_package("RPostgres", type = "Imports")
 usethis::use_package("shiny", type = "Imports")
@@ -119,6 +119,8 @@ usethis::use_build_ignore(".lintr")
 usethis::use_build_ignore(".spelling")
 usethis::use_build_ignore("tic.R")
 usethis::use_build_ignore(".github")
+usethis::use_build_ignore("cran-comments.md")
+# usethis::use_build_ignore("NEWS.md")
 
 # gitignore
 usethis::use_git_ignore("/*")
@@ -144,6 +146,8 @@ usethis::use_git_ignore("/.vscode")
 usethis::use_git_ignore("!/.lintr")
 usethis::use_git_ignore("!/tic.R")
 usethis::use_git_ignore("!/.github/")
+usethis::use_git_ignore("!/NEWS.md")
+usethis::use_git_ignore("!/cran-comments.md")
 
 # code coverage
 # covr::package_coverage()

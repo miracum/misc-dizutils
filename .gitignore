@@ -27,4 +27,5 @@ inst/doc
 !/.github/
 !/tic.R
 docs/
-!/CHANGELOG.md
+!/NEWS.md
+!/cran-comments.md
