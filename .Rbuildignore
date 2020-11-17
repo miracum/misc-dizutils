@@ -11,3 +11,4 @@
 ^tic\.R$
 ^CRAN-RELEASE$
 ^cran-comments\.md$
+^logfile\.log$

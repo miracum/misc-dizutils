@@ -271,6 +271,7 @@ feedback_to_logfile <-
     # and a linebreak at the end:
     res <- paste0("[", Sys.time(), "] ", res, "\n")
 
+    logfile_dir <- repair_dir(logfile_dir)
     path_with_file <- paste0(logfile_dir, "logfile.log")
 
     # Open the connection to the logfile:
@@ -280,6 +281,13 @@ feedback_to_logfile <-
     # Close the connection to logfile:
     close(log_con)
   }
+
+repair_dir <- function(dir) {
+  if (!grepl("\\/$", dir)) {
+    dir <- paste0(dir, "/")
+  }
+  return(dir)
+}
 
 #' @title Format the feedback string
 #' @description  Helper function for the feedback function to combine the input
@@ -322,6 +330,7 @@ feedback_get_formatted_string <-
 #' @export
 #'
 cleanup_old_logfile <- function(logfile_dir) {
+  logfile_dir <- repair_dir(logfile_dir)
   path_with_file <- paste0(logfile_dir, "logfile.log")
   # Check if logfile.log is already the logfile for this session:
   if (isTRUE(file.exists(path_with_file))) {

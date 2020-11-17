@@ -120,6 +120,7 @@ usethis::use_build_ignore(".spelling")
 usethis::use_build_ignore("tic.R")
 usethis::use_build_ignore(".github")
 usethis::use_build_ignore("cran-comments.md")
+usethis::use_build_ignore("logfile.log")
 # usethis::use_build_ignore("NEWS.md")
 
 # gitignore
