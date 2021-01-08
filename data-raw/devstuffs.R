@@ -26,7 +26,10 @@ my_desc$set_authors(c(
     role = c("aut"),
     comment = c(ORCID = "0000-0003-1866-860X")
   ),
-  person("MIRACUM - Medical Informatics in Research and Care in University Medicine", role = c("fnd")),
+  person(
+    "MIRACUM - Medical Informatics in Research and Care in University Medicine",
+    role = c("fnd")
+  ),
   person("Universitätsklinikum Erlangen", role = "cph")
 ))
 
@@ -34,7 +37,7 @@ my_desc$set_authors(c(
 my_desc$del("Maintainer")
 
 # Set the version
-my_desc$set_version("0.0.6.9003")
+my_desc$set_version("0.0.6.9004")
 
 # The title of your package
 my_desc$set(Title = "Utilities for 'DIZ' R Package Development")
@@ -59,7 +62,8 @@ my_desc$set("Language" = "en-US")
 
 # The urls
 my_desc$set("URL", "https://github.com/miracum/misc-dizutils")
-my_desc$set("BugReports", "https://github.com/miracum/misc-dizutils/issues")
+my_desc$set("BugReports",
+            "https://github.com/miracum/misc-dizutils/issues")
 
 # Vignette Builder
 # my_desc$set("VignetteBuilder" = "knitr")
@@ -68,13 +72,14 @@ my_desc$set("BugReports", "https://github.com/miracum/misc-dizutils/issues")
 my_desc$set("License", "GPL-3")
 
 # System requirements (for CRAN to avoid Rpostgres-errors):
-my_desc$set("SystemRequirements", "libpq >= 9.0: libpq-dev (deb) or postgresql-devel (rpm)")
+my_desc$set("SystemRequirements",
+            "libpq >= 9.0: libpq-dev (deb) or postgresql-devel (rpm)")
 
 # Save everyting
 my_desc$write(file = "DESCRIPTION")
 
 # License
-usethis::use_gpl3_license(name="Universitätsklinikum Erlangen")
+usethis::use_gpl3_license(name = "Universitätsklinikum Erlangen")
 
 
 # add Imports and Depends
@@ -98,7 +103,7 @@ usethis::use_package("data.table", type = "Imports")
 # usethis::use_package("ggpubr", type = "Imports")
 # usethis::use_package("magrittr", type = "Imports")
 # usethis::use_package("polynom", type = "Imports")
-usethis::use_package("DBI", type="Imports", min_version = "1.1.0")
+usethis::use_package("DBI", type = "Imports", min_version = "1.1.0")
 usethis::use_package("RJDBC", type = "Imports")
 usethis::use_package("RPostgres", type = "Imports")
 usethis::use_package("shiny", type = "Imports")

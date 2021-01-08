@@ -4,17 +4,20 @@
 \alias{clean_path_name}
 \title{clean_path_name helper function}
 \usage{
-clean_path_name(pathname)
+clean_path_name(pathname, remove.slash = FALSE)
 }
 \arguments{
 \item{pathname}{A character string. A path name to be cleaned
-(to have a tailing slash).}
+(to have a tailing slash or not).}
+
+\item{remove.slash}{(boolean) Default: FALSE. Should the result
+contain the tailing slash or remove it?}
 }
 \value{
 The result is the input but with an tailing slash.
 }
 \description{
-Function to clean paths to have a tailing slash
+Function to clean paths to surely have a tailing slash or not
 }
 \examples{
 # Both function calls will return "home/test/"

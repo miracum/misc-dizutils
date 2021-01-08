@@ -4,7 +4,12 @@
 \alias{get_config_env}
 \title{get_config_env helper function}
 \usage{
-get_config_env(system_name, logfile_dir, headless)
+get_config_env(
+  system_name,
+  logfile_dir = tempdir(),
+  headless = TRUE,
+  ignore.presets = FALSE
+)
 }
 \arguments{
 \item{system_name}{The name of the system (This is also the prefix used
@@ -16,13 +21,21 @@ The absolute path to folder where the logfile will be stored.}
 \item{headless}{A boolean (default: FALSE). Indicating, if the function is
 run only in the console (headless = TRUE) or on a GUI frontend
 (headless = FALSE).}
+
+\item{ignore.presets}{(boolean) Only return something if all elements
+from the presets are found? These are currently `host`, `port`, `user`,
+`password`, `sid`, `path`. If you have another suffix after
+`system_name` in your config file, you won't see it here. To see
+everything with prefix `system_name` simply set `ignore.presets = TRUE`.}
 }
 \value{
 If successful it returns the config, null otherwise.
 }
 \description{
 Internal function to read settings for a certain system
-  from the environment
+  from the environment.
+  IMPORTANT: If yout want to get any result with your input as prefix,
+  use `ignore.presets = TRUE`! See param-definition for more details.
 }
 \examples{
 \donttest{
