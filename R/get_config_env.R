@@ -4,14 +4,16 @@
 #'   from the environment.
 #'   IMPORTANT: If yout want to get any result with your input as prefix,
 #'   use `ignore.presets = TRUE`! See param-definition for more details.
+#'   This function will look at uppercase system_names at default.
 #'
 #' @param system_name The name of the system (This is also the prefix used
-#'   to get the environment variables with 'SYSTEM_KEY', e.g. 'I2B2_DBNAME')
+#'   to get the environment variables with 'SYSTEM_KEY', e.g. 'I2B2_DBNAME').
 #' @param ignore.presets (boolean) Only return something if all elements
 #'   from the presets are found? These are currently `host`, `port`, `user`,
 #'   `password`, `sid`, `path`. If you have another suffix after
 #'   `system_name` in your config file, you won't see it here. To see
 #'   everything with prefix `system_name` simply set `ignore.presets = TRUE`.
+#' @param uppercase.system (boolean) Default: True. Otherwise: case-sensitive.
 #'
 #' @inheritParams db_connection
 #' @return If successful it returns the config, null otherwise.
@@ -29,25 +31,30 @@ get_config_env <-
   function(system_name,
            logfile_dir = tempdir(),
            headless = TRUE,
-           ignore.presets = FALSE) {
+           ignore.presets = FALSE,
+           uppercase.system = TRUE) {
     res <- tryCatch({
-      system_name <- toupper(system_name)
+      if (uppercase.system) {
+        system_name <- toupper(system_name)
+      }
       if (ignore.presets) {
+        pattern <- paste0("^", system_name, "_*")
         env_names_tmp <- names(Sys.getenv())
         elements <-
-          env_names_tmp[grepl(pattern = paste0("^", system_name, "_*"),
-                              x = env_names_tmp)]
+          env_names_tmp[grepl(pattern = pattern, x = env_names_tmp)]
 
         # Get the environment variable for these elements:
-        res <- sapply(
+        res <- lapply(
           X = elements,
           FUN = function(name) {
             tmp <- list()
-            tmp[name] = Sys.getenv(name)
-            return(Sys.getenv(name))
+            tmp[gsub(pattern = pattern,
+                     replacement = "",
+                     x = name)] = Sys.getenv(name)
+            return(tmp)
           }
         )
-        res <- as.list(res)
+        res <- as.list(unlist(res))
       } else {
         elements <- list(
           dbname = "_DBNAME",
