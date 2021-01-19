@@ -271,7 +271,21 @@ feedback_to_logfile <-
     # and a linebreak at the end:
     res <- paste0("[", Sys.time(), "] ", res, "\n")
 
-    logfile_dir <- repair_dir(logfile_dir)
+    logfile_dir <- DIZutils::clean_path_name(pathname = logfile_dir,
+                                             remove.slash = FALSE)
+
+    if (rapportools::is.empty(logfile_dir)) {
+      DIZutils::feedback(
+        print_this = paste0(
+          "'logfile_dir' was empty and automatically",
+          " switched to 'tempdir()' in the previous log-entry."
+        ),
+        type = "Warning",
+        findme = "215d74c51d"
+      )
+      logfile_dir <- tempdir()
+    }
+
     path_with_file <- paste0(logfile_dir, "logfile.log")
 
     # Open the connection to the logfile:
@@ -282,12 +296,6 @@ feedback_to_logfile <-
     close(log_con)
   }
 
-repair_dir <- function(dir) {
-  if (!grepl("\\/$", dir)) {
-    dir <- paste0(dir, "/")
-  }
-  return(dir)
-}
 
 #' @title Format the feedback string
 #' @description  Helper function for the feedback function to combine the input
