@@ -1,6 +1,6 @@
 Package: DIZutils
 Title: Utilities for 'DIZ' R Package Development
-Version: 0.0.6.9005
+Version: 0.0.6.9006
 Date: 2021-01-19
 Authors@R: 
     c(person(given = "Jonathan M.",
@@ -31,9 +31,11 @@ Imports:
     data.table,
     DBI (>= 1.1.0),
     RJDBC,
+    RJSONIO,
     RPostgres,
     shiny,
-    shinyjs
+    shinyjs,
+    xml2
 Suggests: 
     lintr,
     testthat

@@ -37,7 +37,7 @@ my_desc$set_authors(c(
 my_desc$del("Maintainer")
 
 # Set the version
-my_desc$set_version("0.0.6.9005")
+my_desc$set_version("0.0.6.9006")
 
 # The title of your package
 my_desc$set(Title = "Utilities for 'DIZ' R Package Development")
@@ -98,6 +98,7 @@ usethis::use_gpl3_license(name = "Universitätsklinikum Erlangen")
 usethis::use_package("R", min_version = "3.1.0", type = "Depends")
 
 ## Imports
+usethis::use_package("config", type = "Imports")
 usethis::use_package("data.table", type = "Imports")
 # usethis::use_package("ggplot2", type = "Imports")
 # usethis::use_package("ggpubr", type = "Imports")
@@ -105,10 +106,14 @@ usethis::use_package("data.table", type = "Imports")
 # usethis::use_package("polynom", type = "Imports")
 usethis::use_package("DBI", type = "Imports", min_version = "1.1.0")
 usethis::use_package("RJDBC", type = "Imports")
+## For xml_to_json:
+usethis::use_package("RJSONIO", type = "Imports")
 usethis::use_package("RPostgres", type = "Imports")
 usethis::use_package("shiny", type = "Imports")
 usethis::use_package("shinyjs", type = "Imports")
-usethis::use_package("config", type = "Imports")
+## For xml_to_json:
+usethis::use_package("xml2", type = "Imports")
+
 
 ## Suggests
 usethis::use_package("testthat", type = "Suggests")
