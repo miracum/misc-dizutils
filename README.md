@@ -92,7 +92,7 @@ In order to set up a database connection using the function `DIZutils::db_connec
 DIZutils::set_env_vars("path/to/envfile")
 ```
 
-The design of the `envfile` is based on the [`.env` file for defining environment variables when using docker-compose commands](https://docs.docker.com/compose/env-file/) (currently, neither empty lines nor the using of comments ('#') is being supported by `DIZutils::set_env_vars`). 
+The design of the `envfile` is based on the `.env` file for defining environment variables when using docker-compose commands. See [here](https://docs.docker.com/compose/env-file/) (currently, neither empty lines nor the using of comments ('#') is being supported by `DIZutils::set_env_vars`).
 
 To create an `envfile` for connecting with an i2b2 database, the following exemplary definitions of environment variables should be written to a simple textfile, e.g. named `envfile`, which can then be passed as argument to `DIZutils::set_env_vars`.
 
