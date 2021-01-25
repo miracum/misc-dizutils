@@ -22,7 +22,7 @@ combine_stats <- function(summaries, demo = FALSE) {
   ## This is only for demonstration or validation:
   if (demo) {
     rows <- 4
-    
+
     summaries <- data.table::data.table(
       "Min" = numeric(),
       "Q10" = numeric(),
@@ -45,11 +45,11 @@ combine_stats <- function(summaries, demo = FALSE) {
           sd = sample(1:10, size = 1)
         ),
         digits = 0)
-      
+
       ## Also save these numbers for later comparision of the calculated values
       ## with the real values:
       control <- c(control, y)
-      
+
       ## Setting up the new row:
       tmp <- data.table::data.table(
         "Min" = min(y),
@@ -63,7 +63,7 @@ combine_stats <- function(summaries, demo = FALSE) {
         "Max" = max(y),
         "N" = length(y)
       )
-      
+
       ## Add the new row to the existing dataset:
       summaries <-
         data.table::rbindlist(list(summaries, tmp), use.names = TRUE)
@@ -71,7 +71,7 @@ combine_stats <- function(summaries, demo = FALSE) {
     cat("\n\nYou used the function in demo-mode.\nThis is the randomly chosen demo-data:\n")
     print(summaries)
   }
-  
+
   res <- data.table::data.table(
     "Min" = ifelse(all(is.na(summaries[["Min"]])), "", min(x = summaries[["Min"]], na.rm = T)),
     "Q10" = ifelse(all(is.na(summaries[["Q10"]])), NA, as.numeric(
@@ -118,18 +118,18 @@ combine_stats <- function(summaries, demo = FALSE) {
     "Max" = ifelse(all(is.na(summaries[["Max"]])), NA, max(summaries[["Max"]], na.rm = T)),
     "N" = sum(summaries[["N"]])
   )
-  
+
   if (demo) {
     ## Real combined stats:
-    cat("\n\nThis is the 'real' statistics over the whole data-pool:\n")
+    cat("\n\nThis is the 'real' aggregated statistics over the whole data-pool:\n")
     print(psych::describe(control, quant = c(.1, .25, .5, .75, .9)))
-    
+
     ## Calculated summary statistics:
     cat(
-      "\n\nAnd this is the calculated summary (which is the return value of this function):\n"
+      "\n\nAnd this is the calculated aggregated statistics (which is the return value of this function):\n"
     )
     # print(res)
   }
-  
+
   return(res)
 }
