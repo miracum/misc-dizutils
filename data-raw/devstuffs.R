@@ -37,7 +37,7 @@ my_desc$set_authors(c(
 my_desc$del("Maintainer")
 
 # Set the version
-my_desc$set_version("0.0.6.9006")
+my_desc$set_version("0.0.6.9007")
 
 # The title of your package
 my_desc$set(Title = "Utilities for 'DIZ' R Package Development")
@@ -105,6 +105,10 @@ usethis::use_package("data.table", type = "Imports")
 # usethis::use_package("magrittr", type = "Imports")
 # usethis::use_package("polynom", type = "Imports")
 usethis::use_package("DBI", type = "Imports", min_version = "1.1.0")
+## For `combine_stats`:
+usethis::use_package("Hmisc", type = "Imports")
+## For `combine_stats`:
+usethis::use_package("psych", type = "Imports")
 usethis::use_package("RJDBC", type = "Imports")
 ## For xml_to_json:
 usethis::use_package("RJSONIO", type = "Imports")

@@ -1,7 +1,7 @@
 Package: DIZutils
 Title: Utilities for 'DIZ' R Package Development
-Version: 0.0.6.9006
-Date: 2021-01-19
+Version: 0.0.6.9007
+Date: 2021-01-25
 Authors@R: 
     c(person(given = "Jonathan M.",
              family = "Mang",
@@ -30,6 +30,8 @@ Imports:
     config,
     data.table,
     DBI (>= 1.1.0),
+    Hmisc,
+    psych,
     RJDBC,
     RJSONIO,
     RPostgres,
