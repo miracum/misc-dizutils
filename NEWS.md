@@ -5,6 +5,7 @@
 
 * fixed md style ([53e1c0e](https://gitlab.miracum.org/miracum/misc/dizutils/commit/53e1c0e1800d374685ef65e01a9a4355e70bb434))
 * styl md ([9cbc20d](https://gitlab.miracum.org/miracum/misc/dizutils/commit/9cbc20d7a32d856070dcb027470218aa5d5f53cf))
+* updated news.md ([c3518b9](https://gitlab.miracum.org/miracum/misc/dizutils/commit/c3518b9822d855fb1bbfb091c804493a403a95f6))
 * updated news.md ([2d5cef2](https://gitlab.miracum.org/miracum/misc/dizutils/commit/2d5cef219b70d7d0242f846f46244ebabb7da6aa))
 
 ### feat
@@ -13,6 +14,7 @@
 * added function `combine_stats` ([7ab9d58](https://gitlab.miracum.org/miracum/misc/dizutils/commit/7ab9d585138dd5550d7eb24bfdf2ced8a9ff4720))
 * added function `get_current_timestamp` ([d0a82da](https://gitlab.miracum.org/miracum/misc/dizutils/commit/d0a82da34728718d8795da2a5e225b4516c7a061))
 * added function `setdiff_all` ([e316479](https://gitlab.miracum.org/miracum/misc/dizutils/commit/e3164794b40ecb9df20d05875364a811f68cedf1))
+* added function `string_replacements` ([5a901d5](https://gitlab.miracum.org/miracum/misc/dizutils/commit/5a901d5b92eb51e0da535cb1eaa437a09bbe6916))
 * added function `xml_2_json` ([74aacad](https://gitlab.miracum.org/miracum/misc/dizutils/commit/74aacad316d61d805e387523b14b7c49d87494dd))
 * enhanced `clean_path_name` and `get_config_env` ([86358c0](https://gitlab.miracum.org/miracum/misc/dizutils/commit/86358c0d85fc65a299c3c876b24fba71c537165d))
 
@@ -20,6 +22,10 @@
 
 * bugfix in get_config_env where the name of the named list was wrong ([d937419](https://gitlab.miracum.org/miracum/misc/dizutils/commit/d9374190c81f86d4738e1103e82f4d246512acc3))
 * fixed feedback function to also work with empty or NULL logfile_dir ([d76f673](https://gitlab.miracum.org/miracum/misc/dizutils/commit/d76f6734a15dcd88251e33ebea7d76d48f59d59e))
+
+### refactor
+
+* optimized screen texts for combine_stats demo ([f3ac827](https://gitlab.miracum.org/miracum/misc/dizutils/commit/f3ac8271951fc96be6d1057bcd0608e982626996))
 
 ### style
 
