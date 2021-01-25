@@ -4,7 +4,12 @@
 \alias{string_replacements}
 \title{Clean string with a given set of replacements}
 \usage{
-string_replacements(input, replace_mapping = "default")
+string_replacements(
+  input,
+  replace_mapping = "default",
+  tolower = FALSE,
+  toupper = FALSE
+)
 }
 \arguments{
 \item{input}{(string) The character string to be processed.}
@@ -12,6 +17,10 @@ string_replacements(input, replace_mapping = "default")
 \item{replace_mapping}{(Optional, list, default = "default") The mapping
 containing what should be replaced with what:
 `replace_mapping <- list("replace_this" = "with_this")`}
+
+\item{tolower}{(boolean, default = FALSE) Should the result be lowercase?}
+
+\item{toupper}{(boolean, default = FALSE) Should the result be uppercase?}
 }
 \value{
 (String) All elements (names) of the input `replace_mapping` or

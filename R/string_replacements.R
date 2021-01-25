@@ -6,6 +6,8 @@
 #' @param replace_mapping (Optional, list, default = "default") The mapping
 #'   containing what should be replaced with what:
 #'   `replace_mapping <- list("replace_this" = "with_this")`
+#' @param tolower (boolean, default = FALSE) Should the result be lowercase?
+#' @param toupper (boolean, default = FALSE) Should the result be uppercase?
 #'
 #' @return (String) All elements (names) of the input `replace_mapping` or
 #'   the default mapping are replaced by its values of the mapping.
@@ -16,7 +18,7 @@
 #'
 #' @export
 #'
-string_replacements <- function(input, replace_mapping = "default") {
+string_replacements <- function(input, replace_mapping = "default", tolower = FALSE, toupper = FALSE) {
   res <- input
   replaceme <- list(
     # "replace_this" = "with_this",
@@ -71,5 +73,12 @@ string_replacements <- function(input, replace_mapping = "default") {
     }
     iteration <- iteration + 1
   }
+
+  if (tolower) {
+    res <- tolower(res)
+  } else if (toupper) {
+    res <- toupper(res)
+  }
+
   return(res)
 }
