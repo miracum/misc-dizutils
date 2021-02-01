@@ -37,7 +37,7 @@ my_desc$set_authors(c(
 my_desc$del("Maintainer")
 
 # Set the version
-my_desc$set_version("0.0.6.9010")
+my_desc$set_version("0.0.6.9011")
 
 # The title of your package
 my_desc$set(Title = "Utilities for 'DIZ' R Package Development")
@@ -79,7 +79,7 @@ my_desc$set("SystemRequirements",
 my_desc$write(file = "DESCRIPTION")
 
 # License
-usethis::use_gpl3_license(name = "Universitätsklinikum Erlangen")
+#usethis::use_gpl3_license(name = "Universitätsklinikum Erlangen")
 
 
 # add Imports and Depends
