@@ -25,7 +25,7 @@
 #'   One of these must be a string with length > 0: print_me, console, ui
 #' @param print_this (Optional, String, default: "")
 #' @param type (Optional, String, default: "Info")
-#'   E.g. "Warning", "Error. Default: "Info"
+#'   E.g. "Warning", "Error". Default: "Info"
 #' @param ui (Optional, Boolean/String, default: FALSE)
 #'   If true, the message will also be printed to the user in form of a modal.
 #'   Can also be a string.
