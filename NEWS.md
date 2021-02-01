@@ -1,10 +1,11 @@
-# [](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.6...v) (2021-01-25)
+# [](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.6...v) (2021-02-01)
 
 
 ### docs
 
 * fixed md style ([53e1c0e](https://gitlab.miracum.org/miracum/misc/dizutils/commit/53e1c0e1800d374685ef65e01a9a4355e70bb434))
 * styl md ([9cbc20d](https://gitlab.miracum.org/miracum/misc/dizutils/commit/9cbc20d7a32d856070dcb027470218aa5d5f53cf))
+* updated news.md ([bfd5f7e](https://gitlab.miracum.org/miracum/misc/dizutils/commit/bfd5f7e8e0c2852d343b98e10e0a9b485a391f20))
 * updated news.md ([c3518b9](https://gitlab.miracum.org/miracum/misc/dizutils/commit/c3518b9822d855fb1bbfb091c804493a403a95f6))
 * updated news.md ([2d5cef2](https://gitlab.miracum.org/miracum/misc/dizutils/commit/2d5cef219b70d7d0242f846f46244ebabb7da6aa))
 
@@ -21,10 +22,12 @@
 ### fix
 
 * bugfix in get_config_env where the name of the named list was wrong ([d937419](https://gitlab.miracum.org/miracum/misc/dizutils/commit/d9374190c81f86d4738e1103e82f4d246512acc3))
+* fixed bug where `feeback` function uses a missing argument for `headless` or `logfile_dir` ([4ba9856](https://gitlab.miracum.org/miracum/misc/dizutils/commit/4ba9856d1615b3e86073c1c427912a5e4b908cf6))
 * fixed feedback function to also work with empty or NULL logfile_dir ([d76f673](https://gitlab.miracum.org/miracum/misc/dizutils/commit/d76f6734a15dcd88251e33ebea7d76d48f59d59e))
 
 ### refactor
 
+* added `tolower` and `toupper` to function `string_replacements` ([ff41a43](https://gitlab.miracum.org/miracum/misc/dizutils/commit/ff41a431b6e2a163e0f3c12d74576d2fd7e9779c))
 * optimized screen texts for combine_stats demo ([f3ac827](https://gitlab.miracum.org/miracum/misc/dizutils/commit/f3ac8271951fc96be6d1057bcd0608e982626996))
 
 ### style
