@@ -3,6 +3,7 @@
 
 ### docs
 
+* docs: ([8417003](https://gitlab.miracum.org/miracum/misc/dizutils/commit/841700333b4b23863e8fa02b5575f3b58d858c14))
 * fixed md style ([53e1c0e](https://gitlab.miracum.org/miracum/misc/dizutils/commit/53e1c0e1800d374685ef65e01a9a4355e70bb434))
 * styl md ([9cbc20d](https://gitlab.miracum.org/miracum/misc/dizutils/commit/9cbc20d7a32d856070dcb027470218aa5d5f53cf))
 * updated news.md ([bfd5f7e](https://gitlab.miracum.org/miracum/misc/dizutils/commit/bfd5f7e8e0c2852d343b98e10e0a9b485a391f20))
@@ -12,6 +13,7 @@
 ### feat
 
 * added "get_db_systems" and "get_current_timestamp" functions ([32ee30e](https://gitlab.miracum.org/miracum/misc/dizutils/commit/32ee30e9c296f8a8a988e7fcdf670b88ac107549))
+* added `clear` function ([1b3a143](https://gitlab.miracum.org/miracum/misc/dizutils/commit/1b3a143bc44d0270beaf83d5d7e3ce7d9b5608d2))
 * added function `combine_stats` ([7ab9d58](https://gitlab.miracum.org/miracum/misc/dizutils/commit/7ab9d585138dd5550d7eb24bfdf2ced8a9ff4720))
 * added function `get_current_timestamp` ([d0a82da](https://gitlab.miracum.org/miracum/misc/dizutils/commit/d0a82da34728718d8795da2a5e225b4516c7a061))
 * added function `setdiff_all` ([e316479](https://gitlab.miracum.org/miracum/misc/dizutils/commit/e3164794b40ecb9df20d05875364a811f68cedf1))
@@ -28,6 +30,7 @@
 ### refactor
 
 * added `tolower` and `toupper` to function `string_replacements` ([ff41a43](https://gitlab.miracum.org/miracum/misc/dizutils/commit/ff41a431b6e2a163e0f3c12d74576d2fd7e9779c))
+* made arguments `headless` in functions `feedback_to_ui` and `feedback_to_console` optional ([592d8a6](https://gitlab.miracum.org/miracum/misc/dizutils/commit/592d8a61dfda39ec10de8b45a042de5983174ba1))
 * optimized screen texts for combine_stats demo ([f3ac827](https://gitlab.miracum.org/miracum/misc/dizutils/commit/f3ac8271951fc96be6d1057bcd0608e982626996))
 
 ### style
