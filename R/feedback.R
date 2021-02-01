@@ -73,7 +73,12 @@ feedback <-
     if (isTRUE(ui) ||
         (isFALSE(headless) &&
          isTRUE(type == "Error") && isFALSE(ui))) {
-      feedback_to_ui(print_this = print_this, type = type)
+      feedback_to_ui(
+        print_this = print_this,
+        type = type,
+        logfile_dir = logfile_dir,
+        headless = headless
+      )
     }
 
     if ((isTRUE(console) && isFALSE(print_this == "")) ||
@@ -85,7 +90,8 @@ feedback <-
         prefix = prefix,
         suffix = suffix,
         logjs = logjs,
-        logfile_dir = logfile_dir
+        logfile_dir = logfile_dir,
+        headless = headless
       )
     }
 
@@ -95,11 +101,16 @@ feedback <-
     # Hint: Everything printed to the console will also
     #       be printed to the logfile.
     if (isTRUE(typeof(ui) == "character")) {
-      feedback_to_ui(print_this = print_this, type = type)
+      feedback_to_ui(
+        print_this = print_this,
+        type = type,
+        logfile_dir = logfile_dir,
+        headless = headless
+      )
     }
   }
 
-#' @title Print to the console. Internal use.
+#' @title Print to the console. Internal use only.
 #' @description  Helper function for the feedback function to print
 #'   stuff to the console. Everything will also be added to the logfile.
 #'   Internal use. Use the robust 'feedback' function instead.
@@ -114,7 +125,8 @@ feedback_to_console <-
            prefix,
            suffix,
            logjs,
-           logfile_dir) {
+           logfile_dir,
+           headless) {
     if (length(print_this) == 1) {
       res <-
         feedback_get_formatted_string(
@@ -128,7 +140,9 @@ feedback_to_console <-
       message(res)
       # To logjs:
       if (isTRUE(logjs)) {
-        feedback_to_logjs(res)
+        feedback_to_logjs(print_this = res,
+                          logfile_dir = logfile_dir,
+                          headless = headless)
       }
       # To logfile:
       feedback_to_logfile(
@@ -154,7 +168,9 @@ feedback_to_console <-
         message(res)
         # To logjs:
         if (isTRUE(logjs)) {
-          feedback_to_logjs(res)
+          feedback_to_logjs(print_this = res,
+                            logfile_dir = logfile_dir,
+                            headless = headless)
         }
         # To logfile:
         feedback_to_logfile(
@@ -338,7 +354,7 @@ feedback_get_formatted_string <-
 #' @export
 #'
 cleanup_old_logfile <- function(logfile_dir) {
-  logfile_dir <- repair_dir(logfile_dir)
+  logfile_dir <- clean_path_name(pathname = logfile_dir, remove.slash = FALSE)
   path_with_file <- paste0(logfile_dir, "logfile.log")
   # Check if logfile.log is already the logfile for this session:
   if (isTRUE(file.exists(path_with_file))) {
