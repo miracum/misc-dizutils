@@ -3,6 +3,7 @@
 export("%notin%")
 export(clean_path_name)
 export(cleanup_old_logfile)
+export(clear)
 export(close_all_connections)
 export(combine_stats)
 export(db_connection)
