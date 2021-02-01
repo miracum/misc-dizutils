@@ -126,7 +126,7 @@ feedback_to_console <-
            suffix,
            logjs,
            logfile_dir,
-           headless) {
+           headless = TRUE) {
     if (length(print_this) == 1) {
       res <-
         feedback_get_formatted_string(
@@ -140,9 +140,11 @@ feedback_to_console <-
       message(res)
       # To logjs:
       if (isTRUE(logjs)) {
-        feedback_to_logjs(print_this = res,
-                          logfile_dir = logfile_dir,
-                          headless = headless)
+        feedback_to_logjs(
+          print_this = res,
+          logfile_dir = logfile_dir,
+          headless = headless
+        )
       }
       # To logfile:
       feedback_to_logfile(
@@ -168,9 +170,11 @@ feedback_to_console <-
         message(res)
         # To logjs:
         if (isTRUE(logjs)) {
-          feedback_to_logjs(print_this = res,
-                            logfile_dir = logfile_dir,
-                            headless = headless)
+          feedback_to_logjs(
+            print_this = res,
+            logfile_dir = logfile_dir,
+            headless = headless
+          )
         }
         # To logfile:
         feedback_to_logfile(
@@ -194,7 +198,7 @@ feedback_to_console <-
 #' @return No return value, called for side effects (see description)
 #'
 feedback_to_ui <-
-  function(print_this, type, logfile_dir, headless) {
+  function(print_this, type, logfile_dir, headless = FALSE) {
     catch_msg <- paste0("Something went wrong while trying",
                         " to show feedback to the UI: ")
     tryCatch({
@@ -354,7 +358,8 @@ feedback_get_formatted_string <-
 #' @export
 #'
 cleanup_old_logfile <- function(logfile_dir) {
-  logfile_dir <- clean_path_name(pathname = logfile_dir, remove.slash = FALSE)
+  logfile_dir <-
+    clean_path_name(pathname = logfile_dir, remove.slash = FALSE)
   path_with_file <- paste0(logfile_dir, "logfile.log")
   # Check if logfile.log is already the logfile for this session:
   if (isTRUE(file.exists(path_with_file))) {

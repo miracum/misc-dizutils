@@ -12,7 +12,7 @@ feedback_to_console(
   suffix,
   logjs,
   logfile_dir,
-  headless
+  headless = TRUE
 )
 }
 \arguments{

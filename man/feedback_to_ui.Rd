@@ -4,7 +4,7 @@
 \alias{feedback_to_ui}
 \title{Feedback to the user with a modal. Internal use.}
 \usage{
-feedback_to_ui(print_this, type, logfile_dir, headless)
+feedback_to_ui(print_this, type, logfile_dir, headless = FALSE)
 }
 \arguments{
 \item{print_this}{(Optional, String, default: "")}
