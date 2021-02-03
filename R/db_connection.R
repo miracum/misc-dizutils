@@ -19,15 +19,16 @@
 #' @description Internal function to test and get the database connection of
 #'   the target data system.
 #'
-#' @param headless A boolean (default: FALSE). Indicating, if the function is
-#'   run only in the console (headless = TRUE) or on a GUI frontend
-#'   (headless = FALSE).
-#' @param from_env A boolean (default: TRUE). Should database connection
+#' @param headless A boolean (default: `FALSE`). Indicating, if the function is
+#'   run only in the console (`headless = TRUE`) or on a GUI frontend
+#'   (`headless = FALSE`).
+#' @param from_env A boolean (default: `TRUE`). Should database connection
 #'   be read from the environment or from a settings file.
-#' @param settings A list. Required if `from_env=TRUE`. A list containing
-#'   settings for the database connection. Required fields are 'host',
-#'   'db_name', 'port', 'user' and 'password'.
-#'   Additionally for Oracle DB's: 'sid'.
+#' @param settings A list. Required if `from_env = TRUE`. A list containing
+#'   settings for the database connection. Required fields are `host`,
+#'   `db_name`, `port`, `user` and `password`.
+#'   Additionally for Oracle DB's: `sid` (instead of `db_name`).
+#'   If `settings` is set, `from_env` will be set to `FALSE` automatically.
 #' @param timeout A timeout in sec. for the db-connection establishment.
 #'   Values below 2 seconds are not recommended.
 #'   Default is 30 seconds.
@@ -65,17 +66,23 @@ db_connection <- function(db_name,
                           lib_path = NULL) {
   db_con <- NULL
   tryCatch({
-    stopifnot(is.character(db_name),
-        is.character(db_type),
-        is.logical(headless),
-        is.logical(from_env),
-        ifelse(is.null(settings), TRUE, is.list(settings)),
-        is.numeric(timeout),
-        ifelse(is.null(logfile_dir), TRUE, is.character(logfile_dir)),
-        ifelse(is.null(lib_path), TRUE, is.character(lib_path)))
+    stopifnot(
+      is.character(db_name),
+      is.character(db_type),
+      is.logical(headless),
+      is.logical(from_env),
+      ifelse(is.null(settings), TRUE, is.list(settings)),
+      is.numeric(timeout),
+      ifelse(is.null(logfile_dir), TRUE, is.character(logfile_dir)),
+      ifelse(is.null(lib_path), TRUE, is.character(lib_path))
+    )
 
-      db_type <- toupper(db_type)
+    db_type <- toupper(db_type)
     db_name <- toupper(db_name)
+
+    if (isTRUE(!is.null(settings) && is.list(settings))) {
+      from_env <- FALSE
+    }
 
     if (isTRUE(from_env)) {
       dbname <- Sys.getenv(paste0(db_name, "_DBNAME"))
@@ -93,6 +100,24 @@ db_connection <- function(db_name,
       user <- settings$user
       password <- settings$password
     }
+
+    necessary_vars <-
+      list(
+        "db_name" = db_name,
+        "host" = host,
+        "port" = port,
+        "user" = user,
+        "password" = password
+      )
+
+    ## Check if all necessary parameters are filled:
+    for (param in names(necessary_vars)) {
+      if (necessary_vars[[param]] == "" ||
+          is.null(necessary_vars[[param]])) {
+        stop(paste0("Missing '", param, "' for db-connection."))
+      }
+    }
+
 
     if (db_type == "ORACLE") {
       if (is.null(lib_path)) {
@@ -115,8 +140,21 @@ db_connection <- function(db_name,
         sid <- settings$sid
       }
 
+      if (sid == "" || is.null(sid)) {
+        ## SID is missing, so check if we can use the db_name instead:
+        if (db_name == "" || is.null(db_name)) {
+          stop("Missing SID for db-connection to oracle.")
+        } else {
+          feedback(print_this = "`SID` is empty. Using the `db_name` instead",
+                   type = "Warning",
+                   findme = "e38041e91c")
+          sid <- db_name
+        }
+      }
+
       ## create URL
-      url <- paste0("jdbc:oracle:thin:@//", host, ":", port, "/", sid)
+      url <-
+        paste0("jdbc:oracle:thin:@//", host, ":", port, "/", sid)
 
       ## create connection
       db_con <- tryCatch({
