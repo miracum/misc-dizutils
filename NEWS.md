@@ -1,8 +1,9 @@
-# [](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.6...v) (2021-02-01)
+# [](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.6...v) (2021-02-03)
 
 
 ### docs
 
+* updated `news.md` ([60f55d1](https://gitlab.miracum.org/miracum/misc/dizutils/commit/60f55d1f8679f7efffba09d1a0f7be8bf19992d3))
 * docs: ([8417003](https://gitlab.miracum.org/miracum/misc/dizutils/commit/841700333b4b23863e8fa02b5575f3b58d858c14))
 * fixed md style ([53e1c0e](https://gitlab.miracum.org/miracum/misc/dizutils/commit/53e1c0e1800d374685ef65e01a9a4355e70bb434))
 * styl md ([9cbc20d](https://gitlab.miracum.org/miracum/misc/dizutils/commit/9cbc20d7a32d856070dcb027470218aa5d5f53cf))
@@ -30,6 +31,7 @@
 ### refactor
 
 * added `tolower` and `toupper` to function `string_replacements` ([ff41a43](https://gitlab.miracum.org/miracum/misc/dizutils/commit/ff41a431b6e2a163e0f3c12d74576d2fd7e9779c))
+* added check for completeness of input variables for `db_connection` function ([95acd77](https://gitlab.miracum.org/miracum/misc/dizutils/commit/95acd77095a1c63704f396b2bfb190a37e9424dd))
 * made arguments `headless` in functions `feedback_to_ui` and `feedback_to_console` optional ([592d8a6](https://gitlab.miracum.org/miracum/misc/dizutils/commit/592d8a61dfda39ec10de8b45a042de5983174ba1))
 * optimized screen texts for combine_stats demo ([f3ac827](https://gitlab.miracum.org/miracum/misc/dizutils/commit/f3ac8271951fc96be6d1057bcd0608e982626996))
 
