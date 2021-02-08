@@ -10,7 +10,7 @@ feedback_to_ui(print_this, type, logfile_dir, headless = FALSE)
 \item{print_this}{(Optional, String, default: "")}
 
 \item{type}{(Optional, String, default: "Info")
-E.g. "Warning", "Error. Default: "Info"}
+E.g. "Warning", "Error". Default: "Info"}
 
 \item{logfile_dir}{(Optional, String, default: "tempdir()")
 The absolute path to folder where the logfile will be stored.}

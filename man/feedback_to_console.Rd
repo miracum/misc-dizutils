@@ -19,7 +19,7 @@ feedback_to_console(
 \item{print_this}{(Optional, String, default: "")}
 
 \item{type}{(Optional, String, default: "Info")
-E.g. "Warning", "Error. Default: "Info"}
+E.g. "Warning", "Error". Default: "Info"}
 
 \item{findme}{(Optional, String, default: "")
 Recommended with length 10.

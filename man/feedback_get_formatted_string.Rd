@@ -10,7 +10,7 @@ feedback_get_formatted_string(print_this, type, findme, prefix, suffix)
 \item{print_this}{(Optional, String, default: "")}
 
 \item{type}{(Optional, String, default: "Info")
-E.g. "Warning", "Error. Default: "Info"}
+E.g. "Warning", "Error". Default: "Info"}
 
 \item{findme}{(Optional, String, default: "")
 Recommended with length 10.

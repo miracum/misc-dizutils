@@ -19,9 +19,9 @@ to get the environment variables with 'SYSTEM_KEY', e.g. 'I2B2_DBNAME').}
 \item{logfile_dir}{(Optional, String, default: "tempdir()")
 The absolute path to folder where the logfile will be stored.}
 
-\item{headless}{A boolean (default: FALSE). Indicating, if the function is
-run only in the console (headless = TRUE) or on a GUI frontend
-(headless = FALSE).}
+\item{headless}{A boolean (default: `FALSE`). Indicating, if the function is
+run only in the console (`headless = TRUE`) or on a GUI frontend
+(`headless = FALSE`).}
 
 \item{ignore.presets}{(boolean) Only return something if all elements
 from the presets are found? These are currently `host`, `port`, `user`,

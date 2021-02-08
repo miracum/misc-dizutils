@@ -23,7 +23,7 @@ feedback(
 \item{print_this}{(Optional, String, default: "")}
 
 \item{type}{(Optional, String, default: "Info")
-E.g. "Warning", "Error. Default: "Info"}
+E.g. "Warning", "Error". Default: "Info"}
 
 \item{ui}{(Optional, Boolean/String, default: FALSE)
 If true, the message will also be printed to the user in form of a modal.

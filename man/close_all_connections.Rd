@@ -4,7 +4,7 @@
 \alias{close_all_connections}
 \title{Cleanup function to unset/close all open connections}
 \usage{
-close_all_connections(logfile_dir, headless)
+close_all_connections(logfile_dir = tempdir(), headless = TRUE)
 }
 \arguments{
 \item{logfile_dir}{(Optional, String, default: "tempdir()")

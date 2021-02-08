@@ -64,19 +64,16 @@ db_connection <- function(db_name,
                           timeout = 30,
                           logfile_dir = NULL,
                           lib_path = NULL) {
-  db_con <- NULL
-  tryCatch({
-    stopifnot(
-      is.character(db_name),
-      is.character(db_type),
-      is.logical(headless),
-      is.logical(from_env),
-      ifelse(is.null(settings), TRUE, is.list(settings)),
-      is.numeric(timeout),
-      ifelse(is.null(logfile_dir), TRUE, is.character(logfile_dir)),
-      ifelse(is.null(lib_path), TRUE, is.character(lib_path))
-    )
+  stopifnot(is.character(db_name))
+  stopifnot(is.character(db_type))
+  stopifnot(is.logical(headless))
+  stopifnot(is.logical(from_env))
+  stopifnot(ifelse(is.null(settings), TRUE, is.list(settings)))
+  stopifnot(is.numeric(timeout))
+  stopifnot(ifelse(is.null(logfile_dir), TRUE, dir.exists(logfile_dir)))
+  stopifnot(ifelse(is.null(lib_path), TRUE, file.exists(lib_path)))
 
+  res <- tryCatch({
     db_type <- toupper(db_type)
     db_name <- toupper(db_name)
 
@@ -110,6 +107,7 @@ db_connection <- function(db_name,
         "password" = password
       )
 
+
     ## Check if all necessary parameters are filled:
     for (param in names(necessary_vars)) {
       if (necessary_vars[[param]] == "" ||
@@ -117,7 +115,6 @@ db_connection <- function(db_name,
         stop(paste0("Missing '", param, "' for db-connection."))
       }
     }
-
 
     if (db_type == "ORACLE") {
       if (is.null(lib_path)) {
@@ -131,8 +128,8 @@ db_connection <- function(db_name,
       stopifnot(lib_path != "" || !is.null(lib_path))
 
       ## create driver
-      drv <- RJDBC::JDBC("oracle.jdbc.OracleDriver",
-                         classPath = lib_path)
+      drv <-
+        RJDBC::JDBC(driverClass = "oracle.jdbc.OracleDriver", classPath = lib_path)
 
       if (isTRUE(from_env)) {
         sid <- Sys.getenv(paste0(db_name, "_SID"))
@@ -145,12 +142,17 @@ db_connection <- function(db_name,
         if (db_name == "" || is.null(db_name)) {
           stop("Missing SID for db-connection to oracle.")
         } else {
-          feedback(print_this = "`SID` is empty. Using the `db_name` instead",
-                   type = "Warning",
-                   findme = "e38041e91c")
+          feedback(
+            print_this = "`SID` is empty. Using the `db_name` instead",
+            type = "Warning",
+            logfile_dir = logfile_dir,
+            headless = headless,
+            findme = "e38041e91c"
+          )
           sid <- db_name
         }
       }
+
 
       ## create URL
       url <-
@@ -166,10 +168,14 @@ db_connection <- function(db_name,
         )
         conn
       }, error = function(e) {
-        conn <- NULL
-        conn
-      }, finally = function(f) {
-        return(conn)
+        DIZutils::feedback(
+          print_this = paste0("Error while connection to oracle: ", e),
+          type = "Error",
+          logfile_dir = logfile_dir,
+          headless = headless,
+          findme = "0a50850ccd"
+        )
+        return(NA)
       })
     } else if (db_type == "POSTGRES") {
       drv <- RPostgres::Postgres()
@@ -186,21 +192,29 @@ db_connection <- function(db_name,
         )
         conn
       }, error = function(e) {
-        conn <- NULL
-        conn
-      }, finally = function(f) {
-        return(conn)
+        DIZutils::feedback(
+          print_this = paste0("Error while connection to postgres: ", e),
+          type = "Error",
+          logfile_dir = logfile_dir,
+          headless = headless,
+          findme = "0a50850ccd"
+        )
+        return(NA)
       })
     }
     if (is.null(db_con)) {
       feedback(
-        "DB connection error",
+        print_this = "DB connection error",
         findme = "9431c8c61f",
         logfile_dir = logfile_dir,
         headless = headless,
         type = "Error"
       )
+      stop()
     }
+    ## Return the connection, but without the `return()`
+    ## (because war are not inside of a function in the try-part):
+    db_con
   },
   error = function(cond) {
     feedback(
@@ -211,7 +225,7 @@ db_connection <- function(db_name,
       headless = headless,
       findme = "c16b60a6ff"
     )
-    return(NULL)
+    return(NA)
   })
-  return(db_con)
+  return(res)
 }
