@@ -36,6 +36,10 @@
 #' @param db_type A character. Type of the database system. Currently
 #'   implemented systems are: 'postgres', 'oracle'.
 #' @param lib_path A character string. The path to the ojdbc*.jar file.
+#'   If you run one of the R-containers from the UK-Erlangen DIZ, there
+#'   might be a lib for oracle here: `lib_path = "/opt/libs/ojdbc8.jar"`
+#'   Example-Dockerfile:
+#'   <https://github.com/joundso/docker_images/blob/master/image_rdsc_headless_j/Dockerfile#L376>
 #'
 #' @inheritParams feedback
 #' @return If successful, the result will be the established connection.
@@ -55,7 +59,6 @@
 #'
 #' @export
 #'
-# test db connection
 db_connection <- function(db_name,
                           db_type,
                           headless = FALSE,
@@ -64,19 +67,26 @@ db_connection <- function(db_name,
                           timeout = 30,
                           logfile_dir = NULL,
                           lib_path = NULL) {
-  stopifnot(is.character(db_name))
-  stopifnot(is.character(db_type))
-  stopifnot(is.logical(headless))
-  stopifnot(is.logical(from_env))
-  stopifnot(ifelse(is.null(settings), TRUE, is.list(settings)))
-  stopifnot(is.numeric(timeout))
-  stopifnot(ifelse(is.null(logfile_dir), TRUE, dir.exists(logfile_dir)))
-  stopifnot(ifelse(is.null(lib_path), TRUE, file.exists(lib_path)))
+  db_con <- NULL
 
-  res <- tryCatch({
+  stopifnot(
+    is.character(db_name),
+    is.character(db_type),
+    is.logical(headless),
+    is.logical(from_env),
+    ifelse(is.null(settings), TRUE, is.list(settings)),
+    is.numeric(timeout),
+    ifelse(is.null(logfile_dir), TRUE, dir.exists(logfile_dir)),
+    ifelse(is.null(lib_path), TRUE, file.exists(lib_path))
+  )
+
+  error <- FALSE
+
+  tryCatch({
     db_type <- toupper(db_type)
     db_name <- toupper(db_name)
 
+    ## If there are settings provided, use these and switch off `from_env`:
     if (isTRUE(!is.null(settings) && is.list(settings))) {
       from_env <- FALSE
     }
@@ -98,6 +108,7 @@ db_connection <- function(db_name,
       password <- settings$password
     }
 
+
     necessary_vars <-
       list(
         "db_name" = db_name,
@@ -107,16 +118,23 @@ db_connection <- function(db_name,
         "password" = password
       )
 
-
     ## Check if all necessary parameters are filled:
     for (param in names(necessary_vars)) {
       if (necessary_vars[[param]] == "" ||
           is.null(necessary_vars[[param]])) {
-        stop(paste0("Missing '", param, "' for db-connection."))
+        DIZutils::feedback(
+          print_this = paste0("Missing '", param, "' for db-connection."),
+          type = "Error",
+          findme = "f762a865c8",
+          logfile_dir = logfile_dir,
+          headless = headless
+        )
+        error <- TRUE
       }
     }
 
-    if (db_type == "ORACLE") {
+
+    if (!error && db_type == "ORACLE") {
       if (is.null(lib_path)) {
         if (isTRUE(from_env)) {
           lib_path <- Sys.getenv(paste0(db_name, "_DRIVER"))
@@ -128,8 +146,8 @@ db_connection <- function(db_name,
       stopifnot(lib_path != "" || !is.null(lib_path))
 
       ## create driver
-      drv <-
-        RJDBC::JDBC(driverClass = "oracle.jdbc.OracleDriver", classPath = lib_path)
+      drv <- RJDBC::JDBC("oracle.jdbc.OracleDriver",
+                         classPath = lib_path)
 
       if (isTRUE(from_env)) {
         sid <- Sys.getenv(paste0(db_name, "_SID"))
@@ -137,13 +155,25 @@ db_connection <- function(db_name,
         sid <- settings$sid
       }
 
-      if (sid == "" || is.null(sid)) {
+      if (is.null(sid) || sid == "") {
         ## SID is missing, so check if we can use the db_name instead:
-        if (db_name == "" || is.null(db_name)) {
-          stop("Missing SID for db-connection to oracle.")
+        if (is.null(db_name) || db_name == "") {
+          feedback(
+            print_this = "Missing SID for db-connection to oracle.",
+            type = "Error",
+            findme = "0bba010a4a",
+            logfile_dir = logfile_dir,
+            headless = headless
+          )
+          error <- TRUE
+          break
         } else {
           feedback(
-            print_this = "`SID` is empty. Using the `db_name` instead",
+            print_this = paste0(
+              "`SID` is empty. Using the `db_name` ('",
+              db_name,
+              "') instead. But this might be wrong or cause errors!"
+            ),
             type = "Warning",
             logfile_dir = logfile_dir,
             headless = headless,
@@ -152,7 +182,6 @@ db_connection <- function(db_name,
           sid <- db_name
         }
       }
-
 
       ## create URL
       url <-
@@ -175,9 +204,13 @@ db_connection <- function(db_name,
           headless = headless,
           findme = "0a50850ccd"
         )
-        return(NA)
+        error <- TRUE
+        conn <- NULL
+        conn
+      }, finally = function(f) {
+        return(conn)
       })
-    } else if (db_type == "POSTGRES") {
+    } else if (!error && db_type == "POSTGRES") {
       drv <- RPostgres::Postgres()
 
       db_con <- tryCatch({
@@ -199,22 +232,23 @@ db_connection <- function(db_name,
           headless = headless,
           findme = "0a50850ccd"
         )
-        return(NA)
+        error <- TRUE
+        conn <- NULL
+        conn
+      }, finally = function(f) {
+        return(conn)
       })
     }
-    if (is.null(db_con)) {
+    if (error || is.null(db_con)) {
       feedback(
-        print_this = "DB connection error",
+        "DB connection error",
         findme = "9431c8c61f",
         logfile_dir = logfile_dir,
         headless = headless,
         type = "Error"
       )
-      stop()
+      error <- TRUE
     }
-    ## Return the connection, but without the `return()`
-    ## (because war are not inside of a function in the try-part):
-    db_con
   },
   error = function(cond) {
     feedback(
@@ -225,7 +259,7 @@ db_connection <- function(db_name,
       headless = headless,
       findme = "c16b60a6ff"
     )
-    return(NA)
+    return(NULL)
   })
-  return(res)
+  return(db_con)
 }
