@@ -39,7 +39,7 @@
 #'   If you run one of the R-containers from the UK-Erlangen DIZ, there
 #'   might be a lib for oracle here: `lib_path = "/opt/libs/ojdbc8.jar"`
 #'   Example-Dockerfile:
-#'   <https://github.com/joundso/docker_images/blob/master/image_rdsc_headless_j/Dockerfile#L376>
+#'   https://github.com/joundso/docker_images/blob/241814e13d99511143d90f6e2217c32ad0477256/image_rdsc_headless_j/Dockerfile#L376
 #'
 #' @inheritParams feedback
 #' @return If successful, the result will be the established connection.
