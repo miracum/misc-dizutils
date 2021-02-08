@@ -9,7 +9,8 @@ query_database(db_con, sql_statement)
 \arguments{
 \item{db_con}{A DBI database connection.}
 
-\item{sql_statement}{A character string containing a valid SQL statement.}
+\item{sql_statement}{A character string containing a valid SQL statement.
+Caution: Everything after the first ';' will be cut off.}
 }
 \value{
 Returns the result of the db-query.

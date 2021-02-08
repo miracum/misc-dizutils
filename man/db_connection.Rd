@@ -41,7 +41,11 @@ Default is 30 seconds.}
 \item{logfile_dir}{(Optional, String, default: "tempdir()")
 The absolute path to folder where the logfile will be stored.}
 
-\item{lib_path}{A character string. The path to the ojdbc*.jar file.}
+\item{lib_path}{A character string. The path to the ojdbc*.jar file.
+If you run one of the R-containers from the UK-Erlangen DIZ, there
+might be a lib for oracle here: `lib_path = "/opt/libs/ojdbc8.jar"`
+Example-Dockerfile:
+https://github.com/joundso/docker_images/blob/241814e13d99511143d90f6e2217c32ad0477256/image_rdsc_headless_j/Dockerfile#L376}
 }
 \value{
 If successful, the result will be the established connection.

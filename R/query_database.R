@@ -21,6 +21,7 @@
 #'
 #' @param db_con A DBI database connection.
 #' @param sql_statement A character string containing a valid SQL statement.
+#'   Caution: Everything after the first ';' will be cut off.
 #' @return Returns the result of the db-query.
 #' @examples
 #' \dontrun{
@@ -39,17 +40,18 @@
 # query_database
 query_database <- function(db_con,
                            sql_statement) {
-
   stopifnot(!is.null(sql_statement), !is.null(db_con))
-  # avoid sql-injection
-  # https://db.rstudio.com/best-practices/run-queries-safely/
-  sql <- DBI::sqlInterpolate(db_con, sql_statement)
 
-  # return data as data.table
+  ## Remove tailing ";":
+  sql_statement <- gsub("\\;.*", "", sql_statement)
+
+  ## Aavoid sql-injection:
+  ## https://db.rstudio.com/best-practices/run-queries-safely/
+  sql <- DBI::sqlInterpolate(conn = db_con, sql = sql_statement)
+
+  # Return data as data.table
   outdat <-
-    data.table::data.table(
-      RPostgres::dbGetQuery(db_con, sql),
-      stringsAsFactors = TRUE
-    )
+    data.table::data.table(RPostgres::dbGetQuery(db_con, sql),
+                           stringsAsFactors = TRUE)
   return(outdat)
 }
