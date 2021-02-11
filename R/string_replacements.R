@@ -29,7 +29,7 @@
 #'   the default mapping are replaced by its values of the mapping.
 #'
 #' @examples
-#' clean_string(input = "Ab 20. April 2020 (((___((N = 1.234)")
+#' string_replacements(input = "Ab 20. April 2020 (((___((N = 1.234)")
 #' # Result: "Ab_20_April_2020_N_1234"
 #'
 #' @export

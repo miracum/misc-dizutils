@@ -23,7 +23,9 @@ Function to quickly get the current timestamp without
 \examples{
 get_current_timestamp(no_spaces = TRUE)
 # Result: "2020-12-03-134354"
-get_current_timestamp() or get_current_timestamp(no_spaces = FALSE)
+get_current_timestamp()
+# this is the same like
+get_current_timestamp(no_spaces = FALSE)
 # Result: "03.12.2020 - 13:43 UTC"
 
 }

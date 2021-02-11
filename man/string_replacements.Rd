@@ -32,7 +32,7 @@ This function provides the functionality to clean a string
   filenames or paths that are not allowed to contain spaces.
 }
 \examples{
-clean_string(input = "Ab 20. April 2020 (((___((N = 1.234)")
+string_replacements(input = "Ab 20. April 2020 (((___((N = 1.234)")
 # Result: "Ab_20_April_2020_N_1234"
 
 }

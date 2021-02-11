@@ -109,6 +109,8 @@ usethis::use_package("DBI", type = "Imports", min_version = "1.1.0")
 usethis::use_package("Hmisc", type = "Imports")
 ## For `combine_stats`:
 usethis::use_package("psych", type = "Imports")
+## For `feedback`:
+usethis::use_package("rapportools", type = "Imports")
 usethis::use_package("RJDBC", type = "Imports")
 ## For xml_to_json:
 usethis::use_package("RJSONIO", type = "Imports")

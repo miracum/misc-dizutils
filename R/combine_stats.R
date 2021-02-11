@@ -55,7 +55,7 @@ combine_stats <- function(summaries, demo = FALSE) {
     for (i in 1:rows) {
       ## Sample some numbers:
       y <-
-        round(x = rnorm(
+        round(x = stats::rnorm(
           n = sample(1:100, size = 1),
           mean = sample(0:100, size = 1),
           sd = sample(1:10, size = 1)
@@ -69,13 +69,13 @@ combine_stats <- function(summaries, demo = FALSE) {
       ## Setting up the new row:
       tmp <- data.table::data.table(
         "Min" = min(y),
-        "Q10" = quantile(y, 0.1),
-        "Q25" = quantile(y, 0.25),
-        "Median" = median(y),
+        "Q10" = stats::quantile(y, 0.1),
+        "Q25" = stats::quantile(y, 0.25),
+        "Median" = stats::median(y),
         "Mean" = mean(y),
-        "SD" = sd(y),
-        "Q75" = quantile(y, 0.75),
-        "Q90" = quantile(y, 0.9),
+        "SD" = stats::sd(y),
+        "Q75" = stats::quantile(y, 0.75),
+        "Q90" = stats::quantile(y, 0.9),
         "Max" = max(y),
         "N" = length(y)
       )

@@ -77,9 +77,9 @@ This function provides the functionality to publish
 }
 \examples{
 feedback(
-  print_this = "Error occured when counting source_data",
+  print_this = "This is an error message you can provide",
   type = "Error",
-  findme = "255bb3695c",
+  findme = "215bb3695c",
   logfile_dir = tempdir(),
   headless = TRUE
 )
