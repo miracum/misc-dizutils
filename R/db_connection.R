@@ -166,7 +166,7 @@ db_connection <- function(db_name,
             headless = headless
           )
           error <- TRUE
-          break
+          stop()
         } else {
           feedback(
             print_this = paste0(
