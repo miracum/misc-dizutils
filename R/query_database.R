@@ -51,7 +51,7 @@ query_database <- function(db_con,
 
   # Return data as data.table
   outdat <-
-    data.table::data.table(RPostgres::dbGetQuery(db_con, sql),
+    data.table::data.table(RPostgres::dbGetQuery(conn = db_con, statement = sql),
                            stringsAsFactors = TRUE)
   return(outdat)
 }
