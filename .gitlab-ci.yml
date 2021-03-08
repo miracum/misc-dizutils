@@ -92,6 +92,7 @@ testing:
   # extends: .docker_registry
   stage: build
   script:
+    - devtools::install(quick = TRUE, quiet = TRUE)
     - R -e "devtools::test(pkg = '.')"
 
 
