@@ -31,6 +31,7 @@ Imports:
     data.table,
     DBI (>= 1.1.0),
     Hmisc,
+    parsedate,
     psych,
     rapportools,
     RJDBC,

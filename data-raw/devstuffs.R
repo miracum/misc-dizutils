@@ -107,6 +107,8 @@ usethis::use_package("data.table", type = "Imports")
 usethis::use_package("DBI", type = "Imports", min_version = "1.1.0")
 ## For `combine_stats`:
 usethis::use_package("Hmisc", type = "Imports")
+## For `format_POSIXct`:
+usethis::use_package("parsedate", type = "Imports")
 ## For `combine_stats`:
 usethis::use_package("psych", type = "Imports")
 ## For `feedback`:
