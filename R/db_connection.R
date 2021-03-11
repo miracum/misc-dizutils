@@ -23,8 +23,11 @@
 #'   run only in the console (`headless = TRUE`) or on a GUI frontend
 #'   (`headless = FALSE`).
 #' @param from_env A boolean (default: `TRUE`). Should database connection
-#'   be read from the environment or from a settings file.
-#' @param settings A list. Required if `from_env = TRUE`. A list containing
+#'   be read from the environment or from a settings file. All necessary
+#'   parameters must be uppercase and have the prefix of the db_name. E.g.:
+#'   `I2B2_HOST` or `I2B2_PORT`. See the `settings` parameter for all
+#'   necessary variables.
+#' @param settings A list. Required if `from_env == FALSE`. A list containing
 #'   settings for the database connection. Required fields are `host`,
 #'   `db_name`, `port`, `user` and `password`.
 #'   Additionally for Oracle DB's: `sid` (instead of `db_name`).
@@ -32,14 +35,18 @@
 #' @param timeout A timeout in sec. for the db-connection establishment.
 #'   Values below 2 seconds are not recommended.
 #'   Default is 30 seconds.
-#' @param db_name A character. Name of the database system.
+#' @param db_name (Default = NULL) A character. Name of the database system.
+#'   Used to find the correct settings from the env. If you don't want to
+#'   load the settings from the environment, use the `settings` parameter.
+#'   Otherwise this funcion will search for all settings beginning with
+#'   `db_name` in the environment. If `db_name = "i2b2"` settings like
+#'   `I2B2_HOST` or `I2B2_PORT` (notice the uppercase) will be loaded from
+#'   the env.
 #' @param db_type A character. Type of the database system. Currently
 #'   implemented systems are: 'postgres', 'oracle'.
 #' @param lib_path A character string. The path to the ojdbc*.jar file.
 #'   If you run one of the R-containers from the UK-Erlangen DIZ, there
 #'   might be a lib for oracle here: `lib_path = "/opt/libs/ojdbc8.jar"`
-#'   Example-Dockerfile:
-#'   https://github.com/joundso/docker_images/blob/241814e13d99511143d90f6e2217c32ad0477256/image_rdsc_headless_j/Dockerfile#L376
 #'
 #' @inheritParams feedback
 #' @return If successful, the result will be the established connection.
@@ -59,7 +66,7 @@
 #'
 #' @export
 #'
-db_connection <- function(db_name,
+db_connection <- function(db_name = NULL,
                           db_type,
                           headless = FALSE,
                           from_env = TRUE,
@@ -70,7 +77,7 @@ db_connection <- function(db_name,
   db_con <- NULL
 
   stopifnot(
-    is.character(db_name),
+    # is.character(db_name),
     is.character(db_type),
     is.logical(headless),
     is.logical(from_env),
@@ -83,16 +90,15 @@ db_connection <- function(db_name,
   error <- FALSE
 
   tryCatch({
-    db_type <- toupper(db_type)
-    db_name <- toupper(db_name)
-
     ## If there are settings provided, use these and switch off `from_env`:
     if (isTRUE(!is.null(settings) && is.list(settings))) {
       from_env <- FALSE
     }
 
     if (isTRUE(from_env)) {
-      dbname <- Sys.getenv(paste0(db_name, "_DBNAME"))
+      stopifnot(is.character(db_name))
+      db_name <- toupper(db_name)
+      db_name <- Sys.getenv(paste0(db_name, "_db_name"))
       host <- Sys.getenv(paste0(db_name, "_HOST"))
       port <- Sys.getenv(paste0(db_name, "_PORT"))
       user <- Sys.getenv(paste0(db_name, "_USER"))
@@ -101,27 +107,26 @@ db_connection <- function(db_name,
     } else if (isFALSE(from_env)) {
       stopifnot(is.list(settings),
                 length(settings) >= 4)
-      dbname <- settings$dbname
+      db_name <- settings$db_name
       host <- settings$host
       port <- settings$port
       user <- settings$user
       password <- settings$password
     }
 
+    db_type <- toupper(db_type)
 
-    necessary_vars <-
-      list(
-        "db_name" = db_name,
-        "host" = host,
-        "port" = port,
-        "user" = user,
-        "password" = password
-      )
+    necessary_vars <- c("host", "port", "user", "password")
+    if (db_type != "ORACLE") {
+      ## For oracle we don't need a 'db_name' but a SID, which
+      ## will be checked later.
+      necessary_vars <- c(necessary_vars, "db_name")
+    }
 
     ## Check if all necessary parameters are filled:
-    for (param in names(necessary_vars)) {
-      if (necessary_vars[[param]] == "" ||
-          is.null(necessary_vars[[param]])) {
+    for (param in necessary_vars) {
+      if (!exists(param) ||
+          get(param) == "" || is.null(get(param))) {
         DIZutils::feedback(
           print_this = paste0("Missing '", param, "' for db-connection."),
           type = "Error",
@@ -216,7 +221,7 @@ db_connection <- function(db_name,
       db_con <- tryCatch({
         conn <- RPostgres::dbConnect(
           drv = drv,
-          dbname = dbname,
+          db_name = db_name,
           host = host,
           port = port,
           user = user,

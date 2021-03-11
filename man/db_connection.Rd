@@ -5,7 +5,7 @@
 \title{db_connection helper function}
 \usage{
 db_connection(
-  db_name,
+  db_name = NULL,
   db_type,
   headless = FALSE,
   from_env = TRUE,
@@ -16,7 +16,13 @@ db_connection(
 )
 }
 \arguments{
-\item{db_name}{A character. Name of the database system.}
+\item{db_name}{(Default = NULL) A character. Name of the database system.
+Used to find the correct settings from the env. If you don't want to
+load the settings from the environment, use the `settings` parameter.
+Otherwise this funcion will search for all settings beginning with
+`db_name` in the environment. If `db_name = "i2b2"` settings like
+`I2B2_HOST` or `I2B2_PORT` (notice the uppercase) will be loaded from
+the env.}
 
 \item{db_type}{A character. Type of the database system. Currently
 implemented systems are: 'postgres', 'oracle'.}
@@ -26,9 +32,12 @@ run only in the console (`headless = TRUE`) or on a GUI frontend
 (`headless = FALSE`).}
 
 \item{from_env}{A boolean (default: `TRUE`). Should database connection
-be read from the environment or from a settings file.}
+be read from the environment or from a settings file. All necessary
+parameters must be uppercase and have the prefix of the db_name. E.g.:
+`I2B2_HOST` or `I2B2_PORT`. See the `settings` parameter for all
+necessary variables.}
 
-\item{settings}{A list. Required if `from_env = TRUE`. A list containing
+\item{settings}{A list. Required if `from_env == FALSE`. A list containing
 settings for the database connection. Required fields are `host`,
 `db_name`, `port`, `user` and `password`.
 Additionally for Oracle DB's: `sid` (instead of `db_name`).
@@ -43,9 +52,7 @@ The absolute path to folder where the logfile will be stored.}
 
 \item{lib_path}{A character string. The path to the ojdbc*.jar file.
 If you run one of the R-containers from the UK-Erlangen DIZ, there
-might be a lib for oracle here: `lib_path = "/opt/libs/ojdbc8.jar"`
-Example-Dockerfile:
-https://github.com/joundso/docker_images/blob/241814e13d99511143d90f6e2217c32ad0477256/image_rdsc_headless_j/Dockerfile#L376}
+might be a lib for oracle here: `lib_path = "/opt/libs/ojdbc8.jar"`}
 }
 \value{
 If successful, the result will be the established connection.
