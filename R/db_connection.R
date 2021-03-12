@@ -97,13 +97,12 @@ db_connection <- function(db_name = NULL,
 
     if (isTRUE(from_env)) {
       stopifnot(is.character(db_name))
-      db_name <- toupper(db_name)
-      db_name <- Sys.getenv(paste0(db_name, "_db_name"))
-      host <- Sys.getenv(paste0(db_name, "_HOST"))
-      port <- Sys.getenv(paste0(db_name, "_PORT"))
-      user <- Sys.getenv(paste0(db_name, "_USER"))
-      password <- Sys.getenv(paste0(db_name, "_PASSWORD"))
-
+      db_name_uppercase <- toupper(db_name)
+      # db_name <- Sys.getenv(paste0(db_name, "_db_name"))
+      host <- Sys.getenv(paste0(db_name_uppercase, "_HOST"))
+      port <- Sys.getenv(paste0(db_name_uppercase, "_PORT"))
+      user <- Sys.getenv(paste0(db_name_uppercase, "_USER"))
+      password <- Sys.getenv(paste0(db_name_uppercase, "_PASSWORD"))
     } else if (isFALSE(from_env)) {
       stopifnot(is.list(settings),
                 length(settings) >= 4)
@@ -127,7 +126,7 @@ db_connection <- function(db_name = NULL,
     for (param in necessary_vars) {
       if (!exists(param) ||
           get(param) == "" || is.null(get(param))) {
-        DIZutils::feedback(
+        feedback(
           print_this = paste0("Missing '", param, "' for db-connection."),
           type = "Error",
           findme = "f762a865c8",
@@ -155,7 +154,7 @@ db_connection <- function(db_name = NULL,
                          classPath = lib_path)
 
       if (isTRUE(from_env)) {
-        sid <- Sys.getenv(paste0(db_name, "_SID"))
+        sid <- Sys.getenv(paste0(db_name_uppercase, "_SID"))
       } else if (isFALSE(from_env)) {
         sid <- settings$sid
       }
@@ -202,7 +201,7 @@ db_connection <- function(db_name = NULL,
         )
         conn
       }, error = function(e) {
-        DIZutils::feedback(
+        feedback(
           print_this = paste0("Error while connection to oracle: ", e),
           type = "Error",
           logfile_dir = logfile_dir,
@@ -221,7 +220,7 @@ db_connection <- function(db_name = NULL,
       db_con <- tryCatch({
         conn <- RPostgres::dbConnect(
           drv = drv,
-          db_name = db_name,
+          dbname = db_name,
           host = host,
           port = port,
           user = user,
@@ -230,7 +229,7 @@ db_connection <- function(db_name = NULL,
         )
         conn
       }, error = function(e) {
-        DIZutils::feedback(
+        feedback(
           print_this = paste0("Error while connection to postgres: ", e),
           type = "Error",
           logfile_dir = logfile_dir,
