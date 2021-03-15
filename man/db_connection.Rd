@@ -5,7 +5,7 @@
 \title{db_connection helper function}
 \usage{
 db_connection(
-  db_name = NULL,
+  system_name = NULL,
   db_type,
   headless = FALSE,
   from_env = TRUE,
@@ -16,13 +16,14 @@ db_connection(
 )
 }
 \arguments{
-\item{db_name}{(Default = NULL) A character. Name of the database system.
+\item{system_name}{(Default = NULL) A character. Name of the database system.
 Used to find the correct settings from the env. If you don't want to
 load the settings from the environment, use the `settings` parameter.
 Otherwise this funcion will search for all settings beginning with
-`db_name` in the environment. If `db_name = "i2b2"` settings like
+`system_name` in the environment. If `system_name = "i2b2"` settings like
 `I2B2_HOST` or `I2B2_PORT` (notice the uppercase) will be loaded from
-the env.}
+the environment. You can load such an env file e.g. by using
+`DIZutils::set_env_vars(path_to_file)`.}
 
 \item{db_type}{A character. Type of the database system. Currently
 implemented systems are: 'postgres', 'oracle'.}

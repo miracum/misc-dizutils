@@ -35,13 +35,14 @@
 #' @param timeout A timeout in sec. for the db-connection establishment.
 #'   Values below 2 seconds are not recommended.
 #'   Default is 30 seconds.
-#' @param db_name (Default = NULL) A character. Name of the database system.
+#' @param system_name (Default = NULL) A character. Name of the database system.
 #'   Used to find the correct settings from the env. If you don't want to
 #'   load the settings from the environment, use the `settings` parameter.
 #'   Otherwise this funcion will search for all settings beginning with
-#'   `db_name` in the environment. If `db_name = "i2b2"` settings like
+#'   `system_name` in the environment. If `system_name = "i2b2"` settings like
 #'   `I2B2_HOST` or `I2B2_PORT` (notice the uppercase) will be loaded from
-#'   the env.
+#'   the environment. You can load such an env file e.g. by using
+#'   `DIZutils::set_env_vars(path_to_file)`.
 #' @param db_type A character. Type of the database system. Currently
 #'   implemented systems are: 'postgres', 'oracle'.
 #' @param lib_path A character string. The path to the ojdbc*.jar file.
@@ -66,7 +67,7 @@
 #'
 #' @export
 #'
-db_connection <- function(db_name = NULL,
+db_connection <- function(system_name = NULL,
                           db_type,
                           headless = FALSE,
                           from_env = TRUE,
@@ -77,7 +78,7 @@ db_connection <- function(db_name = NULL,
   db_con <- NULL
 
   stopifnot(
-    # is.character(db_name),
+    # is.character(system_name),
     is.character(db_type),
     is.logical(headless),
     is.logical(from_env),
@@ -96,17 +97,17 @@ db_connection <- function(db_name = NULL,
     }
 
     if (isTRUE(from_env)) {
-      stopifnot(is.character(db_name))
-      db_name_uppercase <- toupper(db_name)
-      # db_name <- Sys.getenv(paste0(db_name, "_db_name"))
-      host <- Sys.getenv(paste0(db_name_uppercase, "_HOST"))
-      port <- Sys.getenv(paste0(db_name_uppercase, "_PORT"))
-      user <- Sys.getenv(paste0(db_name_uppercase, "_USER"))
-      password <- Sys.getenv(paste0(db_name_uppercase, "_PASSWORD"))
+      stopifnot(is.character(system_name))
+      system_name_uppercase <- toupper(system_name)
+      dbname <- Sys.getenv(paste0(system_name_uppercase, "_DBNAME"))
+      host <- Sys.getenv(paste0(system_name_uppercase, "_HOST"))
+      port <- Sys.getenv(paste0(system_name_uppercase, "_PORT"))
+      user <- Sys.getenv(paste0(system_name_uppercase, "_USER"))
+      password <- Sys.getenv(paste0(system_name_uppercase, "_PASSWORD"))
     } else if (isFALSE(from_env)) {
       stopifnot(is.list(settings),
                 length(settings) >= 4)
-      db_name <- settings$db_name
+      dbname <- settings$dbname
       host <- settings$host
       port <- settings$port
       user <- settings$user
@@ -117,9 +118,9 @@ db_connection <- function(db_name = NULL,
 
     necessary_vars <- c("host", "port", "user", "password")
     if (db_type != "ORACLE") {
-      ## For oracle we don't need a 'db_name' but a SID, which
+      ## For oracle we don't need a 'dbname' but a SID, which
       ## will be checked later.
-      necessary_vars <- c(necessary_vars, "db_name")
+      necessary_vars <- c(necessary_vars, "dbname")
     }
 
     ## Check if all necessary parameters are filled:
@@ -141,7 +142,7 @@ db_connection <- function(db_name = NULL,
     if (!error && db_type == "ORACLE") {
       if (is.null(lib_path)) {
         if (isTRUE(from_env)) {
-          lib_path <- Sys.getenv(paste0(db_name, "_DRIVER"))
+          lib_path <- Sys.getenv(paste0(system_name_uppercase, "_DRIVER"))
         } else {
           lib_path <- settings$lib_path
         }
@@ -154,14 +155,14 @@ db_connection <- function(db_name = NULL,
                          classPath = lib_path)
 
       if (isTRUE(from_env)) {
-        sid <- Sys.getenv(paste0(db_name_uppercase, "_SID"))
+        sid <- Sys.getenv(paste0(system_name_uppercase, "_SID"))
       } else if (isFALSE(from_env)) {
         sid <- settings$sid
       }
 
       if (is.null(sid) || sid == "") {
         ## SID is missing, so check if we can use the db_name instead:
-        if (is.null(db_name) || db_name == "") {
+        if (is.null(dbname) || dbname == "") {
           feedback(
             print_this = "Missing SID for db-connection to oracle.",
             type = "Error",
@@ -174,8 +175,8 @@ db_connection <- function(db_name = NULL,
         } else {
           feedback(
             print_this = paste0(
-              "`SID` is empty. Using the `db_name` ('",
-              db_name,
+              "`SID` is empty. Using the `dbname` ('",
+              dbname,
               "') instead. But this might be wrong or cause errors!"
             ),
             type = "Warning",
@@ -183,7 +184,7 @@ db_connection <- function(db_name = NULL,
             headless = headless,
             findme = "e38041e91c"
           )
-          sid <- db_name
+          sid <- dbname
         }
       }
 
@@ -220,7 +221,7 @@ db_connection <- function(db_name = NULL,
       db_con <- tryCatch({
         conn <- RPostgres::dbConnect(
           drv = drv,
-          dbname = db_name,
+          dbname = dbname,
           host = host,
           port = port,
           user = user,
