@@ -55,9 +55,9 @@ To establish the connection, please set those environment variables accordingly 
 
 ```r
 db_con <- DIZutils::db_connection(
-  db_name = "i2b2",
-  db_type = "postgres"
-)
+    system_name = "i2b2",
+    db_type = "postgres"
+  )
 ```
 
 #### oracle
@@ -78,7 +78,7 @@ To establish the connection, please set those environment variables accordingly 
 
 ```r
 db_con <- DIZutils::db_connection(
-  db_name = "myoracledb",
+  system_name = "myoracledb",
   db_type = "oracle",
   lib_path = "path/to/ojdbc*.jar"
 )
