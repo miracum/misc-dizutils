@@ -48,3 +48,4 @@ Language: en-US
 LazyData: true
 SystemRequirements: libpq >= 9.0: libpq-dev (deb) or postgresql-devel
     (rpm)
+RoxygenNote: 7.1.1
