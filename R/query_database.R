@@ -22,7 +22,15 @@
 #' @param db_con A DBI database connection.
 #' @param sql_statement A character string containing a valid SQL statement.
 #'   Caution: Everything after the first ';' will be cut off.
-#' @return Returns the result of the db-query.
+#' @param no_return (boolean, default: FALSE) Is the sql meant to return
+#'   nothing? E.g. if you just insert or update a table.
+#'   Then supply `TRUE` here. If you supply `FALSE` here, the
+#'   function expects to receive a result table and tries to convert it
+#'   to a data.table.
+#' @return Returns the result of the db-query. If `no_return` is `TRUE`,
+#'  the return value will be `1` if the query was successfully sent.
+#'  Otherwise (if `no_return` is `FALSE` which is the default), the result
+#'  will be the result of the sql query as data.table.
 #' @examples
 #' \dontrun{
 #' db_con <- DIZutils::db_connection(
@@ -38,20 +46,25 @@
 #' @export
 #'
 # query_database
-query_database <- function(db_con,
-                           sql_statement) {
-  stopifnot(!is.null(sql_statement), !is.null(db_con))
+query_database <-
+  function(db_con, sql_statement, no_result = FALSE) {
+    stopifnot(!is.null(sql_statement), !is.null(db_con))
 
-  ## Remove tailing ";":
-  sql_statement <- gsub("\\;.*", "", sql_statement)
+    ## Remove tailing ";":
+    sql_statement <- gsub("\\;.*", "", sql_statement)
 
-  ## Aavoid sql-injection:
-  ## https://db.rstudio.com/best-practices/run-queries-safely/
-  sql <- DBI::sqlInterpolate(conn = db_con, sql = sql_statement)
+    ## Aavoid sql-injection:
+    ## https://db.rstudio.com/best-practices/run-queries-safely/
+    sql <- DBI::sqlInterpolate(conn = db_con, sql = sql_statement)
 
-  # Return data as data.table
-  outdat <-
-    data.table::data.table(RPostgres::dbGetQuery(conn = db_con, statement = sql),
-                           stringsAsFactors = TRUE)
-  return(outdat)
-}
+    if (no_result) {
+      RPostgres::dbSendQuery(conn = db_con, statement = sql)
+      return(1)
+    } else {
+      # Return data as data.table
+      return(data.table::data.table(
+        RPostgres::dbGetQuery(conn = db_con, statement = sql),
+        stringsAsFactors = TRUE
+      ))
+    }
+  }
