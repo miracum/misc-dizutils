@@ -41,7 +41,15 @@
 #' query_database(
 #'   db_con = db_con,
 #'   sql_statement = "SELECT * FROM table_name;"
-#' )}
+#' )
+#'
+#' query_database(
+#'   db_con = db_con,
+#'   sql_statement = "INSERT INTO table_name DEFAULT VALUES;",
+#'   no_return = TRUE
+#' )
+#'
+#' }
 #'
 #' @export
 #'
