@@ -19,7 +19,7 @@
 #' @description Checks if a string matches a given date format.
 #'
 #' @param date The list applied from rv$restricting_date
-#' @param format The format paramters. E.g. "%Y%m%d"
+#' @param format The format paramters. See `?strptime` for parameter infos.
 #'
 #' @return TRUE/FALSE
 #'
