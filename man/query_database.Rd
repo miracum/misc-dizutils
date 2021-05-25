@@ -12,16 +12,16 @@ query_database(db_con, sql_statement, no_result = FALSE)
 \item{sql_statement}{A character string containing a valid SQL statement.
 Caution: Everything after the first ';' will be cut off.}
 
-\item{no_return}{(boolean, default: FALSE) Is the sql meant to return
+\item{no_result}{(boolean, default: FALSE) Is the sql meant to return
 nothing? E.g. if you just insert or update a table.
 Then supply `TRUE` here. If you supply `FALSE` here, the
 function expects to receive a result table and tries to convert it
 to a data.table.}
 }
 \value{
-Returns the result of the db-query. If `no_return` is `TRUE`,
+Returns the result of the db-query. If `no_result` is `TRUE`,
  the return value will be `1` if the query was successfully sent.
- Otherwise (if `no_return` is `FALSE` which is the default), the result
+ Otherwise (if `no_result` is `FALSE` which is the default), the result
  will be the result of the sql query as data.table.
 }
 \description{
@@ -43,7 +43,7 @@ query_database(
 query_database(
   db_con = db_con,
   sql_statement = "INSERT INTO table_name DEFAULT VALUES;",
-  no_return = TRUE
+  no_result = TRUE
 )
 
 }
