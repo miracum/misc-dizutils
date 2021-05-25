@@ -14,17 +14,18 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#' @title Converts the first letter of the input string to uppercase
-#' @description Converts the first letter of the input string to uppercase
+#' @title Checks if a string matches a given date format.
 #'
-#' @param x A character string. E.g. "hello world" will become "Hello world".
-#' @return Returns the input string but with a capital first letter.
-#' @examples
-#' firstup("first letter of this string will be upper case as return")
+#' @description Checks if a string matches a given date format.
+#'
+#' @param date The list applied from rv$restricting_date
+#' @param format The format paramters. E.g. "%Y%m%d"
+#'
+#' @return TRUE/FALSE
 #'
 #' @export
 #'
-firstup <- function(x) {
-  substr(x, 1, 1) <- toupper(substr(x, 1, 1))
-  return(x)
+is_date_format <- function(date, format) {
+  formatted = try(as.Date(date, format), silent = TRUE)
+  return(DIZutils::equals2(as.character(formatted), date))
 }

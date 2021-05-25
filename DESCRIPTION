@@ -1,7 +1,7 @@
 Package: DIZutils
 Title: Utilities for 'DIZ' R Package Development
-Version: 0.0.7.9008
-Date: 2021-05-05
+Version: 0.0.7.9009
+Date: 2021-05-25
 Authors@R: 
     c(person(given = "Jonathan M.",
              family = "Mang",
@@ -14,7 +14,7 @@ Authors@R:
              comment = c(ORCID = "0000-0003-1866-860X")),
       person(given = "MIRACUM - Medical Informatics in Research and Care in University Medicine",
              role = "fnd"),
-      person(given = "Universitätsklinikum Erlangen",
+      person(given = "Universitätsklinikum Erlangen, Germany",
              role = "cph"))
 Description: Utility functions used for the R package development
     infrastructure inside the data integration centers ('DIZ') to

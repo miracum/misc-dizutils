@@ -1,5 +1,5 @@
 # DIZutils - Utilities for 'DIZ' R Package Development
-# Copyright (C) 2020-2021 Universitätsklinikum Erlangen
+# Copyright (C) 2020-2021 Universitätsklinikum Erlangen, Germany
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

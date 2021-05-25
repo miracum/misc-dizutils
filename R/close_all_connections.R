@@ -1,5 +1,5 @@
 # DIZutils - Utilities for 'DIZ' R Package Development
-# Copyright (C) 2020-2021 Universitätsklinikum Erlangen
+# Copyright (C) 2020-2021 Universitätsklinikum Erlangen, Germany, Germany
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,7 +16,9 @@
 
 #' @title Cleanup function to unset/close all open connections
 #' @description This function is meant to be called at the end of a
-#'   run of the app. It will close all open connections to files.
+#'   run of the app. It will close all open connections to files
+#'   or databases. This closes ALL connections. Not just the ones
+#'   opened by this package.
 #'
 #' @inheritParams feedback
 #' @return No return value, called for side effects (see description)

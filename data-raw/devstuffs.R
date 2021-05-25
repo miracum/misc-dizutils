@@ -30,7 +30,7 @@ my_desc$set_authors(c(
     "MIRACUM - Medical Informatics in Research and Care in University Medicine",
     role = c("fnd")
   ),
-  person("Universitätsklinikum Erlangen", role = "cph")
+  person("Universitätsklinikum Erlangen, Germany", role = "cph")
 ))
 
 # Remove some author fields
@@ -38,7 +38,7 @@ my_desc$del("Maintainer")
 my_desc$del("LazyData")
 
 # Set the version
-my_desc$set_version("0.0.7.9008")
+my_desc$set_version("0.0.7.9009")
 
 # The title of your package
 my_desc$set(Title = "Utilities for 'DIZ' R Package Development")
@@ -80,7 +80,7 @@ my_desc$set("SystemRequirements",
 my_desc$write(file = "DESCRIPTION")
 
 # License
-#usethis::use_gpl3_license(name = "Universitätsklinikum Erlangen")
+#usethis::use_gpl3_license(name = "Universitätsklinikum Erlangen, Germany")
 
 
 # add Imports and Depends
