@@ -11,7 +11,7 @@
 [![Cran Checks](https://cranchecks.info/badges/worst/DIZutils)](https://cran.r-project.org/web/checks/check_results_DIZutils.html)
 <!-- badges: end -->
 
-The R package `DIZutils` provides utility functions used for the R package development infrastructure inside the data integration centers ('DIZ'), to standardize and facilitate repetitive tasks such as setting up a database connection or issuing notification messages and to avoid redundancy.
+The R package `DIZutils` provides utility functions used for the R package development infrastructure inside the data integration centers ('DIZ') to standardize and facilitate repetitive tasks such as setting up a database connection or issuing notification messages and to avoid redundancy.
 
 ## Installation
 
@@ -24,8 +24,8 @@ install.packages("DIZutils")
 The development version can be installed using
 
 ```r
-install.packages("devtools")
-devtools::install_github("miracum/misc-dizutils", ref = "development")
+install.packages("remotes")
+remotes::install_github("miracum/misc-dizutils", ref = "development")
 ```
 
 ## Basic functions
