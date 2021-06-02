@@ -30,7 +30,7 @@
 #'
 clear <- function(keep_environment = FALSE,
                   keep_console = FALSE) {
-  ## Inspiration: https://stackoverflow.com/questions/62901476/r-global-function-to-clear-workspace-and-dump-storage
+  ## Inspiration: https://stackoverflow.com/questions/62901476
   gctorture(TRUE)
   if (!keep_console) {
     ## Cleanup the backend in RStudio:

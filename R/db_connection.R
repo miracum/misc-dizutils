@@ -134,7 +134,7 @@ db_connection <- function(system_name = NULL,
           logfile_dir = logfile_dir,
           headless = headless
         )
-        error <- TRUE
+        error <<- TRUE
       }
     }
 
@@ -170,7 +170,7 @@ db_connection <- function(system_name = NULL,
             logfile_dir = logfile_dir,
             headless = headless
           )
-          error <- TRUE
+          error <<- TRUE
           stop()
         } else {
           feedback(
@@ -209,10 +209,8 @@ db_connection <- function(system_name = NULL,
           headless = headless,
           findme = "0a50850ccd"
         )
-        error <- TRUE
+        error <<- TRUE
         conn <- NULL
-        conn
-      }, finally = function(f) {
         return(conn)
       })
     } else if (!error && db_type == "POSTGRES") {
