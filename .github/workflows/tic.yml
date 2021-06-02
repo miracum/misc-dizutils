@@ -94,6 +94,7 @@ jobs:
       - name: "[Stage] [Linux] Install curl"
         if: runner.os == 'Linux'
         run: sudo apt install libcurl4-openssl-dev
+        ## Libs for rJava and xml2:
         # run: sudo apt install libcurl4-openssl-dev libxml2-dev libpq-dev
 
       - name: "[Stage] Configure R Java"
