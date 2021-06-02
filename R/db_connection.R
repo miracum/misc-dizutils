@@ -235,10 +235,8 @@ db_connection <- function(system_name = NULL,
           headless = headless,
           findme = "0a50850ccd"
         )
-        error <- TRUE
+        error <<- TRUE
         conn <- NULL
-        conn
-      }, finally = function(f) {
         return(conn)
       })
     }
