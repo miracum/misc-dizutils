@@ -8,8 +8,8 @@ get_config_env(
   system_name,
   logfile_dir = tempdir(),
   headless = TRUE,
-  ignore.presets = FALSE,
-  uppercase.system = TRUE
+  ignore_presets = FALSE,
+  uppercase_system = TRUE
 )
 }
 \arguments{
@@ -23,13 +23,13 @@ The absolute path to folder where the logfile will be stored.}
 run only in the console (`headless = TRUE`) or on a GUI frontend
 (`headless = FALSE`).}
 
-\item{ignore.presets}{(boolean) Only return something if all elements
+\item{ignore_presets}{(boolean) Only return something if all elements
 from the presets are found? These are currently `host`, `port`, `user`,
 `password`, `sid`, `path`. If you have another suffix after
 `system_name` in your config file, you won't see it here. To see
-everything with prefix `system_name` simply set `ignore.presets = TRUE`.}
+everything with prefix `system_name` simply set `ignore_presets = TRUE`.}
 
-\item{uppercase.system}{(boolean) Default: True. Otherwise: case-sensitive.}
+\item{uppercase_system}{(boolean) Default: True. Otherwise: case-sensitive.}
 }
 \value{
 If successful it returns the config, null otherwise.
@@ -38,7 +38,7 @@ If successful it returns the config, null otherwise.
 Internal function to read settings for a certain system
   from the environment.
   IMPORTANT: If yout want to get any result with your input as prefix,
-  use `ignore.presets = TRUE`! See param-definition for more details.
+  use `ignore_presets = TRUE`! See param-definition for more details.
   This function will look at uppercase system_names at default.
 }
 \examples{

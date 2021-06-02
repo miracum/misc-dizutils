@@ -38,7 +38,7 @@ my_desc$del("Maintainer")
 my_desc$del("LazyData")
 
 # Set the version
-my_desc$set_version("0.0.8")
+my_desc$set_version("0.0.8.9001")
 
 # The title of your package
 my_desc$set(Title = "Utilities for 'DIZ' R Package Development")
@@ -101,10 +101,6 @@ usethis::use_package("R", min_version = "3.1.0", type = "Depends")
 ## Imports
 usethis::use_package("config", type = "Imports")
 usethis::use_package("data.table", type = "Imports")
-# usethis::use_package("ggplot2", type = "Imports")
-# usethis::use_package("ggpubr", type = "Imports")
-# usethis::use_package("magrittr", type = "Imports")
-# usethis::use_package("polynom", type = "Imports")
 usethis::use_package("DBI", type = "Imports", min_version = "1.1.0")
 ## For `combine_stats`:
 usethis::use_package("Hmisc", type = "Imports")

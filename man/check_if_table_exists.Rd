@@ -2,7 +2,7 @@
 % Please edit documentation in R/check_if_table_exists.R
 \name{check_if_table_exists}
 \alias{check_if_table_exists}
-\title{Check if a given table name exists}
+\title{Check if a database table exists.}
 \usage{
 check_if_table_exists(db_con, table_name)
 }
@@ -15,7 +15,7 @@ check_if_table_exists(db_con, table_name)
 True, if the table exists, false otherwise.
 }
 \description{
-See title.
+Check if a database table exists.
 }
 \examples{
 \dontrun{

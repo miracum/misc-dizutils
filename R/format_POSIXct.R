@@ -39,7 +39,7 @@
 #'
 #' @export
 #'
-format_POSIXct <- function(x,
+format_posixct <- function(x,
                            lang = "en",
                            date = TRUE,
                            time = TRUE) {

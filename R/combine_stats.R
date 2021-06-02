@@ -84,12 +84,15 @@ combine_stats <- function(summaries, demo = FALSE) {
       summaries <-
         data.table::rbindlist(list(summaries, tmp), use.names = TRUE)
     }
-    cat("\n\nYou used the function in demo-mode.\nThis is the randomly chosen demo-data:\n")
+    cat(paste0("\n\nYou used the function in demo-mode.",
+                "\nThis is the randomly chosen demo-data:\n"))
     print(summaries)
   }
 
   res <- data.table::data.table(
-    "Min" = ifelse(all(is.na(summaries[["Min"]])), "", min(x = summaries[["Min"]], na.rm = T)),
+    "Min" = ifelse(all(is.na(summaries[["Min"]])),
+                   "",
+                   min(x = summaries[["Min"]], na.rm = T)),
     "Q10" = ifelse(all(is.na(summaries[["Q10"]])), NA, as.numeric(
       Hmisc::wtd.quantile(
         x = as.numeric(summaries[["Q10"]]),
@@ -131,20 +134,24 @@ combine_stats <- function(summaries, demo = FALSE) {
         probs = c(0.9)
       )
     )),
-    "Max" = ifelse(all(is.na(summaries[["Max"]])), NA, max(summaries[["Max"]], na.rm = T)),
+    "Max" = ifelse(
+      test = all(is.na(summaries[["Max"]])),
+      yes = NA,
+      no = max(summaries[["Max"]], na.rm = T)
+    ),
     "N" = sum(summaries[["N"]])
   )
 
   if (demo) {
     ## Real combined stats:
-    cat("\n\nThis is the 'real' aggregated statistics over the whole data-pool:\n")
+    cat(paste0("\n\nThis is the 'real' aggregated statistics",
+               " over the whole data-pool:\n"))
     print(psych::describe(control, quant = c(.1, .25, .5, .75, .9)))
 
     ## Calculated summary statistics:
-    cat(
-      "\n\nAnd this is the calculated aggregated statistics (which is the return value of this function):\n"
-    )
-    # print(res)
+    cat(paste0("\n\nAnd this is the calculated aggregated statistics",
+               " (which is the return value of this function):\n"))
+    print(res)
   }
 
   return(res)

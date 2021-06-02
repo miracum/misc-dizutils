@@ -19,17 +19,17 @@
 #' @description Internal function to read settings for a certain system
 #'   from the environment.
 #'   IMPORTANT: If yout want to get any result with your input as prefix,
-#'   use `ignore.presets = TRUE`! See param-definition for more details.
+#'   use `ignore_presets = TRUE`! See param-definition for more details.
 #'   This function will look at uppercase system_names at default.
 #'
 #' @param system_name The name of the system (This is also the prefix used
 #'   to get the environment variables with 'SYSTEM_KEY', e.g. 'I2B2_DBNAME').
-#' @param ignore.presets (boolean) Only return something if all elements
+#' @param ignore_presets (boolean) Only return something if all elements
 #'   from the presets are found? These are currently `host`, `port`, `user`,
 #'   `password`, `sid`, `path`. If you have another suffix after
 #'   `system_name` in your config file, you won't see it here. To see
-#'   everything with prefix `system_name` simply set `ignore.presets = TRUE`.
-#' @param uppercase.system (boolean) Default: True. Otherwise: case-sensitive.
+#'   everything with prefix `system_name` simply set `ignore_presets = TRUE`.
+#' @param uppercase_system (boolean) Default: True. Otherwise: case-sensitive.
 #'
 #' @inheritParams db_connection
 #' @return If successful it returns the config, null otherwise.
@@ -47,13 +47,13 @@ get_config_env <-
   function(system_name,
            logfile_dir = tempdir(),
            headless = TRUE,
-           ignore.presets = FALSE,
-           uppercase.system = TRUE) {
+           ignore_presets = FALSE,
+           uppercase_system = TRUE) {
     res <- tryCatch({
-      if (uppercase.system) {
+      if (uppercase_system) {
         system_name <- toupper(system_name)
       }
-      if (ignore.presets) {
+      if (ignore_presets) {
         pattern <- paste0("^", system_name, "_*")
         env_names_tmp <- names(Sys.getenv())
         elements <-
@@ -66,7 +66,7 @@ get_config_env <-
             tmp <- list()
             tmp[gsub(pattern = pattern,
                      replacement = "",
-                     x = name)] = Sys.getenv(name)
+                     x = name)] <- Sys.getenv(name)
             return(tmp)
           }
         )

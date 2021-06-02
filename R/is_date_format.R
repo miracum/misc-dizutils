@@ -26,6 +26,6 @@
 #' @export
 #'
 is_date_format <- function(date, format) {
-  formatted = try(as.Date(date, format), silent = TRUE)
+  formatted <- try(as.Date(date, format), silent = TRUE)
   return(DIZutils::equals2(as.character(formatted), date))
 }

@@ -14,9 +14,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#' @title Check if a given table name exists
+#' @title Check if a database table exists.
 #'
-#' @description See title.
+#' @description Check if a database table exists.
 #'
 #' @param db_con A DBI database connection. See `db_connection()` for details.
 #' @param table_name (String) The name of the table or view to be checked.
@@ -37,7 +37,6 @@ check_if_table_exists <- function(db_con, table_name) {
   #              SELECT
   #              FROM information_schema.tables
   #              WHERE",
-  #                 # " table_schema = '" , table_schema, "'
   #                 " table_name = '" , table_name, "'
   #          )")
 

@@ -266,5 +266,17 @@ db_connection <- function(system_name = NULL,
     )
     return(NULL)
   })
+  if (error) {
+    DIZutils::feedback(
+      print_this = paste0(
+        "Error while trying to establish the db conncection.",
+        " Maybe the logging above is helpful for debugging?"
+      ),
+      type = "Error",
+      findme = "29294c19e3",
+      logfile_dir = logfile_dir,
+      headless = headless
+    )
+  }
   return(db_con)
 }
