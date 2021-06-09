@@ -75,4 +75,5 @@ query_database <-
         stringsAsFactors = TRUE
       ))
     }
+    RPostgres::dbDisconnect(conn = db_con)
   }
