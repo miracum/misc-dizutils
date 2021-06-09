@@ -27,8 +27,10 @@
 #'   Then supply `TRUE` here. If you supply `FALSE` here, the
 #'   function expects to receive a result table and tries to convert it
 #'   to a data.table.
+#' @param close_connection (boolean, default = FALSE). If TRUE, the connection
+#'   will be closed after the query was sent and the result received.
 #' @return Returns the result of the db-query. If `no_result` is `TRUE`,
-#'  the return value will be `1` if the query was successfully sent.
+#'  the return value will be `TRUE` if the query was successfully sent.
 #'  Otherwise (if `no_result` is `FALSE` which is the default), the result
 #'  will be the result of the sql query as data.table.
 #' @examples
@@ -55,7 +57,10 @@
 #'
 # query_database
 query_database <-
-  function(db_con, sql_statement, no_result = FALSE) {
+  function(db_con,
+           sql_statement,
+           no_result = FALSE,
+           close_connection = FALSE) {
     stopifnot(!is.null(sql_statement), !is.null(db_con))
 
     ## Remove tailing ";":
@@ -67,7 +72,7 @@ query_database <-
 
     if (no_result) {
       RPostgres::dbSendQuery(conn = db_con, statement = sql)
-      return(1)
+      return(TRUE)
     } else {
       # Return data as data.table
       return(data.table::data.table(
@@ -75,5 +80,7 @@ query_database <-
         stringsAsFactors = TRUE
       ))
     }
-    RPostgres::dbDisconnect(conn = db_con)
+    if (close_connection) {
+      RPostgres::dbDisconnect(conn = db_con)
+    }
   }

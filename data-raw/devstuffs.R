@@ -38,7 +38,7 @@ my_desc$del("Maintainer")
 my_desc$del("LazyData")
 
 # Set the version
-my_desc$set_version("0.0.8.9004")
+my_desc$set_version("0.0.8.9005")
 
 # The title of your package
 my_desc$set(Title = "Utilities for 'DIZ' R Package Development")
