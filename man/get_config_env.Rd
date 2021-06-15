@@ -14,7 +14,10 @@ get_config_env(
 }
 \arguments{
 \item{system_name}{The name of the system (This is also the prefix used
-to get the environment variables with 'SYSTEM_KEY', e.g. 'I2B2_DBNAME').}
+to get the environment variables with 'SYSTEM_KEY', e.g. 'I2B2_DBNAME').
+This function also works if there are multiple instances like
+`I2B2_1_DBNAME` and `I2B2_2_DBNAME`. Then the result will contain
+nested lists for each occurence.}
 
 \item{logfile_dir}{(Optional, String, default: "tempdir()")
 The absolute path to folder where the logfile will be stored.}
@@ -23,7 +26,8 @@ The absolute path to folder where the logfile will be stored.}
 run only in the console (`headless = TRUE`) or on a GUI frontend
 (`headless = FALSE`).}
 
-\item{ignore_presets}{(boolean) Only return something if all elements
+\item{ignore_presets}{(boolean, default = FALSE)
+Only return something if all elements
 from the presets are found? These are currently `host`, `port`, `user`,
 `password`, `sid`, `path`. If you have another suffix after
 `system_name` in your config file, you won't see it here. To see

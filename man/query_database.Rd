@@ -4,7 +4,12 @@
 \alias{query_database}
 \title{query_database helper function}
 \usage{
-query_database(db_con, sql_statement, no_result = FALSE)
+query_database(
+  db_con,
+  sql_statement,
+  no_result = FALSE,
+  close_connection = FALSE
+)
 }
 \arguments{
 \item{db_con}{A DBI database connection.}
@@ -17,10 +22,13 @@ nothing? E.g. if you just insert or update a table.
 Then supply `TRUE` here. If you supply `FALSE` here, the
 function expects to receive a result table and tries to convert it
 to a data.table.}
+
+\item{close_connection}{(boolean, default = FALSE). If TRUE, the connection
+will be closed after the query was sent and the result received.}
 }
 \value{
 Returns the result of the db-query. If `no_result` is `TRUE`,
- the return value will be `1` if the query was successfully sent.
+ the return value will be `TRUE` if the query was successfully sent.
  Otherwise (if `no_result` is `FALSE` which is the default), the result
  will be the result of the sql query as data.table.
 }
