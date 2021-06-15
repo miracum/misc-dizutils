@@ -94,26 +94,6 @@ get_config_env <-
               X = elements,
               FUN = function(name) {
                 tmp <- Sys.getenv(paste0(system_name, separator, name))
-                # if (equals2(tmp, "")) {
-                #   ## Maybe there is another level of settings:
-                #   env_names <- names(Sys.getenv())
-                #   sub_elements <-
-                #     unique(gsub(
-                #       pattern = paste0("(", separator, ")([A-Za-z])+$"),
-                #       replacement = "",
-                #       x = env_names[grepl(pattern = paste0("^(",
-                #                                            system_name,
-                #                                            separator,
-                #                                            ")([0-9])+"),
-                #                           x = env_names)]
-                #     ))
-                #   tmp <- lapply(
-                #     X = sub_elements,
-                #     FUN = function(x) {
-                #       return(Sys.getenv(paste0(x, separator, name)))
-                #     }
-                #   )
-                # }
                 return(tmp)
               }
             ))
