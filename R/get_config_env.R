@@ -126,7 +126,6 @@ get_config_env <-
               )]
             ))
           if (length(sub_elements) > 0) {
-            # names(sub_elements) <- sub_elements
             res <- lapply(
               X = sub_elements,
               FUN = function(x) {
