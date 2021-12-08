@@ -1,6 +1,6 @@
 Package: DIZutils
 Title: Utilities for 'DIZ' R Package Development
-Version: 0.0.9
+Version: 0.0.9.9001
 Date: 2021-12-08
 Authors@R: c(
     person("Jonathan M.", "Mang", , "jonathan.mang@uk-erlangen.de", role = c("aut", "cre"),
@@ -23,19 +23,19 @@ Depends:
 Imports: 
     config,
     data.table,
-    DBI (>= 1.1.0),
     Hmisc,
     parsedate,
     psych,
     rapportools,
-    RJDBC,
     RJSONIO,
-    RPostgres,
     shiny,
     shinyjs,
     xml2
 Suggests: 
+    DBI (>= 1.1.0),
     lintr,
+    RJDBC,
+    RPostgres,
     testthat
 Encoding: UTF-8
 Language: en-US

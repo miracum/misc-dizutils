@@ -38,7 +38,7 @@ my_desc$del("Maintainer")
 my_desc$del("LazyData")
 
 # Set the version
-my_desc$set_version("0.0.9")
+my_desc$set_version("0.0.9.9001")
 
 # The title of your package
 my_desc$set(Title = "Utilities for 'DIZ' R Package Development")
@@ -101,7 +101,6 @@ usethis::use_package("R", min_version = "3.1.0", type = "Depends")
 ## Imports
 usethis::use_package("config", type = "Imports")
 usethis::use_package("data.table", type = "Imports")
-usethis::use_package("DBI", type = "Imports", min_version = "1.1.0")
 ## For `combine_stats`:
 usethis::use_package("Hmisc", type = "Imports")
 ## For `format_POSIXct`:
@@ -110,10 +109,8 @@ usethis::use_package("parsedate", type = "Imports")
 usethis::use_package("psych", type = "Imports")
 ## For `feedback`:
 usethis::use_package("rapportools", type = "Imports")
-usethis::use_package("RJDBC", type = "Imports")
 ## For xml_to_json:
 usethis::use_package("RJSONIO", type = "Imports")
-usethis::use_package("RPostgres", type = "Imports")
 usethis::use_package("shiny", type = "Imports")
 usethis::use_package("shinyjs", type = "Imports")
 ## For xml_to_json:
@@ -123,6 +120,9 @@ usethis::use_package("xml2", type = "Imports")
 ## Suggests
 usethis::use_package("testthat", type = "Suggests")
 usethis::use_package("lintr", type = "Suggests")
+usethis::use_package("RPostgres", type = "Suggests")
+usethis::use_package("DBI", type = "Suggests", min_version = "1.1.0")
+usethis::use_package("RJDBC", type = "Suggests")
 
 
 ## buildignore
