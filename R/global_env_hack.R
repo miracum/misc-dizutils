@@ -1,5 +1,5 @@
 # DIZutils - Utilities for 'DIZ' R Package Development
-# Copyright (C) 2020-2021 Universitätsklinikum Erlangen, Germany
+# Copyright (C) 2020-2022 Universitätsklinikum Erlangen, Germany
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,6 +16,10 @@
 
 #' @title global_env_hack
 #' @description Hack variable into global env (bypasses R CMD checks).
+#'   This does create a new variable in the R environment but NOT a new
+#'   variable in the system environment. To create a system environment
+#'   variable beeing accessible via `Sys.getenv(...)`, use the function
+#'   `DIZutils::setenv2(key = "varname", val = 7)`.
 #'
 #' @param key A character (!) string. The name of the assigned variable
 #' @param val An object. The object that will be assigned to 'key'.
