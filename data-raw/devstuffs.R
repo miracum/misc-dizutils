@@ -38,7 +38,7 @@ my_desc$del("Maintainer")
 my_desc$del("LazyData")
 
 # Set the version
-my_desc$set_version("0.0.9.9001")
+my_desc$set_version("0.0.10.9001")
 
 # The title of your package
 my_desc$set(Title = "Utilities for 'DIZ' R Package Development")
@@ -180,3 +180,13 @@ usethis::use_git_ignore("!/cran-comments.md")
 
 # tidy description
 usethis::use_tidy_description()
+
+# create NEWS.md using the python-package "auto-changelog" (must be installed)
+# https://www.conventionalcommits.org/en/v1.0.0/
+# build|ci|docs|feat|fix|perf|refactor|test
+system(command = paste0(
+  'auto-changelog -u -t "',
+  packagename,
+  ' NEWS" --tag-prefix "v" -o "NEWS.md"'
+))
+

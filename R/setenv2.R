@@ -14,35 +14,43 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#' @title global_env_hack
-#' @description Hack variable into global env (bypasses R CMD checks).
-#'   This does create a new variable in the R environment but NOT a new
-#'   variable in the system environment. To create a system environment
-#'   variable beeing accessible via `Sys.getenv(...)`, use the function
-#'   `DIZutils::setenv2(key = "varname", val = 7)`.
+#' @title Assign variables to the system environment.
+#' @description Create a system environment variable with the use of variables.
+#'   While `var.name = "testname"; var.value = 7` and
+#'   `Sys.setenv(var.name = var.value)` will create
+#'   `var.name = 7` in the system environment,
+#'   `DIZutils::setenv2(key = var.name, val = var.value)` will create
+#'   `testname = 7` in the system environment.
 #'
 #' @param key A character (!) string. The name of the assigned variable
 #' @param val An object. The object that will be assigned to 'key'.
-#' @param pos An integer. The position of the environment (default: 1).
 #'
-#' @seealso \url{http://adv-r.had.co.nz/Environments.html}
 #' @return No return value, called for side effects (see description).
+#' @seealso \url{https://stackoverflow.com/a/12533155}
 #' @examples
-#' utils_path <- tempdir()
-#' global_env_hack(
-#'   key = "utils_path",
-#'   val = utils_path,
-#'   pos = 1L
-#' )
+#'   var.name = "testname"
+#'   var.value = 7
+#'   
+#'   Sys.setenv(var.name = var.value)
+#'   
+#'   Sys.getenv("testname")
+#'   #> [1] ""
+#'   Sys.getenv("var.name")
+#'   #> [1] "7"
+#'   
+#'   Sys.unsetenv("var.name")
+#'   Sys.unsetenv("testname")
+#'   
+#'   DIZutils::setenv2(key = var.name, val = var.value)
+#'   Sys.getenv("testname")
+#'   #> [1] "7"
+#'   Sys.getenv("var.name")
+#'   #> [1] ""
 #'
 #' @export
 #'
-global_env_hack <- function(key,
-                            val,
-                            pos = 1) {
-  assign(
-    key,
-    val,
-    envir = as.environment(pos)
-  )
+setenv2 <- function(key, val) {
+  args = list(val)
+  names(args) = key
+  do.call(Sys.setenv, args)
 }

@@ -18,6 +18,10 @@ No return value, called for side effects (see description).
 }
 \description{
 Hack variable into global env (bypasses R CMD checks).
+  This does create a new variable in the R environment but NOT a new
+  variable in the system environment. To create a system environment
+  variable beeing accessible via `Sys.getenv(...)`, use the function
+  `DIZutils::setenv2(key = "varname", val = 7)`.
 }
 \examples{
 utils_path <- tempdir()
