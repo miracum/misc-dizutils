@@ -1,0 +1,43 @@
+Package: DIZutils
+Title: Utilities for 'DIZ' R Package Development
+Version: 0.0.10.9001
+Date: 2022-01-31
+Authors@R: c(
+    person("Jonathan M.", "Mang", , "jonathan.mang@uk-erlangen.de", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-0518-4710")),
+    person("Lorenz A.", "Kapsner", role = "aut",
+           comment = c(ORCID = "0000-0003-1866-860X")),
+    person("MIRACUM - Medical Informatics in Research and Care in University Medicine", role = "fnd"),
+    person("Universitätsklinikum Erlangen, Germany", role = "cph")
+  )
+Description: Utility functions used for the R package development
+    infrastructure inside the data integration centers ('DIZ') to
+    standardize and facilitate repetitive tasks such as setting up a
+    database connection or issuing notification messages and to avoid
+    redundancy.
+License: GPL-3
+URL: https://github.com/miracum/misc-dizutils
+BugReports: https://github.com/miracum/misc-dizutils/issues
+Depends: 
+    R (>= 3.1.0)
+Imports: 
+    config,
+    data.table,
+    Hmisc,
+    parsedate,
+    psych,
+    rapportools,
+    RJSONIO,
+    shiny,
+    shinyjs,
+    xml2
+Suggests: 
+    DBI (>= 1.1.0),
+    lintr,
+    RJDBC,
+    RPostgres,
+    testthat
+Encoding: UTF-8
+Language: en-US
+SystemRequirements: libpq >= 9.0: libpq-dev (deb) or postgresql-devel
+    (rpm)

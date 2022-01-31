@@ -1,29 +1,22 @@
 # DIZutils NEWS
 
-## Unreleased (2022-01-28)
+## Unreleased (2022-01-31)
 
 #### New Features
 
+* added update script for `NEWS.md`
 * added function `rep2`
-#### Others
-
-* updated buildignore
-
-Full set of changes: [`v0.0.10...30a7d9e`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.10...30a7d9e)
-
-## v0.0.10 (2022-01-24)
-
-#### New Features
-
 * added `setenv2` as function
 #### Docs
 
 * updated copyright to 2022
 #### Others
 
+* merge development
+* updated buildignore
 * new cran version
 
-Full set of changes: [`v0.0.9...v0.0.10`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.9...v0.0.10)
+Full set of changes: [`v0.0.9...acb7700`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.9...acb7700)
 
 ## v0.0.9 (2021-12-08)
 
@@ -148,7 +141,12 @@ Full set of changes: [`v0.0.6...v0.0.7`](https://gitlab.miracum.org/miracum/misc
 * updated description; added cran-comments
 * added changelog
 
-Full set of changes: [`v0.0.4...v0.0.6`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.4...v0.0.6)
+Full set of changes: [`v0.0.5...v0.0.6`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.5...v0.0.6)
+
+## v0.0.5 (2020-09-14)
+
+
+Full set of changes: [`v0.0.4...v0.0.5`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.4...v0.0.5)
 
 ## v0.0.4 (2020-06-04)
 
