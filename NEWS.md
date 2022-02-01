@@ -1,6 +1,6 @@
 # DIZutils NEWS
 
-## Unreleased (2022-01-31)
+## Unreleased (2022-02-01)
 
 #### New Features
 
@@ -12,11 +12,12 @@
 * updated copyright to 2022
 #### Others
 
+* updated news.md
 * merge development
 * updated buildignore
 * new cran version
 
-Full set of changes: [`v0.0.9...acb7700`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.9...acb7700)
+Full set of changes: [`v0.0.9...54a9658`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.0.9...54a9658)
 
 ## v0.0.9 (2021-12-08)
 
@@ -43,7 +44,7 @@ Full set of changes: [`v0.0.9...acb7700`](https://gitlab.miracum.org/miracum/mis
 * removed lagacy code
 * added libs for rjava
 
-Full set of changes: [`v0.0.8...v0.0.9`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.8...v0.0.9)
+Full set of changes: [`v0.0.8...v0.0.9`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.0.8...v0.0.9)
 
 ## v0.0.8 (2021-05-25)
 
@@ -78,7 +79,7 @@ Full set of changes: [`v0.0.8...v0.0.9`](https://gitlab.miracum.org/miracum/misc
 * added `parsedate` as import
 * added explicit parameter calls
 
-Full set of changes: [`v0.0.7...v0.0.8`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.7...v0.0.8)
+Full set of changes: [`v0.0.7...v0.0.8`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.0.7...v0.0.8)
 
 ## v0.0.7 (2021-02-11)
 
@@ -125,7 +126,7 @@ Full set of changes: [`v0.0.7...v0.0.8`](https://gitlab.miracum.org/miracum/misc
 
 * readme linting
 
-Full set of changes: [`v0.0.6...v0.0.7`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.6...v0.0.7)
+Full set of changes: [`v0.0.6...v0.0.7`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.0.6...v0.0.7)
 
 ## v0.0.6 (2020-11-17)
 
@@ -141,22 +142,22 @@ Full set of changes: [`v0.0.6...v0.0.7`](https://gitlab.miracum.org/miracum/misc
 * updated description; added cran-comments
 * added changelog
 
-Full set of changes: [`v0.0.5...v0.0.6`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.5...v0.0.6)
+Full set of changes: [`v0.0.5...v0.0.6`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.0.5...v0.0.6)
 
 ## v0.0.5 (2020-09-14)
 
 
-Full set of changes: [`v0.0.4...v0.0.5`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.4...v0.0.5)
+Full set of changes: [`v0.0.4...v0.0.5`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.0.4...v0.0.5)
 
 ## v0.0.4 (2020-06-04)
 
 
-Full set of changes: [`v0.0.3...v0.0.4`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.3...v0.0.4)
+Full set of changes: [`v0.0.3...v0.0.4`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.0.3...v0.0.4)
 
 ## v0.0.3 (2020-05-07)
 
 
-Full set of changes: [`v0.0.2...v0.0.3`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.2...v0.0.3)
+Full set of changes: [`v0.0.2...v0.0.3`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.0.2...v0.0.3)
 
 ## v0.0.2 (2020-04-20)
 

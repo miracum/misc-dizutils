@@ -81,6 +81,6 @@ query_database <-
       ))
     }
     if (close_connection) {
-      RPostgres::dbDisconnect(conn = db_con)
+      close_connection(conn = db_con)
     }
   }

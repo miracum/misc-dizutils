@@ -10,6 +10,9 @@ rep2(x, n, ...)
 \item{x}{The object to repeat}
 
 \item{n}{The amount how often the object should be repeated}
+
+\item{...}{Further arguments passed to `paste` (see `help("paste")` for
+more information).}
 }
 \value{
 The result from

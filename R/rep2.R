@@ -21,6 +21,9 @@
 #'
 #' @param x The object to repeat
 #' @param n The amount how often the object should be repeated
+#' @param ... Further arguments passed to `paste` (see `help("paste")` for
+#'   more information).
+#'
 #' @inheritParams paste
 #'
 #' @return The result from
