@@ -2,11 +2,14 @@
 
 ## Unreleased (2022-02-01)
 
+#### Fixes
+
+* replace paste with file.path for contactating file paths
 #### Others
 
 * moved news.md to .rbuildignore
 
-Full set of changes: [`v0.0.11...9c6d85e`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.11...9c6d85e)
+Full set of changes: [`v0.0.11...e379ab6`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.11...e379ab6)
 
 ## v0.0.11 (2022-02-01)
 

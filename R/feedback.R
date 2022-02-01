@@ -309,7 +309,7 @@ feedback_to_logfile <-
     res <- paste0("[", Sys.time(), "] ", res, "\n")
 
     logfile_dir <- DIZutils::clean_path_name(pathname = logfile_dir,
-                                             remove.slash = FALSE)
+                                             remove.slash = TRUE)
 
     if (rapportools::is.empty(logfile_dir)) {
       DIZutils::feedback(
@@ -376,7 +376,7 @@ feedback_get_formatted_string <-
 #'
 cleanup_old_logfile <- function(logfile_dir) {
   logfile_dir <-
-    clean_path_name(pathname = logfile_dir, remove.slash = FALSE)
+    clean_path_name(pathname = logfile_dir, remove.slash = TRUE)
   path_with_file <- file.path(logfile_dir, "logfile.log")
   # Check if logfile.log is already the logfile for this session:
   if (isTRUE(file.exists(path_with_file))) {
@@ -384,7 +384,7 @@ cleanup_old_logfile <- function(logfile_dir) {
     ## logfile_2020-01-01-1234h:
     filename_datetime <- format(Sys.time(), "%Y-%m-%d-%H%M%OS")
     path_with_file_datetime <-
-      file.path(logfile_dir, "logfile_", filename_datetime, ".log")
+      file.path(logfile_dir, paste0("logfile_", filename_datetime, ".log"))
     file.rename(from = path_with_file, to = path_with_file_datetime)
     ## ... and create a new logfile:
     file.create(path_with_file)
