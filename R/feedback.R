@@ -323,7 +323,7 @@ feedback_to_logfile <-
       logfile_dir <- tempdir()
     }
 
-    path_with_file <- paste0(logfile_dir, "logfile.log")
+    path_with_file <- file.path(logfile_dir, "logfile.log")
 
     # Open the connection to the logfile:
     log_con <- file(path_with_file, open = "a")
@@ -377,14 +377,14 @@ feedback_get_formatted_string <-
 cleanup_old_logfile <- function(logfile_dir) {
   logfile_dir <-
     clean_path_name(pathname = logfile_dir, remove.slash = FALSE)
-  path_with_file <- paste0(logfile_dir, "logfile.log")
+  path_with_file <- file.path(logfile_dir, "logfile.log")
   # Check if logfile.log is already the logfile for this session:
   if (isTRUE(file.exists(path_with_file))) {
     ## There is an old logfile, so rename the logfile.log to
     ## logfile_2020-01-01-1234h:
     filename_datetime <- format(Sys.time(), "%Y-%m-%d-%H%M%OS")
     path_with_file_datetime <-
-      paste0(logfile_dir, "logfile_", filename_datetime, ".log")
+      file.path(logfile_dir, "logfile_", filename_datetime, ".log")
     file.rename(from = path_with_file, to = path_with_file_datetime)
     ## ... and create a new logfile:
     file.create(path_with_file)

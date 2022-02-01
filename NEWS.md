@@ -1,5 +1,13 @@
 # DIZutils NEWS
 
+## Unreleased (2022-02-01)
+
+#### Others
+
+* moved news.md to .rbuildignore
+
+Full set of changes: [`v0.0.11...9c6d85e`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.11...9c6d85e)
+
 ## v0.0.11 (2022-02-01)
 
 #### New Features
