@@ -24,8 +24,6 @@
 #' @param ... Further arguments passed to `paste` (see `help("paste")` for
 #'   more information).
 #'
-#' @inheritParams paste
-#'
 #' @return The result from
 #'   `paste(rep(x, n), sep = sep, collapse = collapse)`
 #' @examples
