@@ -1,4 +1,5 @@
 ## R CMD check results
 There were no ERRORs or WARNINGs.
 
-Latest commit fixed issued with file detritus in temp-dir of downstream package (DQAstats)
+Latest commit fixed issued with downstream CRAN-checks (file detritus in 
+temp-dir of package DQAstats).

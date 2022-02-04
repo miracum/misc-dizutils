@@ -4,6 +4,7 @@
 
 #### Fixes
 
+* added normalize path and magrittr pipe
 * fixed path concatenation for logfiles
 * replace paste with file.path for contactating file paths
 #### Docs
@@ -11,11 +12,12 @@
 * revised rep2 documentation
 #### Others
 
+* updated cran comments
 * moving db-dependencies back to imports
 * moved news.md to .rbuildignore
 * added unit test for feedback function
 
-Full set of changes: [`v0.0.11...b0b7171`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.11...b0b7171)
+Full set of changes: [`v0.0.11...a39c6a6`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.11...a39c6a6)
 
 ## v0.0.11 (2022-02-01)
 
