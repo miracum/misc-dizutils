@@ -1,15 +1,20 @@
 # DIZutils NEWS
 
-## Unreleased (2022-02-01)
+## Unreleased (2022-02-04)
 
 #### Fixes
 
+* fixed path concatenation for logfiles
 * replace paste with file.path for contactating file paths
+#### Docs
+
+* revised rep2 documentation
 #### Others
 
 * moved news.md to .rbuildignore
+* added unit test for feedback function
 
-Full set of changes: [`v0.0.11...e379ab6`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.11...e379ab6)
+Full set of changes: [`v0.0.11...ffbb981`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.11...ffbb981)
 
 ## v0.0.11 (2022-02-01)
 

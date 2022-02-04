@@ -38,7 +38,7 @@ my_desc$del("Maintainer")
 my_desc$del("LazyData")
 
 # Set the version
-my_desc$set_version("0.0.11.9002")
+my_desc$set_version("0.0.12")
 
 # The title of your package
 my_desc$set(Title = "Utilities for 'DIZ' R Package Development")
@@ -115,14 +115,15 @@ usethis::use_package("shiny", type = "Imports")
 usethis::use_package("shinyjs", type = "Imports")
 ## For xml_to_json:
 usethis::use_package("xml2", type = "Imports")
+## Databases
+usethis::use_package("RPostgres", type = "Imports")
+usethis::use_package("DBI", type = "Imports", min_version = "1.1.0")
+usethis::use_package("RJDBC", type = "Imports")
 
 
 ## Suggests
 usethis::use_package("testthat", type = "Suggests")
 usethis::use_package("lintr", type = "Suggests")
-usethis::use_package("RPostgres", type = "Suggests")
-usethis::use_package("DBI", type = "Suggests", min_version = "1.1.0")
-usethis::use_package("RJDBC", type = "Suggests")
 
 
 ## buildignore
