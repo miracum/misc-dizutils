@@ -25,6 +25,7 @@ Imports:
     data.table,
     DBI (>= 1.1.0),
     Hmisc,
+    magrittr,
     parsedate,
     psych,
     rapportools,

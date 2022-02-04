@@ -323,7 +323,8 @@ feedback_to_logfile <-
       logfile_dir <- tempdir()
     }
 
-    path_with_file <- file.path(logfile_dir, "logfile.log")
+    path_with_file <- file.path(logfile_dir, "logfile.log") %>%
+      normalizePath()
 
     # Open the connection to the logfile:
     log_con <- file(path_with_file, open = "a")
@@ -367,6 +368,8 @@ feedback_get_formatted_string <-
 #'   and renames it (if existing) to "logfile_20xx-xx-xx-xxxxxx.log".
 #'   Then a new, empty, logfile "logfile.log" is created.
 #'
+#' @importFrom magrittr "%>%"
+#'
 #' @inheritParams feedback
 #' @return No return value, called for side effects (see description)
 #' @examples
@@ -377,14 +380,18 @@ feedback_get_formatted_string <-
 cleanup_old_logfile <- function(logfile_dir) {
   logfile_dir <-
     clean_path_name(pathname = logfile_dir, remove.slash = TRUE)
-  path_with_file <- file.path(logfile_dir, "logfile.log")
+  path_with_file <- file.path(logfile_dir, "logfile.log") %>%
+    normalizePath()
   # Check if logfile.log is already the logfile for this session:
   if (isTRUE(file.exists(path_with_file))) {
     ## There is an old logfile, so rename the logfile.log to
     ## logfile_2020-01-01-1234h:
     filename_datetime <- format(Sys.time(), "%Y-%m-%d-%H%M%OS")
-    path_with_file_datetime <-
-      file.path(logfile_dir, paste0("logfile_", filename_datetime, ".log"))
+    path_with_file_datetime <- file.path(
+      logfile_dir,
+      paste0("logfile_", filename_datetime, ".log")
+    ) %>%
+      normalizePath()
     file.rename(from = path_with_file, to = path_with_file_datetime)
     ## ... and create a new logfile:
     file.create(path_with_file)

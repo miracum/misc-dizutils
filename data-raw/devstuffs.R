@@ -100,6 +100,7 @@ usethis::use_package("R", min_version = "3.1.0", type = "Depends")
 
 ## Imports
 usethis::use_package("config", type = "Imports")
+usethis::use_package("magrittr", type = "Imports")
 usethis::use_package("data.table", type = "Imports")
 ## For `combine_stats`:
 usethis::use_package("Hmisc", type = "Imports")
