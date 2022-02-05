@@ -20,8 +20,6 @@
 #'   or databases. This closes ALL connections. Not just the ones
 #'   opened by this package.
 #'
-#' @inheritParams feedback
-#'
 #' @return No return value, called for side effects (see description)
 #' @examples
 #' \donttest{
@@ -32,10 +30,6 @@
 #' @export
 #'
 close_all_connections <-
-  function(logfile_dir = tempdir(),
-           headless = TRUE) {
-    DIZtools::close_all_connections(
-      logfile_dir = logfile_dir,
-      headless = headless
-    )
+  function() {
+    DIZtools::close_all_connections()
   }

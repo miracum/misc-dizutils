@@ -4,15 +4,7 @@
 \alias{close_all_connections}
 \title{Cleanup function to unset/close all open connections}
 \usage{
-close_all_connections(logfile_dir = tempdir(), headless = TRUE)
-}
-\arguments{
-\item{logfile_dir}{(Optional, String, default: "tempdir()")
-The absolute path to folder where the logfile will be stored.}
-
-\item{headless}{(Optional, Boolean, default: TRUE)
-Indicating, if the function is run only in the console (headless = TRUE)
-or on a GUI frontend (headless = FALSE).}
+close_all_connections()
 }
 \value{
 No return value, called for side effects (see description)
