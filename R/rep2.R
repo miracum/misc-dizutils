@@ -19,10 +19,7 @@
 #'   The base `rep("ha", 3)` function does not support arguments like
 #'   `collapse` or `sep` like `paste(...)`. `rep2` closes this gap.
 #'
-#' @param x The object to repeat
-#' @param n The amount how often the object should be repeated
-#' @param ... Further arguments passed to `paste` (see `help("paste")` for
-#'   more information).
+#' @inheritParams DIZtools::rep2
 #'
 #' @return The result from
 #'   `paste(rep(x, n), sep = sep, collapse = collapse)`
@@ -40,5 +37,10 @@
 #' @export
 #'
 rep2 <- function(x, n, ...) {
-  return(paste(rep(x, n), ...))
+  DIZtools::rep2(
+    x = x,
+    n = n,
+    ... = ...
+  ) %>%
+    return()
 }

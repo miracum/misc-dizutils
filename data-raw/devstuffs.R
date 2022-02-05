@@ -38,7 +38,7 @@ my_desc$del("Maintainer")
 my_desc$del("LazyData")
 
 # Set the version
-my_desc$set_version("0.0.12.9001")
+my_desc$set_version("0.0.12.9002")
 
 # The title of your package
 my_desc$set(Title = "Utilities for 'DIZ' R Package Development")
@@ -97,15 +97,13 @@ my_desc$write(file = "DESCRIPTION")
 
 # Depends
 usethis::use_package("R", min_version = "3.1.0", type = "Depends")
-usethis::use_package("DIZtools", type = "Depends")
 
 ## Imports
 usethis::use_package("magrittr", type = "Imports")
+usethis::use_package("DIZtools", type = "Imports")
 usethis::use_package("data.table", type = "Imports")
 ## For `combine_stats`:
 usethis::use_package("Hmisc", type = "Imports")
-## For `format_POSIXct`:
-usethis::use_package("parsedate", type = "Imports")
 ## For `combine_stats`:
 usethis::use_package("psych", type = "Imports")
 ## For xml_to_json:

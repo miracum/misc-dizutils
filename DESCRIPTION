@@ -1,6 +1,6 @@
 Package: DIZutils
 Title: Utilities for 'DIZ' R Package Development
-Version: 0.0.12.9001
+Version: 0.0.12.9002
 Date: 2022-02-05
 Authors@R: c(
     person("Jonathan M.", "Mang", , "jonathan.mang@uk-erlangen.de", role = c("aut", "cre"),
@@ -19,14 +19,13 @@ License: GPL-3
 URL: https://github.com/miracum/misc-dizutils
 BugReports: https://github.com/miracum/misc-dizutils/issues
 Depends: 
-    DIZtools,
     R (>= 3.1.0)
 Imports: 
     data.table,
     DBI (>= 1.1.0),
+    DIZtools,
     Hmisc,
     magrittr,
-    parsedate,
     psych,
     RJDBC,
     RJSONIO,

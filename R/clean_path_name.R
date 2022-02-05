@@ -16,12 +16,10 @@
 
 #' @title clean_path_name helper function
 #'
-#' @description Function to clean paths to surely have a tailing slash or not
+#' @description Function to clean paths to surely have a tailing slash or not.
 #'
-#' @param pathname A character string. A path name to be cleaned
-#'   (to have a tailing slash or not).
-#' @param remove.slash (boolean) Default: FALSE. Should the result
-#'   contain the tailing slash or remove it?
+#' @inheritParams DIZtools::clean_path
+#'
 #' @return The result is the input but with an tailing slash.
 #'
 #'

@@ -21,9 +21,7 @@
 #'   variable beeing accessible via `Sys.getenv(...)`, use the function
 #'   `DIZutils::setenv2(key = "varname", val = 7)`.
 #'
-#' @param key A character (!) string. The name of the assigned variable
-#' @param val An object. The object that will be assigned to 'key'.
-#' @param pos An integer. The position of the environment (default: 1).
+#' @inheritParams DIZtools::assign_to_R_env
 #'
 #' @seealso \url{http://adv-r.had.co.nz/Environments.html}
 #' @return No return value, called for side effects (see description).

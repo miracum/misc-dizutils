@@ -19,10 +19,8 @@
 #' @description Function to quickly get the current timestamp without
 #'   need to handle format-options etc.
 #'
-#' @param no_spaces Boolean. Default = `FALSE`. Specifies wether the output
-#'   can contain spaces or not. E.g. if the output is for human reading,
-#'   `no_spaces = FALSE` is a good option. As suffix for filenames
-#'   (e.g. logfiles), `no_spaces = TRUE` might be a good option.
+#' @inheritParams DIZtools::get_current_timestamp
+#'
 #' @return The current timestamp in always the same format.
 #'#'
 #' @examples
@@ -36,9 +34,6 @@
 #' @export
 #'
 get_current_timestamp <- function(no_spaces = FALSE) {
-  if (no_spaces) {
-    return(format(Sys.time(), format = "%Y-%m-%d-%H%M%S"))
-  } else {
-    return(format(Sys.time(), format = "%d.%m.%Y - %H:%M UTC"))
-  }
+  DIZtools::get_current_timestamp(no_spaces = no_spaces) %>%
+    return()
 }

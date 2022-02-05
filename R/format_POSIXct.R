@@ -19,15 +19,8 @@
 #'
 #' @description See title.
 #'
-#' @param x The POSIXct timestamp or a string to be automatically
-#'   converted to a POSIXct timestamp.
-#' @param lang (Optional, String, Default = "en") The language of the result.
-#'   Currently implemented: "en"/"de". If you supply another not yet
-#'   implemented language here, "en" will be chosen automatically.
-#' @param date (Optional, Boolean, Default = TRUE) Should the date be part
-#'   of the result string?
-#' @param time (Optional, Boolean, Default = TRUE) Should the time be part
-#'   of the result string?
+#' @inheritParams DIZtools::format_posixct
+#'
 #' @return (String) The formatted timestamp as a string.
 #' @examples
 #' \dontrun{
@@ -43,30 +36,11 @@ format_posixct <- function(x,
                            lang = "en",
                            date = TRUE,
                            time = TRUE) {
-  x <- parsedate::parse_date(dates = x, approx = FALSE)
-  res <- ""
-  seperator <- ", "
-  if (lang == "de") {
-    if (date) {
-      res <- format(x = x, format = "%d.%m.%Y")
-    }
-    if (date && time) {
-      res <- paste0(res, seperator)
-    }
-    if (time) {
-      res <- paste0(res, format(x = x, format = "%H:%M:%S"))
-    }
-  } else {
-    ## Default: Lang = "en" (or anything not-defined)
-    if (date) {
-      res <- format(x = x, format = "%Y-%m-%d")
-    }
-    if (date && time) {
-      res <- paste0(res, seperator)
-    }
-    if (time) {
-      res <- paste0(res, format(x = x, format = "%H:%M:%S"))
-    }
-  }
-  return(res)
+  DIZtools::format_posixct(
+    x = x,
+    lang = lang,
+    date = date,
+    time = time
+  ) %>%
+    return()
 }

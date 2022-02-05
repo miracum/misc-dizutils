@@ -18,14 +18,13 @@
 #'
 #' @description Checks if a string matches a given date format.
 #'
-#' @param date The list applied from rv$restricting_date
-#' @param format The format paramters. See `?strptime` for parameter infos.
+#' @inheritParams DIZtools::is_date_format
 #'
 #' @return TRUE/FALSE
 #'
 #' @export
 #'
 is_date_format <- function(date, format) {
-  formatted <- try(as.Date(date, format), silent = TRUE)
-  return(DIZutils::equals2(as.character(formatted), date))
+  DIZtools::is_date_format(date = date, format = format) %>%
+    return()
 }

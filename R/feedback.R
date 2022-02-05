@@ -23,38 +23,9 @@
 #'   If no output is selected, the print_this string will be printed to the
 #'   console and to logfile.
 #'   One of these must be a string with length > 0: print_me, console, ui
-#' @param print_this (Optional, String, default: "")
-#' @param type (Optional, String, default: "Info")
-#'   E.g. "Warning", "Error". Default: "Info"
-#' @param ui (Optional, Boolean/String, default: FALSE)
-#'   If true, the message will also be printed to the user in form of a modal.
-#'   Can also be a string.
-#' @param console (Optional, Boolean/String, default: TRUE)
-#'   If true, the message will also be printed to the console as is.
-#'   Can also be a string.
-#' @param logfile (Optional, Boolean, default: TRUE)
-#'   If true (default) the print_this string will also be printed
-#'   to the console.
-#' @param logjs (Optional, Boolean, default: FALSE)
-#'   If true (default: false) the print_this
-#'   string will also be printed to the javascript-console.
-#'   This only makes sense, if the gui is active.
-#' @param prefix Prefix (Optional, String, default: "")
-#'   This is useful if print_this is an array/list.
-#'   Each entry will then be new row with this prefix.
-#' @param suffix Suffix (Optional, String, default: "")
-#'   Same like prefix but at the end of each line.
-#' @param findme (Optional, String, default: "")
-#'   Recommended with length 10.
-#'   String to find the message in the code.
-#'   E.g. 10-digit random hex from
-#'   (<https://www.browserling.com/tools/random-hex>) or
-#'   (<https://onlinerandomtools.com/generate-random-hexadecimal-numbers>)
-#' @param logfile_dir (Optional, String, default: "tempdir()")
-#'   The absolute path to folder where the logfile will be stored.
-#' @param headless (Optional, Boolean, default: TRUE)
-#'   Indicating, if the function is run only in the console (headless = TRUE)
-#'   or on a GUI frontend (headless = FALSE).
+#'
+#' @inheritParams DIZtools::feedback
+#'
 #' @return No return value, called for publishing a message.
 #' @examples
 #' feedback(
@@ -89,7 +60,7 @@ feedback <-
       prefix = prefix,
       suffix = suffix,
       findme = findme,
-      logfile_dir = logfile,
+      logfile_dir = logfile_dir,
       headless = headless
     )
   }
@@ -101,9 +72,9 @@ feedback <-
 #'   Then a new, empty, logfile "logfile.log" is created.
 #'
 #' @importFrom magrittr "%>%"
-#' @import DIZtools
 #'
-#' @inheritParams feedback
+#' @inheritParams DIZtools::cleanup_old_logfile
+#'
 #' @return No return value, called for side effects (see description)
 #' @examples
 #' cleanup_old_logfile("path/to/logfile/dir/")

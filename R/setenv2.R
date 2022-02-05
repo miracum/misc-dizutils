@@ -22,8 +22,7 @@
 #'   `DIZutils::setenv2(key = var.name, val = var.value)` will create
 #'   `testname = 7` in the system environment.
 #'
-#' @param key A character (!) string. The name of the assigned variable
-#' @param val An object. The object that will be assigned to 'key'.
+#' @inheritParams DIZtools::setenv2
 #'
 #' @return No return value, called for side effects (see description).
 #' @seealso \url{https://stackoverflow.com/a/12533155}

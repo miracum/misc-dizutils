@@ -21,6 +21,7 @@
 #'   opened by this package.
 #'
 #' @inheritParams feedback
+#'
 #' @return No return value, called for side effects (see description)
 #' @examples
 #' \donttest{

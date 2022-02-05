@@ -28,8 +28,8 @@
 #'   will be the same. Only the order of the elements inside the output
 #'   differs.
 #'
-#' @param vec1 First vector
-#' @param vec2 Second vector
+#' @inheritParams DIZtools::setdiff_all
+#'
 #' @return The difference between both vectors.
 #'
 #' @examples
@@ -45,5 +45,9 @@
 #' @export
 #'
 setdiff_all <- function(vec1, vec2) {
-  return(setdiff(union(vec1, vec2), intersect(vec1, vec2)))
+  DIZtools::setdiff_all(
+    vec1 = vec1,
+    vec2 = vec2
+  ) %>%
+    return()
 }

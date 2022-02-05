@@ -17,7 +17,7 @@ contain the tailing slash or remove it?}
 The result is the input but with an tailing slash.
 }
 \description{
-Function to clean paths to surely have a tailing slash or not
+Function to clean paths to surely have a tailing slash or not.
 }
 \examples{
 # Both function calls will return "home/test/"
