@@ -79,287 +79,19 @@ feedback <-
            findme = "",
            logfile_dir = tempdir(),
            headless = TRUE) {
-    # Make the first letter of type Uppercase:
-    type <- firstup(type)
-
-    # If the gui is active, show the message to the user.
-    # If its an error message, also show the error messages in the gui
-    # even if the user did not explicitly said it should be displayed
-    # in the gui
-    if (isTRUE(ui) ||
-        (isFALSE(headless) &&
-         isTRUE(type == "Error") && isFALSE(ui))) {
-      feedback_to_ui(
-        print_this = print_this,
-        type = type,
-        logfile_dir = logfile_dir,
-        headless = headless
-      )
-    }
-
-    if ((isTRUE(console) && isFALSE(print_this == "")) ||
-        (isTRUE(typeof(console) == "character"))) {
-      feedback_to_console(
-        print_this = print_this,
-        type = type,
-        findme = findme,
-        prefix = prefix,
-        suffix = suffix,
-        logjs = logjs,
-        logfile_dir = logfile_dir,
-        headless = headless
-      )
-    }
-
-    # If there is text defined in 'ui' and/or 'console', print this one
-    # (this is uesful if one will provide both, feedback to the ui AND
-    # feedback to the console but with different texts).
-    # Hint: Everything printed to the console will also
-    #       be printed to the logfile.
-    if (isTRUE(typeof(ui) == "character")) {
-      feedback_to_ui(
-        print_this = print_this,
-        type = type,
-        logfile_dir = logfile_dir,
-        headless = headless
-      )
-    }
-  }
-
-#' @title Print to the console. Internal use only.
-#' @description  Helper function for the feedback function to print
-#'   stuff to the console. Everything will also be added to the logfile.
-#'   Internal use. Use the robust 'feedback' function instead.
-#'
-#' @inheritParams feedback
-#' @return No return value, called for side effects (see description)
-#'
-feedback_to_console <-
-  function(print_this,
-           type,
-           findme,
-           prefix,
-           suffix,
-           logjs,
-           logfile_dir,
-           headless = TRUE) {
-    if (length(print_this) == 1) {
-      res <-
-        feedback_get_formatted_string(
-          print_this = print_this,
-          type = type,
-          findme = findme,
-          prefix = prefix,
-          suffix = suffix
-        )
-      # To console:
-      message(res)
-      # To logjs:
-      if (isTRUE(logjs)) {
-        feedback_to_logjs(
-          print_this = res,
-          logfile_dir = logfile_dir,
-          headless = headless
-        )
-      }
-      # To logfile:
-      feedback_to_logfile(
-        print_this = print_this,
-        type = type,
-        findme = findme,
-        prefix = prefix,
-        suffix = suffix,
-        logfile_dir
-      )
-    } else if (length(print_this) > 1) {
-      i <- 1
-      for (tmp in print_this) {
-        res <-
-          feedback_get_formatted_string(
-            print_this = tmp,
-            type = type,
-            findme = findme,
-            prefix = paste0(prefix, i, ": "),
-            suffix = suffix
-          )
-        # To console:
-        message(res)
-        # To logjs:
-        if (isTRUE(logjs)) {
-          feedback_to_logjs(
-            print_this = res,
-            logfile_dir = logfile_dir,
-            headless = headless
-          )
-        }
-        # To logfile:
-        feedback_to_logfile(
-          print_this = tmp,
-          type = type,
-          findme = findme,
-          prefix = prefix,
-          suffix = suffix,
-          logfile_dir
-        )
-        i <- i + 1
-      }
-    }
-  }
-
-#' @title Feedback to the user with a modal. Internal use.
-#' @description  Helper function for the feedback function to show modals
-#'   to the gui/user. Everything will also be added to the logfile.
-#'   Internal use. Use the robust 'feedback' function instead.
-#' @inheritParams feedback
-#' @return No return value, called for side effects (see description)
-#'
-feedback_to_ui <-
-  function(print_this, type, logfile_dir, headless = FALSE) {
-    catch_msg <- paste0("Something went wrong while trying",
-                        " to show feedback to the UI.",
-                        " Are you sure the GUI is running? ")
-    tryCatch({
-      if (isTRUE(type == "Error")) {
-        title <- "Sorry, an error has occured"
-      } else {
-        title <- type
-      }
-      shiny::showModal(shiny::modalDialog(title = title,
-                                          easyClose = TRUE,
-                                          print_this))
-    },
-    error = function(cond) {
-      feedback(
-        print_this = paste0(catch_msg, cond),
-        type = "Error",
-        findme = "58eb015c10",
-        logfile_dir = logfile_dir,
-        headless = headless
-      )
-    },
-    warning = function(cond) {
-      feedback(
-        print_this = paste0(catch_msg, cond),
-        type = "Warning",
-        findme = "ef7fa319a5",
-        logfile_dir = logfile_dir,
-        headless = headless
-      )
-    })
-  }
-
-#' @title Feedback to the gui/browser-console with logjs. Internal use.
-#' @description  Helper function for the feedback function to also show the
-#'   messages to the gui/user via the browser console.
-#'   Internal use. Use the robust 'feedback' function instead.
-#' @inheritParams feedback
-#' @return No return value, called for side effects (see description)
-#'
-feedback_to_logjs <- function(print_this, logfile_dir, headless) {
-  catch_msg <- paste0("Something went wrong while trying",
-                      " to print feedback to the browser console: ")
-  tryCatch({
-    shinyjs::logjs(print_this)
-  },
-  error = function(cond) {
-    feedback(
-      print_this = paste0(catch_msg, cond),
-      type = "Error",
-      findme = "2e68833975",
-      logfile_dir = logfile_dir,
-      headless = headless
-    )
-  },
-  warning = function(cond) {
-    feedback(
-      print_this = paste0(catch_msg, cond),
-      type = "Warning",
-      findme = "f3600cc9d2",
-      logfile_dir = logfile_dir,
-      headless = headless
-    )
-  })
-}
-
-#' @title Add to the logfile. Internal use.
-#' @description  Helper function for the feedback function to add content
-#'   to the logfile. Internal use.
-#'   Use the robust 'feedback' function instead.
-#' @inheritParams feedback
-#' @return No return value, called for side effects (see description)
-#'
-feedback_to_logfile <-
-  function(print_this,
-           type,
-           findme,
-           prefix,
-           suffix,
-           logfile_dir) {
-    # Get the formatted string out of the parameters which looks like
-    # "[Info] System is running (1234567890)":
-    res <- feedback_get_formatted_string(
+    DIZtools::feedback(
       print_this = print_this,
       type = type,
-      findme = findme,
+      ui = ui,
+      console = console,
+      logfile = logfile,
+      logjs = logjs,
       prefix = prefix,
-      suffix = suffix
+      suffix = suffix,
+      findme = findme,
+      logfile_dir = logfile,
+      headless = headless
     )
-    # Set the string for the logfile containing the current time and date
-    # and a linebreak at the end:
-    res <- paste0("[", Sys.time(), "] ", res, "\n")
-
-    logfile_dir <- DIZutils::clean_path_name(pathname = logfile_dir,
-                                             remove.slash = TRUE)
-
-    if (rapportools::is.empty(logfile_dir)) {
-      DIZutils::feedback(
-        print_this = paste0(
-          "'logfile_dir' was empty and automatically",
-          " switched to 'tempdir()' in the previous log-entry."
-        ),
-        type = "Warning",
-        findme = "215d74c51d"
-      )
-      logfile_dir <- tempdir()
-    }
-
-    path_with_file <- file.path(logfile_dir, "logfile.log") %>%
-      normalizePath()
-
-    # Open the connection to the logfile:
-    log_con <- file(path_with_file, open = "a")
-    # Write to the logfile:
-    cat(res, file = log_con)
-    # Close the connection to logfile:
-    close(log_con)
-  }
-
-
-#' @title Format the feedback string
-#' @description  Helper function for the feedback function to combine the input
-#'   parameters in proper manner to ge a pretty and informative string which
-#'   than can be added to the logfile and/or be displayed in the console.
-#'   CAUTION: 'print_this' must be of length 1! For arrays loop through them
-#'   by hand and call this function several times!
-#'   Internal use. Use the robust 'feedback' function instead.
-#' @inheritParams feedback
-#' @return Returns a properly an consistent formatted string containing
-#'   the parameters handed over to this function.
-#'
-feedback_get_formatted_string <-
-  function(print_this, type, findme, prefix, suffix) {
-    if (length(print_this) == 1) {
-      if (findme == "") {
-        res <- paste0("[", type, "] ", prefix, print_this, suffix)
-      } else {
-        res <- paste0("[", type, "] ",
-                      prefix, print_this, suffix, " (", findme, ")")
-      }
-    } else {
-      res <- paste0("Length of input 'print_this' is not == 1. ",
-                    "See function description. (55a445fe57)")
-    }
-    return(res)
   }
 
 #' @title Archives the current logfile and creates a new blank one.
@@ -369,6 +101,7 @@ feedback_get_formatted_string <-
 #'   Then a new, empty, logfile "logfile.log" is created.
 #'
 #' @importFrom magrittr "%>%"
+#' @import DIZtools
 #'
 #' @inheritParams feedback
 #' @return No return value, called for side effects (see description)
@@ -378,22 +111,5 @@ feedback_get_formatted_string <-
 #' @export
 #'
 cleanup_old_logfile <- function(logfile_dir) {
-  logfile_dir <-
-    clean_path_name(pathname = logfile_dir, remove.slash = TRUE)
-  path_with_file <- file.path(logfile_dir, "logfile.log") %>%
-    normalizePath()
-  # Check if logfile.log is already the logfile for this session:
-  if (isTRUE(file.exists(path_with_file))) {
-    ## There is an old logfile, so rename the logfile.log to
-    ## logfile_2020-01-01-1234h:
-    filename_datetime <- format(Sys.time(), "%Y-%m-%d-%H%M%OS")
-    path_with_file_datetime <- file.path(
-      logfile_dir,
-      paste0("logfile_", filename_datetime, ".log")
-    ) %>%
-      normalizePath()
-    file.rename(from = path_with_file, to = path_with_file_datetime)
-    ## ... and create a new logfile:
-    file.create(path_with_file)
-  }
+  DIZtools::cleanup_old_logfile(logfile_dir = logfile_dir)
 }

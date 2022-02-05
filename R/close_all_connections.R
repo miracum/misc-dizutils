@@ -33,16 +33,7 @@
 close_all_connections <-
   function(logfile_dir = tempdir(),
            headless = TRUE) {
-    feedback(
-      "Doing application cleanup",
-      findme = "8b224d503c",
-      logfile_dir = logfile_dir,
-      headless = headless
-    )
-    closeAllConnections()
-    feedback(
-      "Closed all file/database connections.",
-      findme = "0c5cb72ecc",
+    DIZtools::close_all_connections(
       logfile_dir = logfile_dir,
       headless = headless
     )

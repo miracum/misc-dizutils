@@ -38,7 +38,7 @@ my_desc$del("Maintainer")
 my_desc$del("LazyData")
 
 # Set the version
-my_desc$set_version("0.0.12")
+my_desc$set_version("0.0.12.9001")
 
 # The title of your package
 my_desc$set(Title = "Utilities for 'DIZ' R Package Development")
@@ -97,9 +97,9 @@ my_desc$write(file = "DESCRIPTION")
 
 # Depends
 usethis::use_package("R", min_version = "3.1.0", type = "Depends")
+usethis::use_package("DIZtools", type = "Depends")
 
 ## Imports
-usethis::use_package("config", type = "Imports")
 usethis::use_package("magrittr", type = "Imports")
 usethis::use_package("data.table", type = "Imports")
 ## For `combine_stats`:
@@ -108,12 +108,8 @@ usethis::use_package("Hmisc", type = "Imports")
 usethis::use_package("parsedate", type = "Imports")
 ## For `combine_stats`:
 usethis::use_package("psych", type = "Imports")
-## For `feedback`:
-usethis::use_package("rapportools", type = "Imports")
 ## For xml_to_json:
 usethis::use_package("RJSONIO", type = "Imports")
-usethis::use_package("shiny", type = "Imports")
-usethis::use_package("shinyjs", type = "Imports")
 ## For xml_to_json:
 usethis::use_package("xml2", type = "Imports")
 ## Databases
@@ -125,6 +121,20 @@ usethis::use_package("RJDBC", type = "Imports")
 ## Suggests
 usethis::use_package("testthat", type = "Suggests")
 usethis::use_package("lintr", type = "Suggests")
+
+
+# Development package
+tools_tag <- "dev" # e.g. "v0.1.7", "development" or "cran"
+if (tools_tag == "cran") {
+  remotes::update_packages("DIZtools", upgrade = "always")
+} else{
+  devtools::install_github("miracum/misc-diztools", ref = tools_tag)
+  desc::desc_set_remotes(c(paste0(
+    "github::miracum/misc-diztools@", tools_tag
+  )),
+  file = usethis::proj_get())
+}
+
 
 
 ## buildignore

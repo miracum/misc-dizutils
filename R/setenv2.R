@@ -30,17 +30,17 @@
 #' @examples
 #'   var.name = "testname"
 #'   var.value = 7
-#'   
+#'
 #'   Sys.setenv(var.name = var.value)
-#'   
+#'
 #'   Sys.getenv("testname")
 #'   #> [1] ""
 #'   Sys.getenv("var.name")
 #'   #> [1] "7"
-#'   
+#'
 #'   Sys.unsetenv("var.name")
 #'   Sys.unsetenv("testname")
-#'   
+#'
 #'   DIZutils::setenv2(key = var.name, val = var.value)
 #'   Sys.getenv("testname")
 #'   #> [1] "7"
@@ -50,7 +50,5 @@
 #' @export
 #'
 setenv2 <- function(key, val) {
-  args = list(val)
-  names(args) = key
-  do.call(Sys.setenv, args)
+  DIZtools::setenv2(key = key, val = val)
 }

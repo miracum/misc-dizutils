@@ -1,6 +1,6 @@
 # DIZutils NEWS
 
-## Unreleased (2022-02-04)
+## v0.0.12 (2022-02-04)
 
 #### Fixes
 
@@ -12,13 +12,14 @@
 * revised rep2 documentation
 #### Others
 
+* updated news.md
 * updated news.md and cran-comments
 * updated cran comments
 * moving db-dependencies back to imports
 * moved news.md to .rbuildignore
 * added unit test for feedback function
 
-Full set of changes: [`v0.0.11...a5a27a7`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.11...a5a27a7)
+Full set of changes: [`v0.0.11...v0.0.12`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.11...v0.0.12)
 
 ## v0.0.11 (2022-02-01)
 

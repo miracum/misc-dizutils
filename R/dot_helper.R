@@ -14,28 +14,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#' @title clean_path_name helper function
+#' Dot Helper
 #'
-#' @description Function to clean paths to surely have a tailing slash or not
+#' https://github.com/tidyverse/magrittr/issues/29
 #'
-#' @param pathname A character string. A path name to be cleaned
-#'   (to have a tailing slash or not).
-#' @param remove.slash (boolean) Default: FALSE. Should the result
-#'   contain the tailing slash or remove it?
-#' @return The result is the input but with an tailing slash.
-#'
-#'
-#' @examples
-#' # Both function calls will return "home/test/"
-#' clean_path_name("home/test")
-#' clean_path_name("home/test/")
-#'
-#' @export
-#'
-clean_path_name <- function(pathname, remove.slash = FALSE) {
-  DIZtools::clean_path(
-    pathname = pathname,
-    remove.slash = remove.slash
-  ) %>%
-    return()
+#' @name dot_helper
+#' @keywords internal
+if (getRversion() >= "2.15.1") {
+  utils::globalVariables(c("."))
 }
