@@ -29,6 +29,7 @@
 # define %notin% function
 # nolint start
 "%notin%" <- function(x, y) {
+  .Deprecated("DIZtools::`%notin%`")
   DIZtools::`%notin%`(x = x, y = y) %>%
     return()
 }

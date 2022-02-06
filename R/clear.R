@@ -28,6 +28,7 @@
 #'
 clear <- function(keep_environment = FALSE,
                   keep_console = FALSE) {
+  .Deprecated("DIZtools::clear")
   DIZtools::clear(
     keep_environment = keep_environment,
     keep_console = keep_console

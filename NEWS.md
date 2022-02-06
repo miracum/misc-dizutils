@@ -1,15 +1,17 @@
 # DIZutils NEWS
 
-## Unreleased (2022-02-05)
+## Unreleased (2022-02-06)
 
 #### Fixes
 
+* updated function call according to diztools
+* further adjustments to depend now on diztools, which seems to work now
 * first attempts to connect to diztools; not working yet
 #### Docs
 
 * reset cran comments
 
-Full set of changes: [`v0.0.12...43cd1cc`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.12...43cd1cc)
+Full set of changes: [`v0.0.12...6ddd482`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.12...6ddd482)
 
 ## v0.0.12 (2022-02-04)
 

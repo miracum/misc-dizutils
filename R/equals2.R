@@ -52,6 +52,7 @@
 #' @export
 #'
 equals2 <- function(v1, v2) {
+  .Deprecated("DIZtools::equals2")
   DIZtools::equals2(
     v1 = v1,
     v2 = v2

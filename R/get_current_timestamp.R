@@ -34,6 +34,7 @@
 #' @export
 #'
 get_current_timestamp <- function(no_spaces = FALSE) {
+  .Deprecated("DIZtools::get_current_timestamp")
   DIZtools::get_current_timestamp(no_spaces = no_spaces) %>%
     return()
 }

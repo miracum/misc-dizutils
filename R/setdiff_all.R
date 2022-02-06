@@ -45,6 +45,7 @@
 #' @export
 #'
 setdiff_all <- function(vec1, vec2) {
+  .Deprecated("DIZtools::setdiff_all")
   DIZtools::setdiff_all(
     vec1 = vec1,
     vec2 = vec2

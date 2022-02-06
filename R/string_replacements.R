@@ -35,6 +35,7 @@ string_replacements <-
            replace_mapping = "default",
            tolower = FALSE,
            toupper = FALSE) {
+    .Deprecated("DIZtools::string_replacements")
     DIZtools::string_replacements(
       input = input,
       replace_mapping = replace_mapping,

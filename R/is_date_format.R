@@ -25,6 +25,7 @@
 #' @export
 #'
 is_date_format <- function(date, format) {
+  .Deprecated("DIZtools::is_date_format")
   DIZtools::is_date_format(date = date, format = format) %>%
     return()
 }
