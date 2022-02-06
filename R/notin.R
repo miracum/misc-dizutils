@@ -29,7 +29,9 @@
 # define %notin% function
 # nolint start
 "%notin%" <- function(x, y) {
-  .Deprecated("DIZtools::`%notin%`")
+  # do not deprecate this function as it is extensively used in
+  # downstream package DQAstats
+  #!.Deprecated("DIZtools::`%notin%`")
   DIZtools::`%notin%`(x = x, y = y) %>%
     return()
 }

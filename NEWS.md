@@ -9,9 +9,10 @@
 * first attempts to connect to diztools; not working yet
 #### Docs
 
+* added .deprecated to function calls for migration to diztools
 * reset cran comments
 
-Full set of changes: [`v0.0.12...6ddd482`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.12...6ddd482)
+Full set of changes: [`v0.0.12...cdced93`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.12...cdced93)
 
 ## v0.0.12 (2022-02-04)
 
