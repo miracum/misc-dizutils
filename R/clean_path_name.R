@@ -18,7 +18,7 @@
 #'
 #' @description Function to clean paths to surely have a tailing slash or not.
 #'
-#' @inheritParams DIZtools::clean_path
+#' @inheritParams DIZtools::clean_path_name
 #'
 #' @return The result is the input but with an tailing slash.
 #'
@@ -31,7 +31,8 @@
 #' @export
 #'
 clean_path_name <- function(pathname, remove.slash = FALSE) {
-  DIZtools::clean_path(
+  .Deprecated("DIZtools::clean_path_name()")
+  DIZtools::clean_path_name(
     pathname = pathname,
     remove.slash = remove.slash
   ) %>%

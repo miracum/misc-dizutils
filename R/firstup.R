@@ -26,7 +26,7 @@
 #' @export
 #'
 firstup <- function(x) {
-  .Deprecated("DIZtools::firstup")
+  .Deprecated("DIZtools::firstup()")
   DIZtools::firstup(x = x) %>%
     return()
 }

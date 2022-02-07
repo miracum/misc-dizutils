@@ -1,6 +1,6 @@
 # DIZutils NEWS
 
-## Unreleased (2022-02-06)
+## Unreleased (2022-02-07)
 
 #### Fixes
 
@@ -11,8 +11,11 @@
 
 * added .deprecated to function calls for migration to diztools
 * reset cran comments
+#### Others
 
-Full set of changes: [`v0.0.12...cdced93`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.12...cdced93)
+* removed deprecation of notin due to extensive usage in dqastats
+
+Full set of changes: [`v0.0.12...adad18b`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.12...adad18b)
 
 ## v0.0.12 (2022-02-04)
 
@@ -42,18 +45,27 @@ Full set of changes: [`v0.0.11...v0.0.12`](https://gitlab.miracum.org/miracum/mi
 * added close_connection wrapper function
 * added update script for `NEWS.md`
 * added function `rep2`
+#### Others
+
+* updated news.md
+* merge development
+* updated buildignore
+
+Full set of changes: [`v0.0.10...v0.0.11`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.10...v0.0.11)
+
+## v0.0.10 (2022-01-24)
+
+#### New Features
+
 * added `setenv2` as function
 #### Docs
 
 * updated copyright to 2022
 #### Others
 
-* updated news.md
-* merge development
-* updated buildignore
 * new cran version
 
-Full set of changes: [`v0.0.9...v0.0.11`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.9...v0.0.11)
+Full set of changes: [`v0.0.9...v0.0.10`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.9...v0.0.10)
 
 ## v0.0.9 (2021-12-08)
 
@@ -178,12 +190,7 @@ Full set of changes: [`v0.0.6...v0.0.7`](https://gitlab.miracum.org/miracum/misc
 * updated description; added cran-comments
 * added changelog
 
-Full set of changes: [`v0.0.5...v0.0.6`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.5...v0.0.6)
-
-## v0.0.5 (2020-09-14)
-
-
-Full set of changes: [`v0.0.4...v0.0.5`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.4...v0.0.5)
+Full set of changes: [`v0.0.4...v0.0.6`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.4...v0.0.6)
 
 ## v0.0.4 (2020-06-04)
 

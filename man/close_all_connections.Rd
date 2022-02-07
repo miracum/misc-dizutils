@@ -17,8 +17,6 @@ This function is meant to be called at the end of a
 }
 \examples{
 \donttest{
-close_all_connections(
-  logfile_dir = tempdir(),
-  headless = TRUE
-)}
+  close_all_connections()
+}
 }

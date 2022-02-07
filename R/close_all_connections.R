@@ -23,14 +23,12 @@
 #' @return No return value, called for side effects (see description)
 #' @examples
 #' \donttest{
-#' close_all_connections(
-#'   logfile_dir = tempdir(),
-#'   headless = TRUE
-#' )}
+#'   close_all_connections()
+#' }
 #' @export
 #'
 close_all_connections <-
   function() {
-    .Deprecated("DIZtools::close_all_connections")
+    .Deprecated("DIZtools::close_all_connections()")
     DIZtools::close_all_connections()
   }

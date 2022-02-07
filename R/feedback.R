@@ -50,6 +50,7 @@ feedback <-
            findme = "",
            logfile_dir = tempdir(),
            headless = TRUE) {
+    .Deprecated("DIZtools::feedback()")
     DIZtools::feedback(
       print_this = print_this,
       type = type,

@@ -25,9 +25,7 @@ Internal function to read config files
 utils_path <- tempdir()
 config <- get_config(
   config_file = paste0(utils_path, "/MISC/email.yml"),
-  config_key = "email",
-  logfile_dir = tempdir(),
-  headless = TRUE
+  config_key = "email"
 )}
 
 }

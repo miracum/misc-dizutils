@@ -49,6 +49,6 @@
 #' @export
 #'
 setenv2 <- function(key, val) {
-  .Deprecated("DIZtools::setenv2")
+  .Deprecated("DIZtools::setenv2()")
   DIZtools::setenv2(key = key, val = val)
 }

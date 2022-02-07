@@ -38,9 +38,8 @@
 global_env_hack <- function(key,
                             val,
                             pos = 1) {
-  DIZtools::assign_to_R_env(
-    key = key,
-    val = val,
-    pos = pos
-  )
+  .Deprecated("DIZtools::assign_to_R_env()")
+  DIZtools::assign_to_R_env(key = key,
+                            val = val,
+                            pos = pos)
 }
