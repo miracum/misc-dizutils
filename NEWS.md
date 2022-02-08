@@ -4,6 +4,7 @@
 
 #### Fixes
 
+* removed deprecation of get_config; updated news.md, updated description
 * managing deprecations due to ditzools on cran; add dep diztools
 * corrected references and function outsources
 * updated function call according to diztools
@@ -17,7 +18,7 @@
 
 * removed deprecation of notin due to extensive usage in dqastats
 
-Full set of changes: [`v0.0.12...e3272b4`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.12...e3272b4)
+Full set of changes: [`v0.0.12...f7523b2`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.12...f7523b2)
 
 ## v0.0.12 (2022-02-04)
 
