@@ -52,7 +52,7 @@
 #' @export
 #'
 equals2 <- function(v1, v2) {
-  .Deprecated("DIZtools::equals2()")
+  # function is required by DQAgui
   DIZtools::equals2(
     v1 = v1,
     v2 = v2

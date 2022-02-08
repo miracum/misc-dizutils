@@ -50,7 +50,7 @@ feedback <-
            findme = "",
            logfile_dir = tempdir(),
            headless = TRUE) {
-    .Deprecated("DIZtools::feedback()")
+    # function is required by DQAstats
     DIZtools::feedback(
       print_this = print_this,
       type = type,
@@ -83,5 +83,6 @@ feedback <-
 #' @export
 #'
 cleanup_old_logfile <- function(logfile_dir) {
+  # function is required by DQAstats
   DIZtools::cleanup_old_logfile(logfile_dir = logfile_dir)
 }

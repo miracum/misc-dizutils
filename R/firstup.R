@@ -26,7 +26,7 @@
 #' @export
 #'
 firstup <- function(x) {
-  .Deprecated("DIZtools::firstup()")
+  # function is required by DQAgui
   DIZtools::firstup(x = x) %>%
     return()
 }

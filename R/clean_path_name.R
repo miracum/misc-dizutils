@@ -31,7 +31,7 @@
 #' @export
 #'
 clean_path_name <- function(pathname, remove.slash = FALSE) {
-  .Deprecated("DIZtools::clean_path_name()")
+  # function is required by DQAstats
   DIZtools::clean_path_name(
     pathname = pathname,
     remove.slash = remove.slash

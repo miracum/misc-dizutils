@@ -36,7 +36,7 @@ format_posixct <- function(x,
                            lang = "en",
                            date = TRUE,
                            time = TRUE) {
-  .Deprecated("DIZtools::format_posixct()")
+  # function is required by DQAstats
   DIZtools::format_posixct(
     x = x,
     lang = lang,

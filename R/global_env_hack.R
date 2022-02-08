@@ -38,7 +38,7 @@
 global_env_hack <- function(key,
                             val,
                             pos = 1) {
-  .Deprecated("DIZtools::assign_to_R_env()")
+  # function is required by DQAstats, DQAgui, miRacumDQA
   DIZtools::assign_to_R_env(key = key,
                             val = val,
                             pos = pos)

@@ -9,7 +9,8 @@ is_date_format(date, format)
 \arguments{
 \item{date}{The list applied from rv$restricting_date}
 
-\item{format}{The format paramters. See `?strptime` for parameter infos.}
+\item{format}{The format parameters. See \code{?strptime}
+for parameter info.}
 }
 \value{
 TRUE/FALSE

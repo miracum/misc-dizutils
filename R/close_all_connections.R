@@ -29,6 +29,6 @@
 #'
 close_all_connections <-
   function() {
-    .Deprecated("DIZtools::close_all_connections()")
+    .Deprecated("DIZtools::close_all_connections")
     DIZtools::close_all_connections()
   }

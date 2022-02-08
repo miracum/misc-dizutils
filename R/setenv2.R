@@ -49,6 +49,6 @@
 #' @export
 #'
 setenv2 <- function(key, val) {
-  .Deprecated("DIZtools::setenv2()")
+  # function is required by DQAstats, DQAgui, miRacumDQA
   DIZtools::setenv2(key = key, val = val)
 }

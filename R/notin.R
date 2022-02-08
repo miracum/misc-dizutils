@@ -31,7 +31,6 @@
 "%notin%" <- function(x, y) {
   # do not deprecate this function as it is extensively used in
   # downstream package DQAstats
-  #!.Deprecated("DIZtools::`%notin%`")
   DIZtools::`%notin%`(x = x, y = y) %>%
     return()
 }

@@ -34,7 +34,7 @@
 get_config <-
   function(config_file,
            config_key) {
-    .Deprecated("DIZtools::get_config()")
+    .Deprecated("DIZtools::get_config")
     DIZtools::get_config(
       config_file = config_file,
       config_key = config_key

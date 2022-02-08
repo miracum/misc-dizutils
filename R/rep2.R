@@ -37,7 +37,7 @@
 #' @export
 #'
 rep2 <- function(x, n, ...) {
-  .Deprecated("DIZtools::rep2()")
+  .Deprecated("DIZtools::rep2")
   DIZtools::rep2(x = x,
                  n = n,
                  ... = ...) %>%

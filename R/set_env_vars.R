@@ -29,7 +29,7 @@
 #' @export
 #'
 set_env_vars <- function(env_file) {
-  .Deprecated("DIZtools::setenv_file()")
+  # function is required by DQAstats
   DIZtools::setenv_file(
     env_file = env_file
   )
