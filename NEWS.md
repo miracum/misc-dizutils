@@ -4,6 +4,7 @@
 
 #### Fixes
 
+* managing deprecations due to ditzools on cran; add dep diztools
 * corrected references and function outsources
 * updated function call according to diztools
 * further adjustments to depend now on diztools, which seems to work now
@@ -16,7 +17,7 @@
 
 * removed deprecation of notin due to extensive usage in dqastats
 
-Full set of changes: [`v0.0.12...9795381`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.12...9795381)
+Full set of changes: [`v0.0.12...e3272b4`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.12...e3272b4)
 
 ## v0.0.12 (2022-02-04)
 

@@ -34,10 +34,7 @@ Imports:
 Suggests: 
     lintr,
     testthat
-Remotes: 
-    github::miracum/misc-diztools@dev
 Encoding: UTF-8
 Language: en-US
 SystemRequirements: libpq >= 9.0: libpq-dev (deb) or postgresql-devel
     (rpm)
-RoxygenNote: 7.1.2

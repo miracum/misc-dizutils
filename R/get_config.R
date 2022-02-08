@@ -34,7 +34,7 @@
 get_config <-
   function(config_file,
            config_key) {
-    .Deprecated("DIZtools::get_config")
+    # keep function since it is used in DQAgui
     DIZtools::get_config(
       config_file = config_file,
       config_key = config_key

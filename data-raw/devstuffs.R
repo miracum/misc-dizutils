@@ -122,7 +122,7 @@ usethis::use_package("lintr", type = "Suggests")
 
 
 # Development package
-tools_tag <- "dev" # e.g. "v0.1.7", "development" or "cran"
+tools_tag <- "cran" # e.g. "v0.1.7", "development" or "cran"
 if (tools_tag == "cran") {
   remotes::update_packages("DIZtools", upgrade = "always")
 } else{
