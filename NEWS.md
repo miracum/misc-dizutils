@@ -1,6 +1,6 @@
 # DIZutils NEWS
 
-## Unreleased (2022-02-11)
+## v0.0.13 (2022-02-11)
 
 #### Fixes
 
@@ -16,10 +16,11 @@
 * reset cran comments
 #### Others
 
+* updated cran comments
 * updated description and news.md
 * removed deprecation of notin due to extensive usage in dqastats
 
-Full set of changes: [`v0.0.12...0329c96`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.12...0329c96)
+Full set of changes: [`v0.0.12...v0.0.13`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.12...v0.0.13)
 
 ## v0.0.12 (2022-02-04)
 
