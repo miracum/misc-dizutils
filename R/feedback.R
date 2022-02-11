@@ -83,6 +83,6 @@ feedback <-
 #' @export
 #'
 cleanup_old_logfile <- function(logfile_dir) {
-  # function is required by DQAstats
+  # function is required by DQAstats and DQAgui
   DIZtools::cleanup_old_logfile(logfile_dir = logfile_dir)
 }
