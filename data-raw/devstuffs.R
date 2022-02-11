@@ -176,6 +176,7 @@ usethis::use_git_ignore("!/tic.R")
 usethis::use_git_ignore("!/.github/")
 usethis::use_git_ignore("!/NEWS.md")
 usethis::use_git_ignore("!/cran-comments.md")
+usethis::use_git_ignore("/revdep")
 
 # code coverage
 # covr::package_coverage()
