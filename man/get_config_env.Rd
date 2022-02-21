@@ -19,9 +19,6 @@ This function also works if there are multiple instances like
 `I2B2_1_DBNAME` and `I2B2_2_DBNAME`. Then the result will contain
 nested lists for each occurence.}
 
-\item{logfile_dir}{(Optional, String, default: "tempdir()")
-The absolute path to folder where the logfile will be stored.}
-
 \item{headless}{A boolean (default: `FALSE`). Indicating, if the function is
 run only in the console (`headless = TRUE`) or on a GUI frontend
 (`headless = FALSE`).}

@@ -1,12 +1,15 @@
 # DIZutils NEWS
 
-## Unreleased (2022-02-11)
+## Unreleased (2022-02-21)
 
+#### Refactorings
+
+* re-introduced close_all_connections
 #### Others
 
 * updated gitignore
 
-Full set of changes: [`v0.0.13...fbdd332`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.13...fbdd332)
+Full set of changes: [`v0.0.13...54cc167`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.13...54cc167)
 
 ## v0.0.13 (2022-02-11)
 

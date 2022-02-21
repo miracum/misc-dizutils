@@ -48,8 +48,10 @@
 #' @param lib_path A character string. The path to the ojdbc*.jar file.
 #'   If you run one of the R-containers from the UK-Erlangen DIZ, there
 #'   might be a lib for oracle here: `lib_path = "/opt/libs/ojdbc8.jar"`
+#' @param logfile (Optional, Boolean, default: TRUE)
+#'   If true (default) the print_this string will also be printed
+#'   to the console.
 #'
-#' @inheritParams feedback
 #' @return If successful, the result will be the established connection.
 #'   Otherwise the result will be null.
 #' @examples
