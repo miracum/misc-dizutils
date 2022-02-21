@@ -113,6 +113,7 @@ usethis::use_package("xml2", type = "Imports")
 usethis::use_package("RPostgres", type = "Imports")
 usethis::use_package("DBI", type = "Imports", min_version = "1.1.0")
 usethis::use_package("RJDBC", type = "Imports")
+usethis::use_package("DIZtools", type = "Imports")
 
 
 ## Suggests
@@ -120,20 +121,25 @@ usethis::use_package("testthat", type = "Suggests")
 usethis::use_package("lintr", type = "Suggests")
 
 
-# Development package
+# Development packages
 tools_tag <- "cran" # e.g. "v0.1.7", "development" or "cran"
 if (tools_tag == "cran") {
   remotes::update_packages("DIZtools", upgrade = "always")
 } else{
-  devtools::install_github("miracum/misc-diztools", ref = tools_tag)
-  desc::desc_set_remotes(c(paste0(
-    "github::miracum/misc-diztools@", tools_tag
-  )),
-  file = usethis::proj_get())
+  devtools::install_git(
+    url = "https://gitlab.miracum.org/miracum/misc/diztools.git",
+    ref = tools_tag,
+    upgrade = "always",
+    quiet = TRUE
+  )
+  add_remotes <- paste0(
+    "url::https://gitlab.miracum.org/miracum/misc/diztools/-/archive/", tools_tag, "/diztools-", tools_tag, ".zip"
+  )
+  desc::desc_set_remotes(
+    add_remotes,
+    file = usethis::proj_get()
+  )
 }
-
-
-
 
 ## buildignore
 usethis::use_build_ignore("LICENSE.md")

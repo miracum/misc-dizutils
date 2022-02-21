@@ -148,7 +148,7 @@ get_config_env <-
     },
     error = function(cond) {
       cond <- paste(unlist(cond), collapse = " ")
-      feedback(
+      DIZtools::feedback(
         print_this = paste0("Error in 'get_config_env'. ", cond),
         type = "Error",
         findme = "83a71e6153",
@@ -159,7 +159,7 @@ get_config_env <-
     },
     warning = function(cond) {
       cond <- paste(unlist(cond), collapse = " ")
-      feedback(
+      DIZtools::feedback(
         print_this = paste0("Warning in 'get_config_env'. ", cond),
         type = "Warning",
         findme = "586b76a724",

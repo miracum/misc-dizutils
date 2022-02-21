@@ -48,9 +48,8 @@
 #' @param lib_path A character string. The path to the ojdbc*.jar file.
 #'   If you run one of the R-containers from the UK-Erlangen DIZ, there
 #'   might be a lib for oracle here: `lib_path = "/opt/libs/ojdbc8.jar"`
-#' @param logfile (Optional, Boolean, default: TRUE)
-#'   If true (default) the print_this string will also be printed
-#'   to the console.
+#' @param logfile_dir (Optional, String, default: "tempdir()")
+#'   The absolute path to folder where the logfile will be stored.
 #'
 #' @return If successful, the result will be the established connection.
 #'   Otherwise the result will be null.
@@ -129,7 +128,7 @@ db_connection <- function(system_name = NULL,
     for (param in necessary_vars) {
       if (!exists(param) ||
           get(param) == "" || is.null(get(param))) {
-        feedback(
+        DIZtools::feedback(
           print_this = paste0("Missing '", param, "' for db-connection."),
           type = "Error",
           findme = "f762a865c8",
@@ -165,7 +164,7 @@ db_connection <- function(system_name = NULL,
       if (is.null(sid) || sid == "") {
         ## SID is missing, so check if we can use the db_name instead:
         if (is.null(dbname) || dbname == "") {
-          feedback(
+          DIZtools::feedback(
             print_this = "Missing SID for db-connection to oracle.",
             type = "Error",
             findme = "0bba010a4a",
@@ -175,7 +174,7 @@ db_connection <- function(system_name = NULL,
           error <<- TRUE
           stop()
         } else {
-          feedback(
+          DIZtools::feedback(
             print_this = paste0(
               "`SID` is empty. Using the `dbname` ('",
               dbname,
@@ -204,7 +203,7 @@ db_connection <- function(system_name = NULL,
         )
         conn
       }, error = function(e) {
-        feedback(
+        DIZtools::feedback(
           print_this = paste0("Error while connection to oracle: ", e),
           type = "Error",
           logfile_dir = logfile_dir,
@@ -230,7 +229,7 @@ db_connection <- function(system_name = NULL,
         )
         conn
       }, error = function(e) {
-        feedback(
+        DIZtools::feedback(
           print_this = paste0("Error while connection to postgres: ", e),
           type = "Error",
           logfile_dir = logfile_dir,
@@ -243,7 +242,7 @@ db_connection <- function(system_name = NULL,
       })
     }
     if (error || is.null(db_con)) {
-      feedback(
+      DIZtools::feedback(
         "DB connection error",
         findme = "9431c8c61f",
         logfile_dir = logfile_dir,
@@ -254,7 +253,7 @@ db_connection <- function(system_name = NULL,
     }
   },
   error = function(cond) {
-    feedback(
+    DIZtools::feedback(
       print_this = paste0("Error while trying to establish a db-connection: ",
                           cond),
       type = "Error",
@@ -265,7 +264,7 @@ db_connection <- function(system_name = NULL,
     return(NULL)
   })
   if (error) {
-    DIZutils::feedback(
+    DIZtools::feedback(
       print_this = paste0(
         "Error while trying to establish the db conncection.",
         " Maybe the logging above is helpful for debugging?"

@@ -4,12 +4,13 @@
 
 #### Refactorings
 
+* removed dependency from diztools
 * re-introduced close_all_connections
 #### Others
 
 * updated gitignore
 
-Full set of changes: [`v0.0.13...54cc167`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.13...54cc167)
+Full set of changes: [`v0.0.13...91959f7`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.13...91959f7)
 
 ## v0.0.13 (2022-02-11)
 

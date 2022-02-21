@@ -5,8 +5,8 @@
 [![linting](https://github.com/miracum/misc-dizutils/workflows/lint/badge.svg?branch=master)](https://github.com/miracum/misc-dizutils)
 [![test-coverage](https://github.com/miracum/misc-dizutils/workflows/test-coverage/badge.svg?branch=master)](https://github.com/miracum/misc-dizutils)
 [![codecov](https://codecov.io/gh/miracum/misc-dizutils/branch/master/graph/badge.svg)](https://app.codecov.io/gh/miracum/misc-dizutils)
-[![pipeline status](https://gitlab.miracum.org/miracum/misc/dizutils/badges/master/pipeline.svg)](https://gitlab.miracum.org/miracum/misc/dizutils/-/commits/master)
-[![coverage report](https://gitlab.miracum.org/miracum/misc/dizutils/badges/master/coverage.svg)](https://gitlab.miracum.org/miracum/misc/dizutils/-/commits/master)
+<!--[![pipeline status](https://gitlab.miracum.org/miracum/misc/dizutils/badges/master/pipeline.svg)](https://gitlab.miracum.org/miracum/misc/dizutils/-/commits/master)
+[![coverage report](https://gitlab.miracum.org/miracum/misc/dizutils/badges/master/coverage.svg)](https://gitlab.miracum.org/miracum/misc/dizutils/-/commits/master)-->
 [![CRAN Status Badge](https://www.r-pkg.org/badges/version-ago/DIZutils)](https://cran.r-project.org/package=DIZutils)
 [![Cran Checks](https://cranchecks.info/badges/worst/DIZutils)](https://cran.r-project.org/web/checks/check_results_DIZutils.html)
 <!-- badges: end -->
@@ -84,25 +84,7 @@ db_con <- DIZutils::db_connection(
 )
 ```
 
-### set_env_vars
-
-In order to set up a database connection using the function `DIZutils::db_connection`, one needs to provide the required connection settings via environment variables. To facilitate the process of making such environment variables available within the current R session, the function `DIZutils::set_env_vars` works as a wrapper function around the base R method `Sys.setenv`. It takes the file name of a text file with the definitions of the environment variables as input, and sets those environment variables within the current R session.
-
-```r
-DIZutils::set_env_vars("path/to/envfile")
-```
-
-The design of the `envfile` is based on the `.env` file for defining environment variables when using docker-compose commands. See [here](https://docs.docker.com/compose/env-file/) (currently, neither empty lines nor the using of comments ('#') is being supported by `DIZutils::set_env_vars`).
-
-To create an `envfile` for connecting with an i2b2 database, the following exemplary definitions of environment variables should be written to a simple textfile, e.g. named `envfile`, which can then be passed as argument to `DIZutils::set_env_vars`.
-
-```bash
-I2B2_HOST=123.45.56.8
-I2B2_PORT=5432
-I2B2_DBNAME=i2b2
-I2B2_USER=user
-I2B2_PASSWORD=password
-```
+For further details on how to set the specific environment variables using a configuration file, please refer to the documentation in the [`DIZtools`](https://github.com/miracum/misc-diztools#setenv_file) R package.
 
 ## More Infos
 

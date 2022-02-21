@@ -23,6 +23,7 @@ Depends:
 Imports: 
     data.table,
     DBI (>= 1.1.0),
+    DIZtools,
     Hmisc,
     magrittr,
     psych,
