@@ -42,7 +42,7 @@
 #'   `system_name` in the environment. If `system_name = "i2b2"` settings like
 #'   `I2B2_HOST` or `I2B2_PORT` (notice the uppercase) will be loaded from
 #'   the environment. You can load such an env file e.g. by using
-#'   `DIZutils::set_env_vars(path_to_file)`.
+#'   `DIZtools::setenv_file(path_to_file)`.
 #' @param db_type A character. Type of the database system. Currently
 #'   implemented systems are: 'postgres', 'oracle'.
 #' @param lib_path A character string. The path to the ojdbc*.jar file.
@@ -58,8 +58,7 @@
 #' db_con <- DIZutils::db_connection(
 #'   db_name = "i2b2",
 #'   db_type = "postgres",
-#'   headless = TRUE,
-#'   logfile_dir = tempdir()
+#'   headless = TRUE
 #' )}
 #'
 #' @seealso{
