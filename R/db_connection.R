@@ -70,7 +70,7 @@
 #'
 db_connection <- function(system_name = NULL,
                           db_type,
-                          headless = FALSE,
+                          headless = TRUE,
                           from_env = TRUE,
                           settings = NULL,
                           timeout = 30,
