@@ -1,16 +1,28 @@
 # DIZutils NEWS
 
-## Unreleased (2022-02-21)
+## Unreleased (2022-02-26)
+
+#### Fixes
+
+* switched to `headless = TRUE` in `db_connection()`
+#### Others
+
+* updated description
+
+Full set of changes: [`v0.0.14...3356a1f`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.14...3356a1f)
+
+## v0.0.14 (2022-02-21)
 
 #### Refactorings
 
+* removed functions already implemented in diztools
 * removed dependency from diztools
 * re-introduced close_all_connections
 #### Others
 
 * updated gitignore
 
-Full set of changes: [`v0.0.13...91959f7`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.13...91959f7)
+Full set of changes: [`v0.0.13...v0.0.14`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.13...v0.0.14)
 
 ## v0.0.13 (2022-02-11)
 

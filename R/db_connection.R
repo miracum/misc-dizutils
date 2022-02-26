@@ -57,8 +57,7 @@
 #' \dontrun{
 #' db_con <- DIZutils::db_connection(
 #'   db_name = "i2b2",
-#'   db_type = "postgres",
-#'   headless = TRUE
+#'   db_type = "postgres"
 #' )}
 #'
 #' @seealso{

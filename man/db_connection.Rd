@@ -7,7 +7,7 @@
 db_connection(
   system_name = NULL,
   db_type,
-  headless = FALSE,
+  headless = TRUE,
   from_env = TRUE,
   settings = NULL,
   timeout = 30,
@@ -23,7 +23,7 @@ Otherwise this funcion will search for all settings beginning with
 `system_name` in the environment. If `system_name = "i2b2"` settings like
 `I2B2_HOST` or `I2B2_PORT` (notice the uppercase) will be loaded from
 the environment. You can load such an env file e.g. by using
-`DIZutils::set_env_vars(path_to_file)`.}
+`DIZtools::setenv_file(path_to_file)`.}
 
 \item{db_type}{A character. Type of the database system. Currently
 implemented systems are: 'postgres', 'oracle'.}
@@ -67,9 +67,7 @@ Internal function to test and get the database connection of
 \dontrun{
 db_con <- DIZutils::db_connection(
   db_name = "i2b2",
-  db_type = "postgres",
-  headless = TRUE,
-  logfile_dir = tempdir()
+  db_type = "postgres"
 )}
 
 }
