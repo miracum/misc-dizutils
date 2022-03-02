@@ -17,7 +17,7 @@ db_con <- db_connection(
 
 system.time({
   Sys.time() |> print()
-  res <- pool::dbGetQuery(conn = db_con, statement = sql_statement)
+  res <- RPostgres::dbSendQuery(conn = db_con, statement = sql_statement)
   Sys.time() |> print()
 })
 
