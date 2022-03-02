@@ -216,6 +216,8 @@ db_connection <- function(system_name = NULL,
       drv <- RPostgres::Postgres()
 
       db_con <- tryCatch({
+        # arguments from https://www.postgresql.org/docs/current/
+        # libpq-connect.html#LIBPQ-PARAMKEYWORDS
         conn <- RPostgres::dbConnect(
           drv = drv,
           dbname = dbname,
@@ -225,6 +227,15 @@ db_connection <- function(system_name = NULL,
           password = password,
           connect_timeout = timeout
         )
+        # conn <- pool::dbPool(
+        #   drv = drv,
+        #   dbname = dbname,
+        #   host = host,
+        #   port = port,
+        #   user = user,
+        #   password = password,
+        #   connect_timeout = timeout
+        # )
         conn
       }, error = function(e) {
         DIZtools::feedback(

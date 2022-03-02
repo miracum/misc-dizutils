@@ -1,15 +1,16 @@
 # DIZutils NEWS
 
-## Unreleased (2022-02-26)
+## v0.0.15 (2022-02-26)
 
 #### Fixes
 
+* removed magrittr as dependency due to cran note
 * switched to `headless = TRUE` in `db_connection()`
 #### Others
 
 * updated description
 
-Full set of changes: [`v0.0.14...3356a1f`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.14...3356a1f)
+Full set of changes: [`v0.0.14...v0.0.15`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.14...v0.0.15)
 
 ## v0.0.14 (2022-02-21)
 
