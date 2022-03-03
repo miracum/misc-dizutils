@@ -98,19 +98,12 @@ db_connection <- function(system_name = NULL,
     if (isTRUE(from_env)) {
       stopifnot(is.character(system_name))
       system_name_uppercase <- toupper(system_name)
-      dbname <- Sys.getenv(paste0(system_name_uppercase, "_DBNAME"))
-      host <- Sys.getenv(paste0(system_name_uppercase, "_HOST"))
-      port <- Sys.getenv(paste0(system_name_uppercase, "_PORT"))
-      user <- Sys.getenv(paste0(system_name_uppercase, "_USER"))
-      password <- Sys.getenv(paste0(system_name_uppercase, "_PASSWORD"))
+      settings <- load_settings_from_env(
+        system_name_uppercase = system_name_uppercase
+      )
     } else if (isFALSE(from_env)) {
       stopifnot(is.list(settings),
                 length(settings) >= 4)
-      dbname <- settings$dbname
-      host <- settings$host
-      port <- settings$port
-      user <- settings$user
-      password <- settings$password
     }
 
     db_type <- toupper(db_type)
@@ -124,8 +117,8 @@ db_connection <- function(system_name = NULL,
 
     ## Check if all necessary parameters are filled:
     for (param in necessary_vars) {
-      if (!exists(param) ||
-          get(param) == "" || is.null(get(param))) {
+      if (is.null(settings[[param]]) ||
+          settings[[param]] == "") {
         DIZtools::feedback(
           print_this = paste0("Missing '", param, "' for db-connection."),
           type = "Error",
@@ -133,7 +126,7 @@ db_connection <- function(system_name = NULL,
           logfile_dir = logfile_dir,
           headless = headless
         )
-        error <<- TRUE
+        error <<- TRUE # @jonathan: why assignment of global variable?
       }
     }
 
@@ -161,7 +154,7 @@ db_connection <- function(system_name = NULL,
 
       if (is.null(sid) || sid == "") {
         ## SID is missing, so check if we can use the db_name instead:
-        if (is.null(dbname) || dbname == "") {
+        if (is.null(settings$dbname) || settings$dbname == "") {
           DIZtools::feedback(
             print_this = "Missing SID for db-connection to oracle.",
             type = "Error",
@@ -175,7 +168,7 @@ db_connection <- function(system_name = NULL,
           DIZtools::feedback(
             print_this = paste0(
               "`SID` is empty. Using the `dbname` ('",
-              dbname,
+              settings$dbname,
               "') instead. But this might be wrong or cause errors!"
             ),
             type = "Warning",
@@ -183,21 +176,24 @@ db_connection <- function(system_name = NULL,
             headless = headless,
             findme = "e38041e91c"
           )
-          sid <- dbname
+          sid <- settings$dbname
         }
       }
 
       ## create URL
-      url <-
-        paste0("jdbc:oracle:thin:@//", host, ":", port, "/", sid)
+      url <- paste0(
+          "jdbc:oracle:thin:@//",
+          settings$host, ":",
+          settings$port, "/",
+          sid)
 
       ## create connection
       db_con <- tryCatch({
         conn <- DBI::dbConnect(
           drv = drv,
           url = url,
-          user = user,
-          password = password
+          user = settings$user,
+          password = settings$password
         )
         conn
       }, error = function(e) {
@@ -208,7 +204,7 @@ db_connection <- function(system_name = NULL,
           headless = headless,
           findme = "0a50850ccd"
         )
-        error <<- TRUE
+        error <<- TRUE # @jonathan: why assignment of global var?
         conn <- NULL
         return(conn)
       })
@@ -220,22 +216,14 @@ db_connection <- function(system_name = NULL,
         # libpq-connect.html#LIBPQ-PARAMKEYWORDS
         conn <- RPostgres::dbConnect(
           drv = drv,
-          dbname = dbname,
-          host = host,
-          port = port,
-          user = user,
-          password = password,
+          dbname = settings$dbname,
+          host = settings$host,
+          port = settings$port,
+          user = settings$user,
+          password = settings$password,
           connect_timeout = timeout
         )
-        # conn <- pool::dbPool(
-        #   drv = drv,
-        #   dbname = dbname,
-        #   host = host,
-        #   port = port,
-        #   user = user,
-        #   password = password,
-        #   connect_timeout = timeout
-        # )
+
         conn
       }, error = function(e) {
         DIZtools::feedback(
@@ -285,4 +273,18 @@ db_connection <- function(system_name = NULL,
     )
   }
   return(db_con)
+}
+
+
+load_settings_from_env <- function(system_name_uppercase) {
+
+  settings <- list()
+
+  settings$dbname <- Sys.getenv(paste0(system_name_uppercase, "_DBNAME"))
+  settings$host <- Sys.getenv(paste0(system_name_uppercase, "_HOST"))
+  settings$port <- Sys.getenv(paste0(system_name_uppercase, "_PORT"))
+  settings$user <- Sys.getenv(paste0(system_name_uppercase, "_USER"))
+  settings$password <- Sys.getenv(paste0(system_name_uppercase, "_PASSWORD"))
+
+  return(settings)
 }

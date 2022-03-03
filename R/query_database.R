@@ -75,10 +75,21 @@ query_database <-
       return(TRUE)
     } else {
       # Return data as data.table
-      return(data.table::data.table(
-        RPostgres::dbGetQuery(conn = db_con, statement = sql),
-        stringsAsFactors = TRUE
-      ))
+      tryCatch(
+        expr = {
+          dat <- RPostgres::dbGetQuery(conn = db_con, statement = sql)
+          return(data.table::data.table(dat, stringsAsFactors = TRUE))
+
+        }, error = function(e) {
+          DIZtools::feedback(
+            print_this = paste0(
+              "Error while executing SQL-query: ", e, "\n\n",
+              "Falling back to Python"
+            ),
+            type = "Error",
+            findme = "0a58851fcd"
+          )
+        })
     }
     if (close_connection) {
       close_connection(conn = db_con)
