@@ -83,8 +83,7 @@ query_database <-
         }, error = function(e) {
           DIZtools::feedback(
             print_this = paste0(
-              "Error while executing SQL-query: ", e, "\n\n",
-              "Falling back to Python"
+              "Error while executing SQL-query: ", e, "\n\n"
             ),
             type = "Error",
             findme = "0a58851fcd"
