@@ -1,13 +1,15 @@
 # DIZutils NEWS
 
-## Unreleased (2022-03-03)
+## Unreleased (2022-04-11)
 
 #### Others
 
+* more informative error msg
+* working on sql debugging
 * reset to working example
 * added scripts for debugging termination of long sql statements
 
-Full set of changes: [`v0.0.15...53c80b9`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...53c80b9)
+Full set of changes: [`v0.0.15...823f8ba`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...823f8ba)
 
 ## v0.0.15 (2022-02-26)
 
