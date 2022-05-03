@@ -214,6 +214,9 @@ db_connection <- function(system_name = NULL,
       db_con <- tryCatch({
         # arguments from https://www.postgresql.org/docs/current/
         # libpq-connect.html#LIBPQ-PARAMKEYWORDS
+        #
+        # https://stackoverflow.com/questions/24130305/postgres-ssl-syscall-
+        # error-eof-detected-with-python-and-psycopg
         conn <- RPostgres::dbConnect(
           drv = drv,
           dbname = settings$dbname,
@@ -221,9 +224,12 @@ db_connection <- function(system_name = NULL,
           port = settings$port,
           user = settings$user,
           password = settings$password,
-          connect_timeout = timeout
+          connect_timeout = timeout,
+          keepalives = 1,
+          keepalives_idle = 30,
+          keepalives_interval = 5,
+          keepalives_count = 5
         )
-
         conn
       }, error = function(e) {
         DIZtools::feedback(

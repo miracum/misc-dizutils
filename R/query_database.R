@@ -71,13 +71,19 @@ query_database <-
     sql <- DBI::sqlInterpolate(conn = db_con, sql = sql_statement)
 
     if (no_result) {
-      RPostgres::dbSendQuery(conn = db_con, statement = sql)
+      RPostgres::dbSendQuery(
+        conn = db_con,
+        statement = sql
+      )
       return(TRUE)
     } else {
       # Return data as data.table
       tryCatch(
         expr = {
-          dat <- RPostgres::dbGetQuery(conn = db_con, statement = sql)
+          dat <- RPostgres::dbSendQuery(
+            conn = db_con,
+            statement = sql
+          )
           return(data.table::data.table(dat, stringsAsFactors = TRUE))
 
         }, error = function(e) {
