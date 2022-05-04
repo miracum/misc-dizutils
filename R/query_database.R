@@ -80,7 +80,7 @@ query_database <-
       # Return data as data.table
       tryCatch(
         expr = {
-          dat <- RPostgres::dbSendQuery(
+          dat <- RPostgres::dbGetQuery(
             conn = db_con,
             statement = sql
           )

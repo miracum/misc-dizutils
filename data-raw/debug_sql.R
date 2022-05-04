@@ -43,14 +43,27 @@ r3.cd_category ->> 'code' = '26436-6'
 ON r1.id = r2.id;"
 
 
+simple_sql <- "SELECT
+fhir_id AS \"Fall.Einrichtungskontakt.Aufnahmenummer\",
+fhir_start_date AS \"Fall.Einrichtungskontakt.Beginndatum\"
+FROM (
+SELECT * FROM (
+SELECT
+fhir_id,
+to_timestamp(jsonb_path_query(DATA, '$.period') ->> 'start', 'YYYY-MM-DDTHH:MI:SS') AS fhir_start_date
+FROM resources
+WHERE TYPE = 'Encounter') AS r_intermediate LIMIT 100 ) r1;"
+
+
 db_con <- db_connection(
   system_name = system_name,
   db_type = "postgres"
 )
 
 
-dat2 <- query_database(db_con, sql_statement = very_long_query)
+#dat2 <- query_database(db_con, sql_statement = very_long_query)
 # Error while executing SQL-query: Error: Failed to fetch row: SSL SYSCALL error: EOF detected
+dat2 <- query_database(db_con, sql_statement = simple_sql)
 
 close_connection(db_con)
 
