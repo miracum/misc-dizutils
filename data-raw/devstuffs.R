@@ -204,7 +204,7 @@ usethis::use_tidy_description()
 
 # https://github.com/gitpython-developers/GitPython/issues/1016#issuecomment-1104114129
 system(
-  command = paste0("git config --global -add safe.directory ", getwd())
+  command = paste0("git config --global --add safe.directory ", getwd())
 )
 
 system(command = paste0(

@@ -1,16 +1,24 @@
 # DIZutils NEWS
 
-## Unreleased (2022-04-19)
+## Unreleased (2022-05-09)
 
+#### New Features
+
+* adding postgres options to db_con
+#### Fixes
+
+* fixed errorneous sendquery with getquery
 #### Others
 
+* updated devstuffs to get auto-changelog working again
+* updated news md
 * preparing cran submission
 * more informative error msg
 * working on sql debugging
 * reset to working example
 * added scripts for debugging termination of long sql statements
 
-Full set of changes: [`v0.0.15...112eb8e`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...112eb8e)
+Full set of changes: [`v0.0.15...2941a6e`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...2941a6e)
 
 ## v0.0.15 (2022-02-26)
 
