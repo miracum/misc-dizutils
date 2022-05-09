@@ -1,14 +1,15 @@
-# DIZutils
+# DIZutils <img src="man/figures/logo.png" align="right" width="120" />
 
 <!-- badges: start -->
+[![CRAN Status Badge](https://www.r-pkg.org/badges/version-ago/DIZutils)](https://cran.r-project.org/package=DIZutils)
+[![Cran Checks](https://cranchecks.info/badges/worst/DIZutils)](https://cran.r-project.org/web/checks/check_results_DIZutils.html)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/DIZutils?color=blue)](https://cran.r-project.org/package=DIZutils)
+[![](http://cranlogs.r-pkg.org/badges/last-month/DIZutils?color=blue)](https://cran.r-project.org/package=DIZutils)
+[![Dependencies](https://tinyverse.netlify.com/badge/DIZutils)](https://cran.r-project.org/package=DIZutils)
 [![R CMD Check via {tic}](https://github.com/miracum/misc-dizutils/workflows/R%20CMD%20Check%20via%20{tic}/badge.svg?branch=master)](https://github.com/miracum/misc-dizutils)
 [![linting](https://github.com/miracum/misc-dizutils/workflows/lint/badge.svg?branch=master)](https://github.com/miracum/misc-dizutils)
 [![test-coverage](https://github.com/miracum/misc-dizutils/workflows/test-coverage/badge.svg?branch=master)](https://github.com/miracum/misc-dizutils)
 [![codecov](https://codecov.io/gh/miracum/misc-dizutils/branch/master/graph/badge.svg)](https://app.codecov.io/gh/miracum/misc-dizutils)
-<!--[![pipeline status](https://gitlab.miracum.org/miracum/misc/dizutils/badges/master/pipeline.svg)](https://gitlab.miracum.org/miracum/misc/dizutils/-/commits/master)
-[![coverage report](https://gitlab.miracum.org/miracum/misc/dizutils/badges/master/coverage.svg)](https://gitlab.miracum.org/miracum/misc/dizutils/-/commits/master)-->
-[![CRAN Status Badge](https://www.r-pkg.org/badges/version-ago/DIZutils)](https://cran.r-project.org/package=DIZutils)
-[![Cran Checks](https://cranchecks.info/badges/worst/DIZutils)](https://cran.r-project.org/web/checks/check_results_DIZutils.html)
 <!-- badges: end -->
 
 The R package `DIZutils` provides utility functions used for the R package development infrastructure inside the data integration centers ('DIZ') to standardize and facilitate repetitive tasks such as setting up a database connection or issuing notification messages and to avoid redundancy.

@@ -152,6 +152,7 @@ usethis::use_build_ignore(".github")
 usethis::use_build_ignore("cran-comments.md")
 usethis::use_build_ignore("logfile.log")
 usethis::use_build_ignore("NEWS.md")
+usethis::use_build_ignore("man/figures")
 # usethis::use_build_ignore("NEWS.md")
 
 # gitignore
@@ -213,3 +214,31 @@ system(command = paste0(
   ' NEWS" --tag-prefix "v" -o "NEWS.md"'
 ))
 
+badger::badge_cran_download("DIZutils", "grand-total", "blue")
+badger::badge_cran_download("DIZutils", "last-month", "blue")
+badger::badge_dependencies("DIZutils")
+
+
+# imgurl <- path.expand("~/development/Rpackages/bg2.jpeg")
+# hexSticker::sticker(
+#   subplot = imgurl,
+#   package = "DIZutils",
+#   s_width = 0.66,
+#   s_height = 0.66,
+#   s_x = 1,
+#   s_y = 1,
+#   p_size = 25,
+#   p_x = 1,
+#   p_y = 1,
+#   filename = "man/figures/logo.png",
+#   h_color = "#b4e7f2", # "#b4f2e9",
+#   #p_color = "#5c87ff", # "#b4f2e9",
+#   h_size = 0.8,
+#   #h_fill = "#b4e7f2",
+#   h_fill = "#bfd5ff",
+#   spotlight = TRUE,
+#   #l_width = 6,
+#   #l_height = 6,
+#   white_around_sticker = FALSE,
+#   asp = 1
+# )
