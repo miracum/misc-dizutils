@@ -153,6 +153,7 @@ usethis::use_build_ignore("cran-comments.md")
 usethis::use_build_ignore("logfile.log")
 usethis::use_build_ignore("NEWS.md")
 usethis::use_build_ignore("man/figures")
+usethis::use_build_ignore("Rplots.pdf")
 # usethis::use_build_ignore("NEWS.md")
 
 # gitignore

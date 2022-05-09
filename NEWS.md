@@ -4,6 +4,7 @@
 
 #### New Features
 
+* added logo
 * adding postgres options to db_con
 #### Fixes
 
@@ -19,7 +20,7 @@
 * reset to working example
 * added scripts for debugging termination of long sql statements
 
-Full set of changes: [`v0.0.15...448ceee`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...448ceee)
+Full set of changes: [`v0.0.15...ed1aaa0`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...ed1aaa0)
 
 ## v0.0.15 (2022-02-26)
 
