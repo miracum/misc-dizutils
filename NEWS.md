@@ -1,6 +1,6 @@
 # DIZutils NEWS
 
-## Unreleased (2022-05-09)
+## Unreleased (2022-05-10)
 
 #### New Features
 
@@ -11,6 +11,7 @@
 * fixed errorneous sendquery with getquery
 #### Others
 
+* updated rbuildignore
 * updated news.md
 * updated devstuffs to get auto-changelog working again
 * updated news md
@@ -20,7 +21,7 @@
 * reset to working example
 * added scripts for debugging termination of long sql statements
 
-Full set of changes: [`v0.0.15...ed1aaa0`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...ed1aaa0)
+Full set of changes: [`v0.0.15...42ef045`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...42ef045)
 
 ## v0.0.15 (2022-02-26)
 
