@@ -38,7 +38,7 @@ my_desc$del("Maintainer")
 my_desc$del("LazyData")
 
 # Set the version
-my_desc$set_version("0.1.0")
+my_desc$set_version("0.1.0.9001")
 
 # The title of your package
 my_desc$set(Title = "Utilities for 'DIZ' R Package Development")
@@ -121,7 +121,7 @@ usethis::use_package("lintr", type = "Suggests")
 
 
 # Development packages
-tools_tag <- "cran" # e.g. "v0.1.7", "development" or "cran"
+tools_tag <- "dev" # e.g. "v0.1.7", "dev" or "cran"
 if (tools_tag == "cran") {
   remotes::update_packages("DIZtools", upgrade = "always")
 } else{
@@ -129,7 +129,7 @@ if (tools_tag == "cran") {
     url = "https://gitlab.miracum.org/miracum/misc/diztools.git",
     ref = tools_tag,
     upgrade = "always",
-    quiet = TRUE
+    quiet = FALSE
   )
   add_remotes <- paste0(
     "url::https://gitlab.miracum.org/miracum/misc/diztools/-/archive/", tools_tag, "/diztools-", tools_tag, ".zip"

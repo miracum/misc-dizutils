@@ -1,6 +1,6 @@
 Package: DIZutils
 Title: Utilities for 'DIZ' R Package Development
-Version: 0.1.0
+Version: 0.1.0.9001
 Date: 2022-05-18
 Authors@R: c(
     person("Jonathan M.", "Mang", , "jonathan.mang@uk-erlangen.de", role = c("aut", "cre"),
@@ -33,6 +33,8 @@ Imports:
 Suggests: 
     lintr,
     testthat
+Remotes: 
+    url::https://gitlab.miracum.org/miracum/misc/diztools/-/archive/dev/diztools-dev.zip
 Encoding: UTF-8
 Language: en-US
 SystemRequirements: libpq >= 9.0: libpq-dev (deb) or postgresql-devel

@@ -1,5 +1,13 @@
 # DIZutils NEWS
 
+## Unreleased (2022-05-18)
+
+#### Others
+
+* updated news.md
+
+Full set of changes: [`v0.1.0...cfad461`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.1.0...cfad461)
+
 ## v0.1.0 (2022-05-18)
 
 #### New Features
