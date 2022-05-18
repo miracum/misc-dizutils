@@ -11,6 +11,7 @@
 * fixed errorneous sendquery with getquery
 #### Others
 
+* new CRAN release `v0.0.16`
 * updated news.md
 * updated rbuildignore
 * updated news.md
@@ -22,7 +23,7 @@
 * reset to working example
 * added scripts for debugging termination of long sql statements
 
-Full set of changes: [`v0.0.15...8ab139f`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...8ab139f)
+Full set of changes: [`v0.0.15...085c95e`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...085c95e)
 
 ## v0.0.15 (2022-02-26)
 
