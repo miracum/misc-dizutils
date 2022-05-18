@@ -1,6 +1,6 @@
 # DIZutils NEWS
 
-## Unreleased (2022-05-10)
+## Unreleased (2022-05-18)
 
 #### New Features
 
@@ -11,6 +11,7 @@
 * fixed errorneous sendquery with getquery
 #### Others
 
+* updated news.md
 * updated rbuildignore
 * updated news.md
 * updated devstuffs to get auto-changelog working again
@@ -21,7 +22,7 @@
 * reset to working example
 * added scripts for debugging termination of long sql statements
 
-Full set of changes: [`v0.0.15...42ef045`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...42ef045)
+Full set of changes: [`v0.0.15...8ab139f`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...8ab139f)
 
 ## v0.0.15 (2022-02-26)
 
@@ -98,18 +99,27 @@ Full set of changes: [`v0.0.11...v0.0.12`](https://gitlab.miracum.org/miracum/mi
 * added close_connection wrapper function
 * added update script for `NEWS.md`
 * added function `rep2`
+#### Others
+
+* updated news.md
+* merge development
+* updated buildignore
+
+Full set of changes: [`v0.0.10...v0.0.11`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.10...v0.0.11)
+
+## v0.0.10 (2022-01-24)
+
+#### New Features
+
 * added `setenv2` as function
 #### Docs
 
 * updated copyright to 2022
 #### Others
 
-* updated news.md
-* merge development
-* updated buildignore
 * new cran version
 
-Full set of changes: [`v0.0.9...v0.0.11`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.9...v0.0.11)
+Full set of changes: [`v0.0.9...v0.0.10`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.9...v0.0.10)
 
 ## v0.0.9 (2021-12-08)
 
@@ -234,12 +244,7 @@ Full set of changes: [`v0.0.6...v0.0.7`](https://gitlab.miracum.org/miracum/misc
 * updated description; added cran-comments
 * added changelog
 
-Full set of changes: [`v0.0.5...v0.0.6`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.5...v0.0.6)
-
-## v0.0.5 (2020-09-14)
-
-
-Full set of changes: [`v0.0.4...v0.0.5`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.4...v0.0.5)
+Full set of changes: [`v0.0.4...v0.0.6`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.4...v0.0.6)
 
 ## v0.0.4 (2020-06-04)
 
