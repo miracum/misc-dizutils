@@ -1,6 +1,6 @@
 # DIZutils NEWS
 
-## Unreleased (2022-05-18)
+## v0.1.0 (2022-05-18)
 
 #### New Features
 
@@ -11,6 +11,7 @@
 * fixed errorneous sendquery with getquery
 #### Others
 
+* new CRAN version `v0.1.0`
 * new CRAN release `v0.0.16`
 * updated news.md
 * updated rbuildignore
@@ -23,7 +24,7 @@
 * reset to working example
 * added scripts for debugging termination of long sql statements
 
-Full set of changes: [`v0.0.15...085c95e`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...085c95e)
+Full set of changes: [`v0.0.15...v0.1.0`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...v0.1.0)
 
 ## v0.0.15 (2022-02-26)
 
