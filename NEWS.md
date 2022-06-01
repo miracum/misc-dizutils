@@ -1,14 +1,6 @@
 # DIZutils NEWS
 
-## Unreleased (2022-05-18)
-
-#### Others
-
-* updated news.md
-
-Full set of changes: [`v0.1.0...cfad461`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.1.0...cfad461)
-
-## v0.1.0 (2022-05-18)
+## Unreleased (2022-06-01)
 
 #### New Features
 
@@ -19,6 +11,8 @@ Full set of changes: [`v0.1.0...cfad461`](https://gitlab.miracum.org/miracum/mis
 * fixed errorneous sendquery with getquery
 #### Others
 
+* new development version
+* updated news.md
 * new CRAN version `v0.1.0`
 * new CRAN release `v0.0.16`
 * updated news.md
@@ -32,7 +26,7 @@ Full set of changes: [`v0.1.0...cfad461`](https://gitlab.miracum.org/miracum/mis
 * reset to working example
 * added scripts for debugging termination of long sql statements
 
-Full set of changes: [`v0.0.15...v0.1.0`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...v0.1.0)
+Full set of changes: [`v0.0.15...4d80bb8`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...4d80bb8)
 
 ## v0.0.15 (2022-02-26)
 
@@ -109,27 +103,18 @@ Full set of changes: [`v0.0.11...v0.0.12`](https://gitlab.miracum.org/miracum/mi
 * added close_connection wrapper function
 * added update script for `NEWS.md`
 * added function `rep2`
-#### Others
-
-* updated news.md
-* merge development
-* updated buildignore
-
-Full set of changes: [`v0.0.10...v0.0.11`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.10...v0.0.11)
-
-## v0.0.10 (2022-01-24)
-
-#### New Features
-
 * added `setenv2` as function
 #### Docs
 
 * updated copyright to 2022
 #### Others
 
+* updated news.md
+* merge development
+* updated buildignore
 * new cran version
 
-Full set of changes: [`v0.0.9...v0.0.10`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.9...v0.0.10)
+Full set of changes: [`v0.0.9...v0.0.11`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.9...v0.0.11)
 
 ## v0.0.9 (2021-12-08)
 
@@ -254,7 +239,12 @@ Full set of changes: [`v0.0.6...v0.0.7`](https://gitlab.miracum.org/miracum/misc
 * updated description; added cran-comments
 * added changelog
 
-Full set of changes: [`v0.0.4...v0.0.6`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.4...v0.0.6)
+Full set of changes: [`v0.0.5...v0.0.6`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.5...v0.0.6)
+
+## v0.0.5 (2020-09-14)
+
+
+Full set of changes: [`v0.0.4...v0.0.5`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.4...v0.0.5)
 
 ## v0.0.4 (2020-06-04)
 

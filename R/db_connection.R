@@ -217,19 +217,38 @@ db_connection <- function(system_name = NULL,
         #
         # https://stackoverflow.com/questions/24130305/postgres-ssl-syscall-
         # error-eof-detected-with-python-and-psycopg
-        conn <- RPostgres::dbConnect(
-          drv = drv,
-          dbname = settings$dbname,
-          host = settings$host,
-          port = settings$port,
-          user = settings$user,
-          password = settings$password,
-          connect_timeout = timeout,
-          keepalives = 1,
-          keepalives_idle = 30,
-          keepalives_interval = 5,
-          keepalives_count = 5
-        )
+        if (nchar(settings$schema) > 0) {
+          # https://stackoverflow.com/questions/42139964/setting-the-schema-name-
+          # in-postgres-using-r
+          conn <- RPostgres::dbConnect(
+            drv = drv,
+            dbname = settings$dbname,
+            host = settings$host,
+            port = settings$port,
+            user = settings$user,
+            password = settings$password,
+            connect_timeout = timeout,
+            keepalives = 1,
+            keepalives_idle = 30,
+            keepalives_interval = 5,
+            keepalives_count = 5,
+            options = paste0("-c search_path=", settings$schema)
+          )
+        } else {
+          conn <- RPostgres::dbConnect(
+            drv = drv,
+            dbname = settings$dbname,
+            host = settings$host,
+            port = settings$port,
+            user = settings$user,
+            password = settings$password,
+            connect_timeout = timeout,
+            keepalives = 1,
+            keepalives_idle = 30,
+            keepalives_interval = 5,
+            keepalives_count = 5
+          )
+        }
         conn
       }, error = function(e) {
         DIZtools::feedback(
@@ -291,6 +310,7 @@ load_settings_from_env <- function(system_name_uppercase) {
   settings$port <- Sys.getenv(paste0(system_name_uppercase, "_PORT"))
   settings$user <- Sys.getenv(paste0(system_name_uppercase, "_USER"))
   settings$password <- Sys.getenv(paste0(system_name_uppercase, "_PASSWORD"))
+  settings$schema <- Sys.getenv(paste0(system_name_uppercase, "_SCHEMA"))
 
   return(settings)
 }
