@@ -51,6 +51,7 @@ The following environment variables need to be set to the active environment in 
 | I2B2_PORT         | The port, your pg postgres instance is running on.                        |
 | I2B2_USER         | The name of the 'I2B2_USER'.                                              |
 | I2B2_PASSWORD     | The password of the 'I2B2_USER' of your pg instance.                      |
+| I2B2_SCHEMA       | (optional) The database schema on which queries should be performed.      |
 
 To establish the connection, please set those environment variables accordingly and execute the following command. The argument `db_name` is used to detect the corresponding environment variables and thus must match with the environment variables' prefix.
 

@@ -217,36 +217,40 @@ db_connection <- function(system_name = NULL,
         #
         # https://stackoverflow.com/questions/24130305/postgres-ssl-syscall-
         # error-eof-detected-with-python-and-psycopg
+
+        conn <- RPostgres::dbConnect(
+          drv = drv,
+          dbname = settings$dbname,
+          host = settings$host,
+          port = settings$port,
+          user = settings$user,
+          password = settings$password,
+          connect_timeout = timeout,
+          keepalives = 1,
+          keepalives_idle = 30,
+          keepalives_interval = 5,
+          keepalives_count = 5
+        )
         if (nchar(settings$schema) > 0) {
-          # https://stackoverflow.com/questions/42139964/setting-the-schema-name-
-          # in-postgres-using-r
-          conn <- RPostgres::dbConnect(
-            drv = drv,
-            dbname = settings$dbname,
-            host = settings$host,
-            port = settings$port,
-            user = settings$user,
-            password = settings$password,
-            connect_timeout = timeout,
-            keepalives = 1,
-            keepalives_idle = 30,
-            keepalives_interval = 5,
-            keepalives_count = 5,
-            options = paste0("-c search_path=", settings$schema)
+          # https://stackoverflow.com/questions/42139964/setting-the-schema-
+          # name-in-postgres-using-r (NOTE: this is not working)
+          # https://stackoverflow.com/questions/10032390/writing-to-specific-
+          # schemas-with-rpostgresql
+          DIZtools::feedback(
+            print_this = paste0(
+              "DB-connection using schema: '", settings$schema, "'"
+            ),
+            type = "Info",
+            logfile_dir = logfile_dir,
+            headless = headless,
+            findme = "0a50610acd"
           )
-        } else {
-          conn <- RPostgres::dbConnect(
-            drv = drv,
-            dbname = settings$dbname,
-            host = settings$host,
-            port = settings$port,
-            user = settings$user,
-            password = settings$password,
-            connect_timeout = timeout,
-            keepalives = 1,
-            keepalives_idle = 30,
-            keepalives_interval = 5,
-            keepalives_count = 5
+          search_path_sql <- paste0(
+            "SET search_path = ", settings$schema, ", public;"
+          )
+          RPostgres::dbSendQuery(
+            conn = conn,
+            statement = search_path_sql
           )
         }
         conn

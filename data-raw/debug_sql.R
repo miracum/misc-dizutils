@@ -67,7 +67,23 @@ dat2 <- query_database(db_con, sql_statement = simple_sql)
 
 close_connection(db_con)
 
-
+# test i2b2
+devtools::load_all()
+sql <- "SELECT
+encounter_num AS \"Fall.Versorgungsstellenkontakt.Aufnahmenummer\",
+concept_cd AS \"Person.Demographie.AdministrativesGeschlecht\"
+FROM observation_fact
+WHERE concept_cd LIKE 'Dem|Sex:%' AND
+modifier_cd = '@' LIMIT 10;"
+system_name <- "i2b2"
+Sys.setenv("I2B2_SCHEMA" = "i2b2miracum")
+Sys.setenv("I2B2_SCHEMA" = "")
+db_con <- db_connection(
+  system_name = system_name,
+  db_type = "postgres"
+)
+query_database(db_con, sql_statement = sql)
+close_connection(db_con)
 
 sql_2 <- "
 SELECT * FROM ( SELECT REPLACE(jsonb_path_query(DATA, '$.subject') ->> 'reference', 'Patient/', '') AS pid, to_timestamp(jsonb_path_query(DATA, '$.period') ->> 'start', 'YYYY-MM-DDTHH:MI:SS') AS fhir_start_date
