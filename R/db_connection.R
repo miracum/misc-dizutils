@@ -231,7 +231,7 @@ db_connection <- function(system_name = NULL,
           keepalives_interval = 5,
           keepalives_count = 5
         )
-        if (nchar(settings$schema) > 0) {
+        if (!DIZtools::is.empty(settings$schema)) {
           # https://stackoverflow.com/questions/42139964/setting-the-schema-
           # name-in-postgres-using-r (NOTE: this is not working)
           # https://stackoverflow.com/questions/10032390/writing-to-specific-
