@@ -1,6 +1,6 @@
 # DIZutils NEWS
 
-## Unreleased (2022-06-07)
+## Unreleased (2022-06-21)
 
 #### New Features
 
@@ -9,10 +9,13 @@
 * adding postgres options to db_con
 #### Fixes
 
+* better checking for unset envar 'schema'
 * fixed method to specify schema to be queried for postgres db-connections
 * fixed errorneous sendquery with getquery
 #### Others
 
+* updated gha
+* updated gha
 * new development version
 * updated news.md
 * new CRAN version `v0.1.0`
@@ -28,7 +31,7 @@
 * reset to working example
 * added scripts for debugging termination of long sql statements
 
-Full set of changes: [`v0.0.15...f54dac6`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...f54dac6)
+Full set of changes: [`v0.0.15...f19a542`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...f19a542)
 
 ## v0.0.15 (2022-02-26)
 
