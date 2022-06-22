@@ -1,9 +1,10 @@
 # DIZutils NEWS
 
-## Unreleased (2022-06-21)
+## Unreleased (2022-06-22)
 
 #### New Features
 
+* excluding public schema from schema-setting
 * added possibility to define db-schema via env-vars
 * added logo
 * adding postgres options to db_con
@@ -31,7 +32,7 @@
 * reset to working example
 * added scripts for debugging termination of long sql statements
 
-Full set of changes: [`v0.0.15...f19a542`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...f19a542)
+Full set of changes: [`v0.0.15...036b964`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...036b964)
 
 ## v0.0.15 (2022-02-26)
 
