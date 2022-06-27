@@ -1,6 +1,6 @@
 # DIZutils NEWS
 
-## Unreleased (2022-06-22)
+## Unreleased (2022-06-27)
 
 #### New Features
 
@@ -17,6 +17,8 @@
 
 * updated gha
 * updated gha
+* more informative logging messages
+* preparing next cran-release
 * new development version
 * updated news.md
 * new CRAN version `v0.1.0`
@@ -32,7 +34,7 @@
 * reset to working example
 * added scripts for debugging termination of long sql statements
 
-Full set of changes: [`v0.0.15...036b964`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...036b964)
+Full set of changes: [`v0.0.15...d909994`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...d909994)
 
 ## v0.0.15 (2022-02-26)
 
