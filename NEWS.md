@@ -1,26 +1,38 @@
 # DIZutils NEWS
 
-## Unreleased (2022-06-27)
+## v0.1.1 (2022-06-27)
 
 #### New Features
 
 * excluding public schema from schema-setting
 * added possibility to define db-schema via env-vars
-* added logo
-* adding postgres options to db_con
 #### Fixes
 
 * better checking for unset envar 'schema'
 * fixed method to specify schema to be queried for postgres db-connections
-* fixed errorneous sendquery with getquery
 #### Others
 
 * updated gha
 * updated gha
+* new version v0.1.1
 * more informative logging messages
 * preparing next cran-release
 * new development version
 * updated news.md
+
+Full set of changes: [`v0.1.0...v0.1.1`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.1.0...v0.1.1)
+
+## v0.1.0 (2022-05-18)
+
+#### New Features
+
+* added logo
+* adding postgres options to db_con
+#### Fixes
+
+* fixed errorneous sendquery with getquery
+#### Others
+
 * new CRAN version `v0.1.0`
 * new CRAN release `v0.0.16`
 * updated news.md
@@ -34,7 +46,7 @@
 * reset to working example
 * added scripts for debugging termination of long sql statements
 
-Full set of changes: [`v0.0.15...d909994`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...d909994)
+Full set of changes: [`v0.0.15...v0.1.0`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...v0.1.0)
 
 ## v0.0.15 (2022-02-26)
 
@@ -111,18 +123,27 @@ Full set of changes: [`v0.0.11...v0.0.12`](https://gitlab.miracum.org/miracum/mi
 * added close_connection wrapper function
 * added update script for `NEWS.md`
 * added function `rep2`
+#### Others
+
+* updated news.md
+* merge development
+* updated buildignore
+
+Full set of changes: [`v0.0.10...v0.0.11`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.10...v0.0.11)
+
+## v0.0.10 (2022-01-24)
+
+#### New Features
+
 * added `setenv2` as function
 #### Docs
 
 * updated copyright to 2022
 #### Others
 
-* updated news.md
-* merge development
-* updated buildignore
 * new cran version
 
-Full set of changes: [`v0.0.9...v0.0.11`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.9...v0.0.11)
+Full set of changes: [`v0.0.9...v0.0.10`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.9...v0.0.10)
 
 ## v0.0.9 (2021-12-08)
 
@@ -247,12 +268,7 @@ Full set of changes: [`v0.0.6...v0.0.7`](https://gitlab.miracum.org/miracum/misc
 * updated description; added cran-comments
 * added changelog
 
-Full set of changes: [`v0.0.5...v0.0.6`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.5...v0.0.6)
-
-## v0.0.5 (2020-09-14)
-
-
-Full set of changes: [`v0.0.4...v0.0.5`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.4...v0.0.5)
+Full set of changes: [`v0.0.4...v0.0.6`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.4...v0.0.6)
 
 ## v0.0.4 (2020-06-04)
 

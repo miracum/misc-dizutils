@@ -33,6 +33,8 @@
 #'   `password`, `sid`, `path`. If you have another suffix after
 #'   `system_name` in your config file, you won't see it here. To see
 #'   everything with prefix `system_name` simply set `ignore_presets = TRUE`.
+#'   To obtain a list of current default elements, run
+#'   \code{DIZutils:::get_default_config_elements()}.
 #' @param uppercase_system (boolean) Default: True. Otherwise: case-sensitive.
 #'
 #' @inheritParams db_connection
@@ -54,102 +56,111 @@ get_config_env <-
            ignore_presets = FALSE,
            uppercase_system = TRUE) {
     separator <- "_"
+
+    ## Helper functions:
+    get_values_from_env <-
+      function(system_name, separator, elements) {
+        return(as.list(sapply(
+          X = elements,
+          FUN = function(name) {
+            return(Sys.getenv(paste0(system_name, separator, name)))
+          },
+          USE.NAMES = TRUE
+        )))
+      }
+
+    get_elements_from_env <-
+      function(system_name = system_name,
+               separator = separator) {
+        prefix <- paste0("^(", system_name, separator, ")")
+        pattern <- paste0(prefix, "([A-Za-z])+$")
+        elements <-
+          grep(pattern = pattern,
+               x = names(Sys.getenv()),
+               value = TRUE)
+        elements <- gsub(pattern = prefix,
+                         replacement = "",
+                         x = elements)
+        return(elements)
+      }
+
+    ## The main work:
     res <- tryCatch({
       if (uppercase_system) {
         system_name <- toupper(system_name)
       }
+
       if (ignore_presets) {
-        pattern <- paste0("^", system_name, separator, "*")
-        env_names_tmp <- names(Sys.getenv())
         elements <-
-          env_names_tmp[grepl(pattern = pattern, x = env_names_tmp)]
-
-        # Get the environment variable for these elements:
-        res <- lapply(
-          X = elements,
-          FUN = function(name) {
-            tmp <- list()
-            tmp[gsub(pattern = pattern,
-                     replacement = "",
-                     x = name)] <- Sys.getenv(name)
-            return(tmp)
-          }
-        )
-        res <- as.list(unlist(res))
+          get_elements_from_env(system_name = system_name, separator = separator)
       } else {
-        elements <- list(
-          dbname = "DBNAME",
-          host = "HOST",
-          port = "PORT",
-          user = "USER",
-          password = "PASSWORD",
-          sid = "SID",
-          path = "PATH",
-          displayname = "DISPLAYNAME"
-        )
+        elements <- get_default_config_elements()
+      }
 
-        get_elements_from_env <-
-          function(system_name, separator, elements) {
-            return(lapply(
-              X = elements,
-              FUN = function(name) {
-                tmp <- Sys.getenv(paste0(system_name, separator, name))
-                return(tmp)
+      ## First try to get all settings for the system with the assumption that
+      ## there is no nesting:
+      ## Get the environment variable for each all keys:
+      res <-
+        get_values_from_env(system_name = system_name,
+                            separator = separator,
+                            elements = elements)
+
+      ## Now remove the empty entries:
+      res <- res[lapply(res, nchar) > 0]
+
+      ## If nothing is left, there might be nesting or really no content:
+      if (length(res) == 0) {
+        ## Maybe there are multiple instances of these settings:
+        env_names <- names(Sys.getenv())
+        sub_elements <-
+          unique(gsub(
+            pattern = paste0("(", separator, ")([A-Za-z])+$"),
+            replacement = "",
+            x = env_names[grepl(pattern = paste0("^(",
+                                                 system_name,
+                                                 separator,
+                                                 ")([0-9])+"),
+                                x = env_names)]
+          ))
+        if (length(sub_elements) > 0) {
+          res <- lapply(
+            X = sub_elements,
+            FUN = function(x) {
+              if (ignore_presets) {
+                elements <-
+                  get_elements_from_env(system_name = x, separator = separator)
+              } else {
+                elements <- get_default_config_elements()
               }
-            ))
-          }
+              tmp <- get_values_from_env(
+                system_name = x,
+                separator = separator,
+                elements = elements
+              )
 
-        # Get the environment variable for each all keys:
-        res <-
-          get_elements_from_env(
-            system_name = system_name,
-            separator = separator,
-            elements = elements
+              ## Remove empty entries:
+              tmp <-  tmp[lapply(tmp, nchar) > 0]
+
+              ## Lowercase all names:
+              names(tmp) <- tolower(names(tmp))
+
+              return(tmp)
+            }
           )
-
-        # Now remove the empty entries:
-        res <- res[lapply(res, nchar) > 0]
-
-        if (length(res) == 0) {
-          ## Maybe there are multiple instances of these settings:
-          env_names <- names(Sys.getenv())
-          sub_elements <-
-            unique(gsub(
-              pattern = paste0("(", separator, ")([A-Za-z])+$"),
-              replacement = "",
-              x = env_names[grepl(
-                pattern = paste0("^(",
-                                 system_name,
-                                 separator,
-                                 ")([0-9])+"),
-                x = env_names
-              )]
-            ))
-          if (length(sub_elements) > 0) {
-            res <- lapply(
-              X = sub_elements,
-              FUN = function(x) {
-                tmp <- get_elements_from_env(
-                  system_name = x,
-                  separator = separator,
-                  elements = elements
-                )
-                tmp <-  tmp[lapply(tmp, nchar) > 0]
-                return(tmp)
-              }
-            )
-            res[["nested"]] <- TRUE
-          }
+          res[["nested"]] <- TRUE
         }
       }
 
-      # And finish:
+      ## Lowercase all names:
+      names(res) <- tolower(names(res))
+
+      # Finally finish:
       return(res)
     },
     error = function(cond) {
       cond <- paste(unlist(cond), collapse = " ")
       DIZtools::feedback(
-        print_this = paste0("Error in 'get_config_env'. ", cond),
+        print_this = paste0("Error in 'get_config_env()'. ", cond),
         type = "Error",
         findme = "83a71e6153",
         logfile_dir = logfile_dir,
@@ -160,7 +171,7 @@ get_config_env <-
     warning = function(cond) {
       cond <- paste(unlist(cond), collapse = " ")
       DIZtools::feedback(
-        print_this = paste0("Warning in 'get_config_env'. ", cond),
+        print_this = paste0("Warning in 'get_config_env()'. ", cond),
         type = "Warning",
         findme = "586b76a724",
         logfile_dir = logfile_dir,
@@ -170,3 +181,23 @@ get_config_env <-
     })
     return(res)
   }
+
+#' @title Get default element names (suffixes) for env reading
+#'
+#' @description Internal function.
+#'   Get default element names (suffixes) for env reading
+#'
+#' @return Vector with default elements
+#'
+get_default_config_elements <- function() {
+  return(c(
+    "DBNAME",
+    "HOST",
+    "PORT",
+    "USER",
+    "PASSWORD",
+    "SID",
+    "PATH",
+    "DISPLAYNAME"
+  ))
+}

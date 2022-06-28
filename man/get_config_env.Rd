@@ -31,7 +31,9 @@ Only return something if all elements
 from the presets are found? These are currently `host`, `port`, `user`,
 `password`, `sid`, `path`. If you have another suffix after
 `system_name` in your config file, you won't see it here. To see
-everything with prefix `system_name` simply set `ignore_presets = TRUE`.}
+everything with prefix `system_name` simply set `ignore_presets = TRUE`.
+To obtain a list of current default elements, run
+\code{DIZutils:::get_default_config_elements()}.}
 
 \item{uppercase_system}{(boolean) Default: True. Otherwise: case-sensitive.}
 }
