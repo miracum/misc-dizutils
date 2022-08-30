@@ -38,7 +38,7 @@ my_desc$del("Maintainer")
 my_desc$del("LazyData")
 
 # Set the version
-my_desc$set_version("0.1.1.9001")
+my_desc$set_version("0.1.1.9002")
 
 # The title of your package
 my_desc$set(Title = "Utilities for 'DIZ' R Package Development")
@@ -205,15 +205,19 @@ usethis::use_tidy_description()
 # build|ci|docs|feat|fix|perf|refactor|test
 
 # https://github.com/gitpython-developers/GitPython/issues/1016#issuecomment-1104114129
-system(
-  command = paste0("git config --global --add safe.directory ", getwd())
-)
+# system(
+#   command = paste0("git config --global --add safe.directory ", getwd())
+# )
+#
+# system(command = paste0(
+#   'auto-changelog -u -t "',
+#   packagename,
+#   ' NEWS" --tag-prefix "v" -o "NEWS.md"'
+# ))
 
-system(command = paste0(
-  'auto-changelog -u -t "',
-  packagename,
-  ' NEWS" --tag-prefix "v" -o "NEWS.md"'
-))
+an <- autonewsmd::autonewsmd$new(repo_name = packagename)
+an$generate()
+an$write()
 
 badger::badge_cran_download("DIZutils", "grand-total", "blue")
 badger::badge_cran_download("DIZutils", "last-month", "blue")
