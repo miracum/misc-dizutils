@@ -1,11 +1,26 @@
 # DIZutils NEWS
 
-## Unreleased (2022-06-28)
+## Unreleased (2022-09-05)
 
 #### Refactorings
 
 -   updated `get_config_env` to handle nested lists correctly
     ([a948d7f](https://gitlab.miracum.org/miracum/misc/dizutils.git/tree/a948d7fdb9d2054b836604a3df9e476fdbe721b6))
+
+#### CI
+
+-   removed gitlab-ci in favor of github actions
+    ([b795ffe](https://gitlab.miracum.org/miracum/misc/dizutils.git/tree/b795ffe3c13d1d4a4a72c96718364378ce08dffd))
+-   added deps for devtools
+    ([0068a7e](https://gitlab.miracum.org/miracum/misc/dizutils.git/tree/0068a7ec33bfa9fa8249794b73c528ec6549ef79))
+
+#### Other changes
+
+-   news.md now with autonewsmd package
+    ([722f264](https://gitlab.miracum.org/miracum/misc/dizutils.git/tree/722f264cdb6734fcb404ad0314c60d1f1efd02c2))
+
+Full set of changes:
+[`v0.1.1...b795ffe`](https://gitlab.miracum.org/miracum/misc/dizutils.git/compare/v0.1.1...b795ffe)
 
 ## v0.1.1 (2022-06-27)
 

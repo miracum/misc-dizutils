@@ -132,7 +132,7 @@ if (tools_tag == "cran") {
     quiet = FALSE
   )
   add_remotes <- paste0(
-    "url::https://gitlab.miracum.org/miracum/misc/diztools/-/archive/", tools_tag, "/diztools-", tools_tag, ".zip"
+    "github::miracum/misc-diztools@", tools_tag
   )
   desc::desc_set_remotes(
     add_remotes,
