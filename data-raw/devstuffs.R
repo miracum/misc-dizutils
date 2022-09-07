@@ -1,3 +1,4 @@
+# nolint start
 packagename <- "DIZutils"
 
 # remove existing description object
@@ -215,13 +216,13 @@ usethis::use_tidy_description()
 #   ' NEWS" --tag-prefix "v" -o "NEWS.md"'
 # ))
 
-an <- autonewsmd::autonewsmd$new(repo_name = packagename)
-an$generate()
-an$write()
-
 badger::badge_cran_download("DIZutils", "grand-total", "blue")
 badger::badge_cran_download("DIZutils", "last-month", "blue")
 badger::badge_dependencies("DIZutils")
+
+an <- autonewsmd::autonewsmd$new(repo_name = packagename)
+an$generate()
+an$write()
 
 
 # imgurl <- path.expand("~/development/Rpackages/bg2.jpeg")
@@ -247,3 +248,5 @@ badger::badge_dependencies("DIZutils")
 #   white_around_sticker = FALSE,
 #   asp = 1
 # )
+
+# nolint end

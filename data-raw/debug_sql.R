@@ -1,3 +1,4 @@
+# nolint start
 DIZtools::setenv_file(env_file = "../../dqa/env_INTERNAL")
 devtools::load_all()
 library(magrittr)
@@ -145,3 +146,5 @@ system.time({
 dat <- cur$fetchall() %>% data.table::data.table(dat, stringsAsFactors = TRUE)
 cur$close()
 conn$close()
+
+# nolint end
