@@ -1,6 +1,6 @@
 # DIZutils NEWS
 
-## Unreleased (2022-09-07)
+## Unreleased (2022-09-26)
 
 #### Refactorings
 
@@ -19,6 +19,8 @@
 #### Other changes
 
 -   updated news.md
+    ([f1c543b](https://gitlab.miracum.org/miracum/misc/dizutils/tree/f1c543be34c8d45f5a1313a52915aded3970cf00))
+-   updated news.md
     ([d3168f3](https://gitlab.miracum.org/miracum/misc/dizutils/tree/d3168f37014023f12de27849473486112e47db3d))
 -   updated remotes section of description
     ([b129e3b](https://gitlab.miracum.org/miracum/misc/dizutils/tree/b129e3b9be1079d9ecc2e4b07b8b9a71a7758687))
@@ -26,7 +28,7 @@
     ([722f264](https://gitlab.miracum.org/miracum/misc/dizutils/tree/722f264cdb6734fcb404ad0314c60d1f1efd02c2))
 
 Full set of changes:
-[`v0.1.1...d3168f3`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.1.1...d3168f3)
+[`v0.1.1...f1c543b`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.1.1...f1c543b)
 
 ## v0.1.1 (2022-06-27)
 
