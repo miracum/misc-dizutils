@@ -1,6 +1,6 @@
 # DIZutils NEWS
 
-## Unreleased (2022-09-06)
+## Unreleased (2022-09-07)
 
 #### Refactorings
 
@@ -9,6 +9,8 @@
 
 #### CI
 
+-   exclusion to fix linting errors
+    ([585ea62](https://gitlab.miracum.org/miracum/misc/dizutils/tree/585ea62b9b8a1be3617b5204f55ae3ce196d376b))
 -   removed gitlab-ci in favor of github actions
     ([b795ffe](https://gitlab.miracum.org/miracum/misc/dizutils/tree/b795ffe3c13d1d4a4a72c96718364378ce08dffd))
 -   added deps for devtools
@@ -16,13 +18,15 @@
 
 #### Other changes
 
+-   updated news.md
+    ([d3168f3](https://gitlab.miracum.org/miracum/misc/dizutils/tree/d3168f37014023f12de27849473486112e47db3d))
 -   updated remotes section of description
     ([b129e3b](https://gitlab.miracum.org/miracum/misc/dizutils/tree/b129e3b9be1079d9ecc2e4b07b8b9a71a7758687))
 -   news.md now with autonewsmd package
     ([722f264](https://gitlab.miracum.org/miracum/misc/dizutils/tree/722f264cdb6734fcb404ad0314c60d1f1efd02c2))
 
 Full set of changes:
-[`v0.1.1...b129e3b`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.1.1...b129e3b)
+[`v0.1.1...d3168f3`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.1.1...d3168f3)
 
 ## v0.1.1 (2022-06-27)
 
@@ -113,6 +117,11 @@ Full set of changes:
 
 ## v0.0.14 (2022-02-21)
 
+#### Breaking changes
+
+-   removed deprecated functions BREAKING CHANGE: use DIZtools as dep
+    ([5895d6c](https://gitlab.miracum.org/miracum/misc/dizutils/tree/5895d6cfbf71154e4cd5fd721e7f8f1609c87ab4))
+
 #### Refactorings
 
 -   removed functions already implemented in diztools
@@ -121,8 +130,6 @@ Full set of changes:
     ([91959f7](https://gitlab.miracum.org/miracum/misc/dizutils/tree/91959f77d5c6af862e7a6752088d65e016ab197f))
 -   re-introduced close\_all\_connections
     ([54cc167](https://gitlab.miracum.org/miracum/misc/dizutils/tree/54cc167673120516dc8f1a0cfe70b2648958d203))
--   removed deprecated functions BREAKING CHANGE: use DIZtools as dep
-    ([5895d6c](https://gitlab.miracum.org/miracum/misc/dizutils/tree/5895d6cfbf71154e4cd5fd721e7f8f1609c87ab4))
 
 #### Other changes
 
