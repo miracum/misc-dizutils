@@ -246,8 +246,20 @@ db_connection <- function(system_name = NULL,
               headless = headless,
               findme = "0a50610acd"
             )
+            # https://stackoverflow.com/a/2875705
             search_path_sql <- paste0(
-              "SET search_path = ", settings$schema, ", public;"
+              "ALTER ROLE ", settings$user,  " ",
+              "SET search_path = \"", settings$schema, "\", public;"
+            )
+            DIZtools::feedback(
+              print_this = paste0(
+                "Executing SQL on database:\n",
+                search_path_sql
+              ),
+              type = "Info",
+              logfile_dir = logfile_dir,
+              headless = headless,
+              findme = "0a10610acb"
             )
             RPostgres::dbSendQuery(
               conn = conn,

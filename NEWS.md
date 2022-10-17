@@ -28,7 +28,7 @@
     ([722f264](https://gitlab.miracum.org/miracum/misc/dizutils/tree/722f264cdb6734fcb404ad0314c60d1f1efd02c2))
 
 Full set of changes:
-[`v0.1.1...f1c543b`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.1.1...f1c543b)
+[`v0.1.1...f5dd537`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.1.1...f5dd537)
 
 ## v0.1.1 (2022-06-27)
 
