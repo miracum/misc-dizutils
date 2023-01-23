@@ -2,7 +2,7 @@
 
 <!-- badges: start -->
 [![CRAN Status Badge](https://www.r-pkg.org/badges/version-ago/DIZutils)](https://cran.r-project.org/package=DIZutils)
-[![Cran Checks](https://cranchecks.info/badges/worst/DIZutils)](https://cran.r-project.org/web/checks/check_results_DIZutils.html)
+[![Cran Checks](https://badges.cranchecks.info/worst/DIZutils.svg)](https://cran.r-project.org/web/checks/check_results_DIZutils.html)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/DIZutils?color=blue)](https://cran.r-project.org/package=DIZutils)
 [![](http://cranlogs.r-pkg.org/badges/last-month/DIZutils?color=blue)](https://cran.r-project.org/package=DIZutils)
 [![Dependencies](https://tinyverse.netlify.com/badge/DIZutils)](https://cran.r-project.org/package=DIZutils)
@@ -91,4 +91,4 @@ For further details on how to set the specific environment variables using a con
 ## More Infos
 
 * about MIRACUM: <https://www.miracum.org/>
-* about the Medical Informatics Initiative: <https://www.medizininformatik-initiative.de/index.php/de>
+* about the Medical Informatics Initiative: <https://www.medizininformatik-initiative.de/en/start>

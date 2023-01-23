@@ -1,9 +1,11 @@
 # DIZutils NEWS
 
-## Unreleased (2022-09-26)
+## Unreleased (2022-10-17)
 
 #### Refactorings
 
+-   expanded sql for setting search path for user role
+    ([7027966](https://gitlab.miracum.org/miracum/misc/dizutils/tree/70279668f42f292414fec92b9626e3277102691a))
 -   updated `get_config_env` to handle nested lists correctly
     ([a948d7f](https://gitlab.miracum.org/miracum/misc/dizutils/tree/a948d7fdb9d2054b836604a3df9e476fdbe721b6))
 
@@ -28,7 +30,7 @@
     ([722f264](https://gitlab.miracum.org/miracum/misc/dizutils/tree/722f264cdb6734fcb404ad0314c60d1f1efd02c2))
 
 Full set of changes:
-[`v0.1.1...f5dd537`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.1.1...f5dd537)
+[`v0.1.1...7027966`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.1.1...7027966)
 
 ## v0.1.1 (2022-06-27)
 
