@@ -1,6 +1,6 @@
 # DIZutils NEWS
 
-## Unreleased (2022-10-17)
+## v0.1.2 (2023-01-23)
 
 #### Refactorings
 
@@ -20,6 +20,8 @@
 
 #### Other changes
 
+-   fixed cran errors url
+    ([a2d8bbd](https://gitlab.miracum.org/miracum/misc/dizutils/tree/a2d8bbd775f1ad094ab17dce6ebf5089b05f5783))
 -   updated news.md
     ([f1c543b](https://gitlab.miracum.org/miracum/misc/dizutils/tree/f1c543be34c8d45f5a1313a52915aded3970cf00))
 -   updated news.md
@@ -30,7 +32,7 @@
     ([722f264](https://gitlab.miracum.org/miracum/misc/dizutils/tree/722f264cdb6734fcb404ad0314c60d1f1efd02c2))
 
 Full set of changes:
-[`v0.1.1...7027966`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.1.1...7027966)
+[`v0.1.1...v0.1.2`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.1.1...v0.1.2)
 
 ## v0.1.1 (2022-06-27)
 
