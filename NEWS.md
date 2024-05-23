@@ -1,5 +1,12 @@
 # DIZutils NEWS
 
+## Unreleased (2023-01-23)
+
+#### Other changes
+
+-   updated dev-version
+    ([e757336](https://gitlab.miracum.org/miracum/misc/dizutils/tree/e75733608d37346a18676abf2068de59e367fbf6))
+
 ## v0.1.2 (2023-01-23)
 
 #### Refactorings
