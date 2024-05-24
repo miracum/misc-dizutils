@@ -143,6 +143,7 @@ if (tools_tag == "cran") {
 
 ## buildignore
 usethis::use_build_ignore("LICENSE.md")
+usethis::use_build_ignore("README.qmd")
 usethis::use_build_ignore(".gitlab-ci.yml")
 usethis::use_build_ignore("data-raw")
 usethis::use_build_ignore(".vscode")
@@ -172,6 +173,7 @@ usethis::use_git_ignore("!/man/")
 usethis::use_git_ignore("!NAMESPACE")
 usethis::use_git_ignore("!/R/")
 usethis::use_git_ignore("!/README.md")
+usethis::use_git_ignore("!/README.qmd")
 usethis::use_git_ignore("!/tests/")
 usethis::use_git_ignore("/.Rhistory")
 usethis::use_git_ignore("!/*.Rproj")
@@ -201,6 +203,9 @@ usethis::use_git_ignore("/revdep")
 # tidy description
 usethis::use_tidy_description()
 
+
+quarto::quarto_render(input = "README.qmd")
+
 # create NEWS.md using the python-package "auto-changelog" (must be installed)
 # https://www.conventionalcommits.org/en/v1.0.0/
 # build|ci|docs|feat|fix|perf|refactor|test
@@ -215,10 +220,6 @@ usethis::use_tidy_description()
 #   packagename,
 #   ' NEWS" --tag-prefix "v" -o "NEWS.md"'
 # ))
-
-badger::badge_cran_download("DIZutils", "grand-total", "blue")
-badger::badge_cran_download("DIZutils", "last-month", "blue")
-badger::badge_dependencies("DIZutils")
 
 an <- autonewsmd::autonewsmd$new(repo_name = packagename)
 an$generate()

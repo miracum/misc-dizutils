@@ -1,11 +1,19 @@
 # DIZutils NEWS
 
-## Unreleased (2023-01-23)
+## Unreleased (2024-05-23)
+
+#### Bug fixes
+
+-   fixed lintr config
+    ([4a485e5](https://gitlab.miracum.org/miracum/misc/dizutils/tree/4a485e5ba27828cbfafffe49c3c26aea0421a106))
 
 #### Other changes
 
 -   updated dev-version
     ([e757336](https://gitlab.miracum.org/miracum/misc/dizutils/tree/e75733608d37346a18676abf2068de59e367fbf6))
+
+Full set of changes:
+[`v0.1.2...4a485e5`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.1.2...4a485e5)
 
 ## v0.1.2 (2023-01-23)
 
@@ -49,10 +57,6 @@ Full set of changes:
     ([036b964](https://gitlab.miracum.org/miracum/misc/dizutils/tree/036b96409cacc2c7126952dbc55e88fa96c675ae))
 -   added possibility to define db-schema via env-vars
     ([f6b2ee9](https://gitlab.miracum.org/miracum/misc/dizutils/tree/f6b2ee903a411a813d52764a9714041e2ff56fa9))
--   added logo
-    ([ed1aaa0](https://gitlab.miracum.org/miracum/misc/dizutils/tree/ed1aaa015b973f48a53b83cd777a4bbec1a56467))
--   adding postgres options to db\_con
-    ([77ba81f](https://gitlab.miracum.org/miracum/misc/dizutils/tree/77ba81ff58a977d5d0eab3806024ac22512f9dc6))
 
 #### Bug fixes
 
@@ -61,8 +65,6 @@ Full set of changes:
 -   fixed method to specify schema to be queried for postgres
     db-connections
     ([f54dac6](https://gitlab.miracum.org/miracum/misc/dizutils/tree/f54dac68cba291cf26ecd76207a05fce66f46c14))
--   fixed errorneous sendquery with getquery
-    ([dbe9945](https://gitlab.miracum.org/miracum/misc/dizutils/tree/dbe99453364673ff0a6545d106761d745749f318))
 
 #### CI
 
@@ -83,6 +85,26 @@ Full set of changes:
     ([4d80bb8](https://gitlab.miracum.org/miracum/misc/dizutils/tree/4d80bb8d0349b8a4dc7f1515cd667643514c3eac))
 -   updated news.md
     ([cfad461](https://gitlab.miracum.org/miracum/misc/dizutils/tree/cfad461ba87fc78d7d60d36d42c1ef096ca457c1))
+
+Full set of changes:
+[`v0.1.0...v0.1.1`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.1.0...v0.1.1)
+
+## v0.1.0 (2022-05-18)
+
+#### New features
+
+-   added logo
+    ([ed1aaa0](https://gitlab.miracum.org/miracum/misc/dizutils/tree/ed1aaa015b973f48a53b83cd777a4bbec1a56467))
+-   adding postgres options to db\_con
+    ([77ba81f](https://gitlab.miracum.org/miracum/misc/dizutils/tree/77ba81ff58a977d5d0eab3806024ac22512f9dc6))
+
+#### Bug fixes
+
+-   fixed errorneous sendquery with getquery
+    ([dbe9945](https://gitlab.miracum.org/miracum/misc/dizutils/tree/dbe99453364673ff0a6545d106761d745749f318))
+
+#### Other changes
+
 -   new CRAN version `v0.1.0`
     ([06753eb](https://gitlab.miracum.org/miracum/misc/dizutils/tree/06753eb50a8b21839366ef5f714b653c47aafa3b))
 -   new CRAN release `v0.0.16`
@@ -109,7 +131,7 @@ Full set of changes:
     ([d204134](https://gitlab.miracum.org/miracum/misc/dizutils/tree/d204134aa52fdb4caa33cc72b97d06e880816f0e))
 
 Full set of changes:
-[`v0.0.15...v0.1.1`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...v0.1.1)
+[`v0.0.15...v0.1.0`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...v0.1.0)
 
 ## v0.0.15 (2022-02-26)
 
@@ -237,6 +259,23 @@ Full set of changes:
     ([9f7590a](https://gitlab.miracum.org/miracum/misc/dizutils/tree/9f7590a045acd752acaa5c8c9c7586484639536c))
 -   added function `rep2`
     ([30a7d9e](https://gitlab.miracum.org/miracum/misc/dizutils/tree/30a7d9e1fb97da6028f634ca789fceccb5c1b134))
+
+#### Other changes
+
+-   updated news.md
+    ([54a9658](https://gitlab.miracum.org/miracum/misc/dizutils/tree/54a96580dd6016ab4cdc191a43a2de06dc94d4da))
+-   merge development
+    ([acb7700](https://gitlab.miracum.org/miracum/misc/dizutils/tree/acb77005482d59d4138656b20035ee2c3c7e8439))
+-   updated buildignore
+    ([eb35034](https://gitlab.miracum.org/miracum/misc/dizutils/tree/eb350340d357f6e04808df5ec178b83811d06c59))
+
+Full set of changes:
+[`v0.0.10...v0.0.11`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.10...v0.0.11)
+
+## v0.0.10 (2022-01-24)
+
+#### New features
+
 -   added `setenv2` as function
     ([de4738d](https://gitlab.miracum.org/miracum/misc/dizutils/tree/de4738ddd67960cc7d22b3c3a024607b660a10d5))
 
@@ -247,17 +286,11 @@ Full set of changes:
 
 #### Other changes
 
--   updated news.md
-    ([54a9658](https://gitlab.miracum.org/miracum/misc/dizutils/tree/54a96580dd6016ab4cdc191a43a2de06dc94d4da))
--   merge development
-    ([acb7700](https://gitlab.miracum.org/miracum/misc/dizutils/tree/acb77005482d59d4138656b20035ee2c3c7e8439))
--   updated buildignore
-    ([eb35034](https://gitlab.miracum.org/miracum/misc/dizutils/tree/eb350340d357f6e04808df5ec178b83811d06c59))
 -   new cran version
     ([5824cb8](https://gitlab.miracum.org/miracum/misc/dizutils/tree/5824cb87532e59ff817b28b3ab0c696d7d926ec3))
 
 Full set of changes:
-[`v0.0.9...v0.0.11`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.9...v0.0.11)
+[`v0.0.9...v0.0.10`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.9...v0.0.10)
 
 ## v0.0.9 (2021-12-08)
 

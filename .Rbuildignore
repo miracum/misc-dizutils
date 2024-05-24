@@ -16,3 +16,4 @@
 ^NEWS\.md$
 ^man/figures$
 ^Rplots\.pdf$
+^README\.qmd$
