@@ -178,7 +178,7 @@ db_connection <- function(system_name = NULL,
           )
           sid <- settings$dbname
         }
-      } 
+      }
 
       ## create URL
       url <- paste0(
@@ -291,7 +291,7 @@ db_connection <- function(system_name = NULL,
         return(conn)
       })
     }else if (!error && db_type == "PRESTO") {
-      drv <- RPresto:Presto()
+      drv <- RPresto::Presto()
 
       db_con <- tryCatch({
         # arguments from https://rdrr.io/github/prestodb/RPresto/man/Presto.html
@@ -299,43 +299,44 @@ db_connection <- function(system_name = NULL,
         # TODO: Fehlen noch Argumente?
         # TODO: DBI::dbConnect(...) ?
         # TODO: Laut trino_test.R Datei funktioniert folgender Ansatz nicht (?)
-        #conn <- RPresto::dbConnect(
-         # drv = drv,
-         # host = settings$host,
-         # port = settings$port,
-         #user = settings$user,,
-        ## password = settings$password, --> gibt es aber laut Dokumentation oben nicht
-        #catalog = "memory", # TODO: anpassen ?
-        #schema = "qs"
+        conn <- RPresto::dbConnect(
+          drv = drv,
+          host = settings$host,
+          port = settings$port,
+          user = settings$user,,
+          # password = settings$password, --> gibt es aber laut Dokumentation oben nicht
+          catalog = "memory", # TODO: anpassen ?
+          schema = "qs"
+        ) 
         #Alternativ aus trino_test.R
-        httr::set_config(httr::config(
-          ssl_verifypeer = 0L,
-          userpwd = paste(Sys.getenv("TRINO_USER"), Sys.getenv("TRINO_PASSWORD"), sep = ":")
-        ))
+        #httr::set_config(httr::config(
+         # ssl_verifypeer = 0L,
+        #  userpwd = paste(Sys.getenv("TRINO_USER"), Sys.getenv("TRINO_PASSWORD"), sep = ":")
+        #))
       })
-        
-      db <- RPresto::src_presto(
-        host = "https://trino.diz.uk-erlangen.de", #"https://trino-qs.diz.uk-erlangen.de",
-        port = 443,
-        catalog = "catalog",
-        session.timezone = "Europe/Berlin"
-      )
-      sql <- "
-      select
-        json_query(
-          json_format(cast(c.code as JSON)),
-        --	'lax $.coding[*].code'
-          'lax $.coding[*]?(@.system==\"http://fhir.de/CodeSystem/bfarm/icd-10-gm\").code'
-          omit quotes
-          ) as icd,
-        json_query(
-            json_format(cast(c.subject as JSON)),
-          'lax $.reference[*]'
-            omit quotes
-          ) as patient_reference
-      from
-        delta_fhir.obds.condition c
-      "
+
+      #db <- RPresto::src_presto(
+        #host = "https://trino.diz.uk-erlangen.de", #"https://trino-qs.diz.uk-erlangen.de",
+        #port = 443,
+       # catalog = "catalog",
+      #  session.timezone = "Europe/Berlin"
+     # )
+      #sql <- "
+      #select
+        #json_query(
+         # json_format(cast(c.code as JSON)),
+        #--	'lax $.coding[*].code'
+          #'lax $.coding[*]?(@.system==\"http://fhir.de/CodeSystem/bfarm/icd-10-gm\").code'
+          #omit quotes
+         # ) as icd,
+        #json_query(
+          #  json_format(cast(c.subject as JSON)),
+         # 'lax $.reference[*]'
+        #    omit quotes
+       #   ) as patient_reference
+      #from
+       # delta_fhir.obds.condition c
+      #"
       #Alternativ Ende
 
       if (!DIZtools::is.empty(settings$schema)) {
