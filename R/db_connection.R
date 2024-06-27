@@ -313,7 +313,7 @@ db_connection <- function(system_name = NULL,
           ssl_verifypeer = 0L,
           userpwd = paste(Sys.getenv("TRINO_USER"), Sys.getenv("TRINO_PASSWORD"), sep = ":")
         ))
-        db <- RPresto::src_presto(
+        conn <- RPresto::src_presto(
           host = "https://trino.diz.uk-erlangen.de", #"https://trino-qs.diz.uk-erlangen.de",
           port = 443,
           catalog = "catalog",
