@@ -360,7 +360,7 @@ db_connection <- function(system_name = NULL,
            # statement = search_path_sql
           #)
           
-          data <- dplyr::tbl(db, dplyr::sql(search_path_sql)) |> data.table::as.data.table()
+          data <- dplyr::tbl(conn, dplyr::sql(search_path_sql)) |> data.table::as.data.table()
         } else {
           DIZtools::feedback(
             print_this = paste0(
