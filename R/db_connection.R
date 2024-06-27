@@ -344,7 +344,7 @@ db_connection <- function(system_name = NULL,
           #  "ALTER ROLE ", settings$user,  " ",
           #  "SET search_path = \"", settings$schema, "\", public;"
           #)
-          search_path_sql <- "SELECT id FROM fhir.qs.patient" 
+          search_path_sql <- "SELECT distinc gender FROM fhir.qs.patient" 
           DIZtools::feedback(
             print_this = paste0(
               "Executing SQL on database:\n",
