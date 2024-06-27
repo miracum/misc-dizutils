@@ -340,10 +340,11 @@ db_connection <- function(system_name = NULL,
             findme = "0a50610acd"
           )
           # https://stackoverflow.com/a/2875705
-          search_path_sql <- paste0(
-            "ALTER ROLE ", settings$user,  " ",
-            "SET search_path = \"", settings$schema, "\", public;"
-          )
+          #search_path_sql <- paste0(
+          #  "ALTER ROLE ", settings$user,  " ",
+          #  "SET search_path = \"", settings$schema, "\", public;"
+          #)
+          search_path_sql <- "SELECT id FROM fhir.qs.patient" 
           DIZtools::feedback(
             print_this = paste0(
               "Executing SQL on database:\n",
@@ -358,8 +359,8 @@ db_connection <- function(system_name = NULL,
            # conn = conn,
            # statement = search_path_sql
           #)
-          statement = search_path_sql
-          data <- dplyr::tbl(db, dplyr::sql(statement)) |> data.table::as.data.table()
+          
+          data <- dplyr::tbl(db, dplyr::sql(search_path_sql)) |> data.table::as.data.table()
         } else {
           DIZtools::feedback(
             print_this = paste0(
