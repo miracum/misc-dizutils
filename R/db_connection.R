@@ -296,30 +296,30 @@ db_connection <- function(system_name = NULL,
       db_con <- tryCatch({
         # arguments from https://rdrr.io/github/prestodb/RPresto/man/Presto.html
 
-        # TODO: Fehlen noch Argumente?
-        # TODO: DBI::dbConnect(...) ?
-        # TODO: Laut trino_test.R Datei funktioniert folgender Ansatz nicht (?)
-        #conn <- RPresto::dbConnect(
-         # drv = drv,
-          #host = settings$host,
-          #port = settings$port,
-          #user = settings$user,,
-          # password = settings$password, --> gibt es aber laut Dokumentation oben nicht
-          #catalog = "memory", # TODO: anpassen ?
-          #schema = "qs"
-        #)
-        #Alternativ aus trino_test.R
-        httr::set_config(httr::config(
-          ssl_verifypeer = 0L,
-          userpwd = paste(Sys.getenv("TRINO_USER"), Sys.getenv("TRINO_PASSWORD"), sep = ":")
-        ))
-        conn <- RPresto::src_presto(
-          host = "https://trino.diz.uk-erlangen.de", #"https://trino-qs.diz.uk-erlangen.de",
+        conn <- RPresto::dbConnect(
+          drv = RPresto::Presto(),
+          host = settings$host,
+          port = settings$port,
+          host =  "https://trino.diz.uk-erlangen.de",
           port = 443,
-          catalog = "catalog",
-          session.timezone = "Europe/Berlin"
+          user = Sys.getenv("TRINO_USER"),
+          password = Sys.getenv("TRINO_PASSWORD"), 
+          catalog = "memory", 
+          schema = "default"
+
         )
-      })
+        #Alternativ aus trino_test.R
+        #httr::set_config(httr::config(
+        #  ssl_verifypeer = 0L,
+        #  userpwd = paste(Sys.getenv("TRINO_USER"), Sys.getenv("TRINO_PASSWORD"), sep = ":")
+        #))
+        #conn <- RPresto::src_presto(
+        #  host = "https://trino.diz.uk-erlangen.de", #"https://trino-qs.diz.uk-erlangen.de",
+        #  port = 443,
+        #  catalog = "catalog",
+        #  session.timezone = "Europe/Berlin"
+        #)
+      #})
 
       #Alternativ Ende
 
@@ -333,11 +333,10 @@ db_connection <- function(system_name = NULL,
             print_this = paste0(
               "DB-connection using schema: '", settings$schema, "'"
             ),
-            # TODO: ggf. Anpassen --> eher nicht, oder?
             type = "Info",
             logfile_dir = logfile_dir,
             headless = headless,
-            findme = "0a50610acd"
+            findme = "0a50610acd" //TODO: Anpassen?
           )
           # https://stackoverflow.com/a/2875705
           #search_path_sql <- paste0(
@@ -359,8 +358,10 @@ db_connection <- function(system_name = NULL,
            # conn = conn,
            # statement = search_path_sql
           #)
-          
-          data <- dplyr::tbl(conn, dplyr::sql(search_path_sql)) |> data.table::as.data.table()
+        
+          data <- DBI::dbGetQuery(con, search_path_sql)
+
+          #data <- dplyr::tbl(conn, dplyr::sql(search_path_sql)) |> data.table::as.data.table()
         } else {
           DIZtools::feedback(
             print_this = paste0(
