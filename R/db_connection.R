@@ -336,7 +336,7 @@ db_connection <- function(system_name = NULL,
             type = "Info",
             logfile_dir = logfile_dir,
             headless = headless,
-            findme = "0a50610acd" //TODO: Anpassen?
+            findme = "0a50610acd" # TODO: Anpassen?
           )
           # https://stackoverflow.com/a/2875705
           #search_path_sql <- paste0(
