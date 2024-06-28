@@ -319,7 +319,7 @@ db_connection <- function(system_name = NULL,
         #  catalog = "catalog",
         #  session.timezone = "Europe/Berlin"
         #)
-      #})
+      })
 
       #Alternativ Ende
 
