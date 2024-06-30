@@ -296,32 +296,29 @@ db_connection <- function(system_name = NULL,
       db_con <- tryCatch({
         # arguments from https://rdrr.io/github/prestodb/RPresto/man/Presto.html
 
-       # conn <- RPresto::dbConnect(
-        #  drv = RPresto::Presto(),
-        #  host = settings$host,
-       #   port = settings$port,
-        #  host =  "https://trino.diz.uk-erlangen.de",
-       #   port = 443,
-       #   user = Sys.getenv("TRINO_USER"),
-        #  password = Sys.getenv("TRINO_PASSWORD"), 
-       #   catalog = "memory", 
-       #   schema = "default"
-
-       # )
         #Alternativ aus trino_test.R
         httr::set_config(httr::config(
          ssl_verifypeer = 0L,
          userpwd = paste(Sys.getenv("TRINO_USER"), Sys.getenv("TRINO_PASSWORD"), sep = ":")
         ))
-        conn <- RPresto::src_presto(
-         host = "https://trino.diz.uk-erlangen.de", #"https://trino-qs.diz.uk-erlangen.de",
-         port = 443,
-         catalog = "catalog",
-         session.timezone = "Europe/Berlin"
+
+        #conn <- RPresto::src_presto(
+        # host = "https://trino.diz.uk-erlangen.de", #"https://trino-qs.diz.uk-erlangen.de",
+        # port = 443,
+        # catalog = "catalog",
+        # session.timezone = "Europe/Berlin"
+        #)
+        #Alternativ Ende
+        conn <- DBI::dbConnect(
+          drv = RPresto::Presto(),
+          host =  "https://trino.diz.uk-erlangen.de",
+          port = 443,
+          user = Sys.getenv("TRINO_USER"),
+          password = Sys.getenv("TRINO_PASSWORD"),
+          catalog = "memory",
+          schema = "default"
         )
       })
-
-      #Alternativ Ende
 
       if (!DIZtools::is.empty(settings$schema)) {
         # https://stackoverflow.com/questions/42139964/setting-the-schema-
@@ -354,14 +351,9 @@ db_connection <- function(system_name = NULL,
             headless = headless,
             findme = "0a10610acb"
           )
-          #RPresto::dbSendQuery (
-           # conn = conn,
-           # statement = search_path_sql
-          #)
-        
-          #data <- DBI::dbGetQuery(con, search_path_sql)
 
-          data <- dplyr::tbl(conn, dplyr::sql(search_path_sql)) |> data.table::as.data.table()
+          #data <- dplyr::tbl(conn, dplyr::sql(search_path_sql)) |> data.table::as.data.table()
+          data <- DBI::dbGetQuery(conn, search_path_sql) 
         } else {
           DIZtools::feedback(
             print_this = paste0(
