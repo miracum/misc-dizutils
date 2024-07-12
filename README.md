@@ -17,7 +17,7 @@ status](https://github.com/miracum/misc-dizutils/workflows/R%20CMD%20Check%20via
 status](https://github.com/miracum/misc-dizutils/workflows/lint/badge.svg)](https://github.com/miracum/misc-dizutils/actions)
 [![R build
 status](https://github.com/miracum/misc-dizutils/workflows/test-coverage/badge.svg)](https://github.com/miracum/misc-dizutils/actions)
-[![](https://codecov.io/gh/https://github.com/miracum/misc-dizutils/branch/master/graph/badge.svg)](https://codecov.io/gh/https://github.com/miracum/misc-dizutils)
+[![](https://codecov.io/gh/https://github.com/miracum/misc-dizutils/branch/master/graph/badge.svg)](https://app.codecov.io/gh/https://github.com/miracum/misc-dizutils)
 
 <!-- badges: end -->
 
@@ -65,14 +65,14 @@ The following environment variables need to be set to the active
 environment in order to connect with a postgres database with “i2b2” as
 name of the database to connect with:
 
-| Variable      | Description                                                          |
-|---------------|----------------------------------------------------------------------|
-| I2B2_HOST     | The hostname/ IP address of your pg instance.                        |
-| I2B2_DBNAME   | The name of the pg-database.                                         |
-| I2B2_PORT     | The port, your pg postgres instance is running on.                   |
-| I2B2_USER     | The name of the ‘I2B2_USER’.                                         |
-| I2B2_PASSWORD | The password of the ‘I2B2_USER’ of your pg instance.                 |
-| I2B2_SCHEMA   | (optional) The database schema on which queries should be performed. |
+| Variable | Description |
+|----|----|
+| I2B2_HOST | The hostname/ IP address of your pg instance. |
+| I2B2_DBNAME | The name of the pg-database. |
+| I2B2_PORT | The port, your pg postgres instance is running on. |
+| I2B2_USER | The name of the ‘I2B2_USER’. |
+| I2B2_PASSWORD | The password of the ‘I2B2_USER’ of your pg instance. |
+| I2B2_SCHEMA | (optional) The database schema on which queries should be performed. |
 
 To establish the connection, please set those environment variables
 accordingly and execute the following command. The argument `db_name` is
@@ -91,14 +91,14 @@ db_con <- DIZutils::db_connection(
 The following environment variables need to be set to the active
 environment in order to connect with an oracle database:
 
-| Variable            | Description                                                    |
-|---------------------|----------------------------------------------------------------|
-| MYORACLEDB_HOST     | The hostname/ IP address of your oracle instance.              |
-| MYORACLEDB_DBNAME   | The name of the oracle-database.                               |
-| MYORACLEDB_DRIVER   | The path to the oracle jdbc driver.                            |
-| MYORACLEDB_SID      | The SID of the oracle-database.                                |
-| MYORACLEDB_PORT     | The port, your oracle postgres instance is running on.         |
-| MYORACLEDB_USER     | The name of the ‘MYORACLEDB_USER’.                             |
+| Variable | Description |
+|----|----|
+| MYORACLEDB_HOST | The hostname/ IP address of your oracle instance. |
+| MYORACLEDB_DBNAME | The name of the oracle-database. |
+| MYORACLEDB_DRIVER | The path to the oracle jdbc driver. |
+| MYORACLEDB_SID | The SID of the oracle-database. |
+| MYORACLEDB_PORT | The port, your oracle postgres instance is running on. |
+| MYORACLEDB_USER | The name of the ‘MYORACLEDB_USER’. |
 | MYORACLEDB_PASSWORD | The password of the ‘MYORACLEDB_USER’ of your oracle instance. |
 
 To establish the connection, please set those environment variables

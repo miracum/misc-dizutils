@@ -1,6 +1,8 @@
+
+
 # DIZutils NEWS
 
-## Unreleased (2024-05-23)
+## Unreleased (2024-05-24)
 
 #### Bug fixes
 
@@ -9,11 +11,13 @@
 
 #### Other changes
 
+-   updated automated generation of readme
+    ([327559b](https://gitlab.miracum.org/miracum/misc/dizutils/tree/327559b32803508266e0f5c1decc2e00920cad1a))
 -   updated dev-version
     ([e757336](https://gitlab.miracum.org/miracum/misc/dizutils/tree/e75733608d37346a18676abf2068de59e367fbf6))
 
 Full set of changes:
-[`v0.1.2...4a485e5`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.1.2...4a485e5)
+[`v0.1.2...327559b`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.1.2...327559b)
 
 ## v0.1.2 (2023-01-23)
 
@@ -47,7 +51,7 @@ Full set of changes:
     ([722f264](https://gitlab.miracum.org/miracum/misc/dizutils/tree/722f264cdb6734fcb404ad0314c60d1f1efd02c2))
 
 Full set of changes:
-[`v0.1.1...v0.1.2`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.1.1...v0.1.2)
+[`v0.1.1...v0.1.2`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.1.1...v0.1.2)
 
 ## v0.1.1 (2022-06-27)
 
@@ -87,7 +91,7 @@ Full set of changes:
     ([cfad461](https://gitlab.miracum.org/miracum/misc/dizutils/tree/cfad461ba87fc78d7d60d36d42c1ef096ca457c1))
 
 Full set of changes:
-[`v0.1.0...v0.1.1`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.1.0...v0.1.1)
+[`v0.1.0...v0.1.1`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.1.0...v0.1.1)
 
 ## v0.1.0 (2022-05-18)
 
@@ -95,7 +99,7 @@ Full set of changes:
 
 -   added logo
     ([ed1aaa0](https://gitlab.miracum.org/miracum/misc/dizutils/tree/ed1aaa015b973f48a53b83cd777a4bbec1a56467))
--   adding postgres options to db\_con
+-   adding postgres options to db_con
     ([77ba81f](https://gitlab.miracum.org/miracum/misc/dizutils/tree/77ba81ff58a977d5d0eab3806024ac22512f9dc6))
 
 #### Bug fixes
@@ -131,7 +135,7 @@ Full set of changes:
     ([d204134](https://gitlab.miracum.org/miracum/misc/dizutils/tree/d204134aa52fdb4caa33cc72b97d06e880816f0e))
 
 Full set of changes:
-[`v0.0.15...v0.1.0`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.15...v0.1.0)
+[`v0.0.15...v0.1.0`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.0.15...v0.1.0)
 
 ## v0.0.15 (2022-02-26)
 
@@ -148,7 +152,7 @@ Full set of changes:
     ([3356a1f](https://gitlab.miracum.org/miracum/misc/dizutils/tree/3356a1f8cd75cb1c57947d0b90fa9d298cf7b57a))
 
 Full set of changes:
-[`v0.0.14...v0.0.15`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.14...v0.0.15)
+[`v0.0.14...v0.0.15`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.0.14...v0.0.15)
 
 ## v0.0.14 (2022-02-21)
 
@@ -163,7 +167,7 @@ Full set of changes:
     ([e339918](https://gitlab.miracum.org/miracum/misc/dizutils/tree/e33991811a1149f7b76b99cab18a43ec53828879))
 -   removed dependency from diztools
     ([91959f7](https://gitlab.miracum.org/miracum/misc/dizutils/tree/91959f77d5c6af862e7a6752088d65e016ab197f))
--   re-introduced close\_all\_connections
+-   re-introduced close_all_connections
     ([54cc167](https://gitlab.miracum.org/miracum/misc/dizutils/tree/54cc167673120516dc8f1a0cfe70b2648958d203))
 
 #### Other changes
@@ -172,13 +176,13 @@ Full set of changes:
     ([fbdd332](https://gitlab.miracum.org/miracum/misc/dizutils/tree/fbdd332c05f19d40f857bdca95ea1dfaab7f8237))
 
 Full set of changes:
-[`v0.0.13...v0.0.14`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.13...v0.0.14)
+[`v0.0.13...v0.0.14`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.0.13...v0.0.14)
 
 ## v0.0.13 (2022-02-11)
 
 #### Bug fixes
 
--   removed deprecation of get\_config; updated news.md, updated
+-   removed deprecation of get_config; updated news.md, updated
     description
     ([f7523b2](https://gitlab.miracum.org/miracum/misc/dizutils/tree/f7523b2a7bbe8e61165e7df404e7e6cc5773350d))
 -   managing deprecations due to ditzools on cran; add dep diztools
@@ -210,7 +214,7 @@ Full set of changes:
     ([adad18b](https://gitlab.miracum.org/miracum/misc/dizutils/tree/adad18b8198ea82ec092138cb6dd2d76f54b28a0))
 
 Full set of changes:
-[`v0.0.12...v0.0.13`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.12...v0.0.13)
+[`v0.0.12...v0.0.13`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.0.12...v0.0.13)
 
 ## v0.0.12 (2022-02-04)
 
@@ -247,13 +251,13 @@ Full set of changes:
     ([9c6d85e](https://gitlab.miracum.org/miracum/misc/dizutils/tree/9c6d85eaf6502ce24bf420755f48f609a8542b1b))
 
 Full set of changes:
-[`v0.0.11...v0.0.12`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.11...v0.0.12)
+[`v0.0.11...v0.0.12`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.0.11...v0.0.12)
 
 ## v0.0.11 (2022-02-01)
 
 #### New features
 
--   added close\_connection wrapper function
+-   added close_connection wrapper function
     ([34707c5](https://gitlab.miracum.org/miracum/misc/dizutils/tree/34707c52988ae3b38ce7cadbea24afaf29e28eee))
 -   added update script for `NEWS.md`
     ([9f7590a](https://gitlab.miracum.org/miracum/misc/dizutils/tree/9f7590a045acd752acaa5c8c9c7586484639536c))
@@ -270,7 +274,7 @@ Full set of changes:
     ([eb35034](https://gitlab.miracum.org/miracum/misc/dizutils/tree/eb350340d357f6e04808df5ec178b83811d06c59))
 
 Full set of changes:
-[`v0.0.10...v0.0.11`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.10...v0.0.11)
+[`v0.0.10...v0.0.11`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.0.10...v0.0.11)
 
 ## v0.0.10 (2022-01-24)
 
@@ -290,7 +294,7 @@ Full set of changes:
     ([5824cb8](https://gitlab.miracum.org/miracum/misc/dizutils/tree/5824cb87532e59ff817b28b3ab0c696d7d926ec3))
 
 Full set of changes:
-[`v0.0.9...v0.0.10`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.9...v0.0.10)
+[`v0.0.9...v0.0.10`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.0.9...v0.0.10)
 
 ## v0.0.9 (2021-12-08)
 
@@ -334,7 +338,7 @@ Full set of changes:
     ([947103e](https://gitlab.miracum.org/miracum/misc/dizutils/tree/947103e9ba818371f00349d1398166c909b04886))
 
 Full set of changes:
-[`v0.0.8...v0.0.9`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.8...v0.0.9)
+[`v0.0.8...v0.0.9`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.0.8...v0.0.9)
 
 ## v0.0.8 (2021-05-25)
 
@@ -355,7 +359,7 @@ Full set of changes:
 
 -   :ambulance: changed `db_name` to `system_name`
     ([694d4c9](https://gitlab.miracum.org/miracum/misc/dizutils/tree/694d4c948b7340948eea16b5a1af94e02b483134))
--   db\_name was interpreted false
+-   db_name was interpreted false
     ([a72bd64](https://gitlab.miracum.org/miracum/misc/dizutils/tree/a72bd64065b8523c43b05ffd2f2269718828e27b))
 
 #### Refactorings
@@ -397,7 +401,7 @@ Full set of changes:
     ([bccaa2e](https://gitlab.miracum.org/miracum/misc/dizutils/tree/bccaa2e9807cc44caf8844f2457bd911afb3d7a8))
 
 Full set of changes:
-[`v0.0.7...v0.0.8`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.7...v0.0.8)
+[`v0.0.7...v0.0.8`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.0.7...v0.0.8)
 
 ## v0.0.7 (2021-02-11)
 
@@ -415,7 +419,7 @@ Full set of changes:
     ([86358c0](https://gitlab.miracum.org/miracum/misc/dizutils/tree/86358c0d85fc65a299c3c876b24fba71c537165d))
 -   added function `setdiff_all`
     ([e316479](https://gitlab.miracum.org/miracum/misc/dizutils/tree/e3164794b40ecb9df20d05875364a811f68cedf1))
--   added “get\_db\_systems” and “get\_current\_timestamp” functions
+-   added “get_db_systems” and “get_current_timestamp” functions
     ([32ee30e](https://gitlab.miracum.org/miracum/misc/dizutils/tree/32ee30e9c296f8a8a988e7fcdf670b88ac107549))
 -   added function `get_current_timestamp`
     ([d0a82da](https://gitlab.miracum.org/miracum/misc/dizutils/tree/d0a82da34728718d8795da2a5e225b4516c7a061))
@@ -425,10 +429,9 @@ Full set of changes:
 -   fixed bug where `feeback` function uses a missing argument for
     `headless` or `logfile_dir`
     ([4ba9856](https://gitlab.miracum.org/miracum/misc/dizutils/tree/4ba9856d1615b3e86073c1c427912a5e4b908cf6))
--   fixed feedback function to also work with empty or NULL logfile\_dir
+-   fixed feedback function to also work with empty or NULL logfile_dir
     ([d76f673](https://gitlab.miracum.org/miracum/misc/dizutils/tree/d76f6734a15dcd88251e33ebea7d76d48f59d59e))
--   bugfix in get\_config\_env where the name of the named list was
-    wrong
+-   bugfix in get_config_env where the name of the named list was wrong
     ([d937419](https://gitlab.miracum.org/miracum/misc/dizutils/tree/d9374190c81f86d4738e1103e82f4d246512acc3))
 
 #### Refactorings
@@ -453,7 +456,7 @@ Full set of changes:
     ([592d8a6](https://gitlab.miracum.org/miracum/misc/dizutils/tree/592d8a61dfda39ec10de8b45a042de5983174ba1))
 -   added `tolower` and `toupper` to function `string_replacements`
     ([ff41a43](https://gitlab.miracum.org/miracum/misc/dizutils/tree/ff41a431b6e2a163e0f3c12d74576d2fd7e9779c))
--   optimized screen texts for combine\_stats demo
+-   optimized screen texts for combine_stats demo
     ([f3ac827](https://gitlab.miracum.org/miracum/misc/dizutils/tree/f3ac8271951fc96be6d1057bcd0608e982626996))
 
 #### Docs
@@ -485,7 +488,7 @@ Full set of changes:
     ([dc883c8](https://gitlab.miracum.org/miracum/misc/dizutils/tree/dc883c8a5280038b2e726722b1053fe9df449595))
 
 Full set of changes:
-[`v0.0.6...v0.0.7`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.6...v0.0.7)
+[`v0.0.6...v0.0.7`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.0.6...v0.0.7)
 
 ## v0.0.6 (2020-11-17)
 
@@ -509,24 +512,19 @@ Full set of changes:
     ([532ad76](https://gitlab.miracum.org/miracum/misc/dizutils/tree/532ad761168148de50f7f8484b2518a04cf296fb))
 
 Full set of changes:
-[`v0.0.5...v0.0.6`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.5...v0.0.6)
-
-## v0.0.5 (2020-09-14)
-
-Full set of changes:
-[`v0.0.4...v0.0.5`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.4...v0.0.5)
+[`v0.0.4...v0.0.6`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.0.4...v0.0.6)
 
 ## v0.0.4 (2020-06-04)
 
 Full set of changes:
-[`v0.0.3...v0.0.4`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.3...v0.0.4)
+[`v0.0.3...v0.0.4`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.0.3...v0.0.4)
 
 ## v0.0.3 (2020-05-07)
 
 Full set of changes:
-[`v0.0.2...v0.0.3`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/v0.0.2...v0.0.3)
+[`v0.0.2...v0.0.3`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/v0.0.2...v0.0.3)
 
 ## v0.0.2 (2020-04-20)
 
 Full set of changes:
-[`7d31d70...v0.0.2`](https://gitlab.miracum.org/miracum/misc/dizutils/compare/7d31d70...v0.0.2)
+[`7d31d70...v0.0.2`](https://gitlab.miracum.org/miracum/misc/dizutils/-/compare/7d31d70...v0.0.2)
