@@ -290,82 +290,31 @@ db_connection <- function(system_name = NULL,
         conn <- NULL
         return(conn)
       })
-    }else if (!error && db_type == "PRESTO") {
+    }else if (!error && db_type == "TRINO") {
       drv <- RPresto::Presto()
 
       db_con <- tryCatch({
         # arguments from https://rdrr.io/github/prestodb/RPresto/man/Presto.html
 
-        #Alternativ aus trino_test.R
         httr::set_config(httr::config(
          ssl_verifypeer = 0L,
-         userpwd = paste(Sys.getenv("TRINO_USER"), Sys.getenv("TRINO_PASSWORD"), sep = ":")
+         userpwd = paste(settings$user, settings$password, sep = ":")
         ))
 
-        #conn <- RPresto::src_presto(
-        # host = "https://trino.diz.uk-erlangen.de", #"https://trino-qs.diz.uk-erlangen.de",
-        # port = 443,
-        # catalog = "catalog",
-        # session.timezone = "Europe/Berlin"
-        #)
-        #Alternativ Ende
+        if (DIZtools::is.empty(settings$schema)) {
+          settings$schema <- "default"
+        }
+
         conn <- DBI::dbConnect(
           drv = RPresto::Presto(),
-          host =  "https://trino.diz.uk-erlangen.de",
-          port = 443,
-          user = Sys.getenv("TRINO_USER"),
-          password = Sys.getenv("TRINO_PASSWORD"),
+          host = settings$host,
+          port = settings$port,
+          user = settings$user,
+          password = settings$password,
           catalog = "memory",
-          schema = "default"
+          schema = settings$schema
         )
       })
-
-      if (!DIZtools::is.empty(settings$schema)) {
-        # https://stackoverflow.com/questions/42139964/setting-the-schema-
-        # name-in-postgres-using-r (NOTE: this is not working)
-        # https://stackoverflow.com/questions/10032390/writing-to-specific-
-        # schemas-with-rpostgresql
-        if (settings$schema != "public") {
-          DIZtools::feedback(
-            print_this = paste0(
-              "DB-connection using schema: '", settings$schema, "'"
-            ),
-            type = "Info",
-            logfile_dir = logfile_dir,
-            headless = headless,
-            findme = "0a50610acd" # TODO: Anpassen?
-          )
-          # https://stackoverflow.com/a/2875705
-          #search_path_sql <- paste0(
-          #  "ALTER ROLE ", settings$user,  " ",
-          #  "SET search_path = \"", settings$schema, "\", public;"
-          #)
-          search_path_sql <- "SELECT distinct gender FROM fhir.qs.patient" 
-          DIZtools::feedback(
-            print_this = paste0(
-              "Executing SQL on database:\n",
-              search_path_sql
-            ),
-            type = "Info",
-            logfile_dir = logfile_dir,
-            headless = headless,
-            findme = "0a10610acb"
-          )
-
-          #data <- dplyr::tbl(conn, dplyr::sql(search_path_sql)) |> data.table::as.data.table()
-          data <- DBI::dbGetQuery(conn, search_path_sql) 
-        } else {
-          DIZtools::feedback(
-            print_this = paste0(
-              "DB schema = '", settings$schema, "'; skipping to set schema!"
-            ),
-            type = "Info",
-            logfile_dir = logfile_dir,
-            headless = headless,
-            findme = "0a41520acf"
-          )
-        }
-      }
       conn
     }
     if (error || is.null(db_con)) {
