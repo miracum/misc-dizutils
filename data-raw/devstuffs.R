@@ -39,7 +39,7 @@ my_desc$del("Maintainer")
 my_desc$del("LazyData")
 
 # Set the version
-my_desc$set_version("0.1.2.9002")
+my_desc$set_version("0.1.2.9003")
 
 # The title of your package
 my_desc$set(Title = "Utilities for 'DIZ' R Package Development")
@@ -114,6 +114,8 @@ usethis::use_package("RPostgres", type = "Imports")
 usethis::use_package("DBI", type = "Imports", min_version = "1.1.0")
 usethis::use_package("RJDBC", type = "Imports")
 usethis::use_package("DIZtools", type = "Imports")
+usethis::use_package("RPresto", type = "Imports")
+usethis::use_package("httr", type = "Imports")
 
 
 ## Suggests
@@ -122,7 +124,7 @@ usethis::use_package("lintr", type = "Suggests")
 
 
 # Development packages
-tools_tag <- "dev" # e.g. "v0.1.7", "dev" or "cran"
+tools_tag <- "cran" # e.g. "v0.1.7", "dev" or "cran"
 if (tools_tag == "cran") {
   remotes::update_packages("DIZtools", upgrade = "always")
 } else{
