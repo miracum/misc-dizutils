@@ -25,7 +25,7 @@ cat_var <- paste(
   badger::badge_github_actions(action = utils::URLencode("R CMD Check via {tic}")),
   badger::badge_github_actions(action = "lint"),
   badger::badge_github_actions(action = "test-coverage"),
-  badger::badge_codecov(ref = desc::desc_get_urls()),
+  gsub("codecov\\.io", "app.codecov.io", badger::badge_codecov(ref = desc::desc_get_urls())),
   sep = "\n"
 )
 cat_var |> cat()

@@ -1,9 +1,13 @@
+
+
 # DIZutils NEWS
 
-## Unreleased (2024-10-23)
+## Unreleased (2024-11-22)
 
 #### Bug fixes
 
+-   added rpresto and httr to devstuffs.r
+    ([053593f](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/053593f9da1c56e2c6c97d8c20102d699ba64d8c))
 -   fixed lintr config
     ([4a485e5](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/4a485e5ba27828cbfafffe49c3c26aea0421a106))
 
@@ -17,7 +21,7 @@
     ([e757336](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/e75733608d37346a18676abf2068de59e367fbf6))
 
 Full set of changes:
-[`v0.1.2...8b5f103`](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/compare/v0.1.2...8b5f103)
+[`v0.1.2...053593f`](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/compare/v0.1.2...053593f)
 
 ## v0.1.2 (2023-01-23)
 
@@ -99,7 +103,7 @@ Full set of changes:
 
 -   added logo
     ([ed1aaa0](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/ed1aaa015b973f48a53b83cd777a4bbec1a56467))
--   adding postgres options to db\_con
+-   adding postgres options to db_con
     ([77ba81f](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/77ba81ff58a977d5d0eab3806024ac22512f9dc6))
 
 #### Bug fixes
@@ -167,7 +171,7 @@ Full set of changes:
     ([e339918](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/e33991811a1149f7b76b99cab18a43ec53828879))
 -   removed dependency from diztools
     ([91959f7](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/91959f77d5c6af862e7a6752088d65e016ab197f))
--   re-introduced close\_all\_connections
+-   re-introduced close_all_connections
     ([54cc167](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/54cc167673120516dc8f1a0cfe70b2648958d203))
 
 #### Other changes
@@ -182,7 +186,7 @@ Full set of changes:
 
 #### Bug fixes
 
--   removed deprecation of get\_config; updated news.md, updated
+-   removed deprecation of get_config; updated news.md, updated
     description
     ([f7523b2](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/f7523b2a7bbe8e61165e7df404e7e6cc5773350d))
 -   managing deprecations due to ditzools on cran; add dep diztools
@@ -257,7 +261,7 @@ Full set of changes:
 
 #### New features
 
--   added close\_connection wrapper function
+-   added close_connection wrapper function
     ([34707c5](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/34707c52988ae3b38ce7cadbea24afaf29e28eee))
 -   added update script for `NEWS.md`
     ([9f7590a](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/9f7590a045acd752acaa5c8c9c7586484639536c))
@@ -359,7 +363,7 @@ Full set of changes:
 
 -   :ambulance: changed `db_name` to `system_name`
     ([694d4c9](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/694d4c948b7340948eea16b5a1af94e02b483134))
--   db\_name was interpreted false
+-   db_name was interpreted false
     ([a72bd64](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/a72bd64065b8523c43b05ffd2f2269718828e27b))
 
 #### Refactorings
@@ -419,7 +423,7 @@ Full set of changes:
     ([86358c0](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/86358c0d85fc65a299c3c876b24fba71c537165d))
 -   added function `setdiff_all`
     ([e316479](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/e3164794b40ecb9df20d05875364a811f68cedf1))
--   added “get\_db\_systems” and “get\_current\_timestamp” functions
+-   added “get_db_systems” and “get_current_timestamp” functions
     ([32ee30e](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/32ee30e9c296f8a8a988e7fcdf670b88ac107549))
 -   added function `get_current_timestamp`
     ([d0a82da](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/d0a82da34728718d8795da2a5e225b4516c7a061))
@@ -429,10 +433,9 @@ Full set of changes:
 -   fixed bug where `feeback` function uses a missing argument for
     `headless` or `logfile_dir`
     ([4ba9856](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/4ba9856d1615b3e86073c1c427912a5e4b908cf6))
--   fixed feedback function to also work with empty or NULL logfile\_dir
+-   fixed feedback function to also work with empty or NULL logfile_dir
     ([d76f673](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/d76f6734a15dcd88251e33ebea7d76d48f59d59e))
--   bugfix in get\_config\_env where the name of the named list was
-    wrong
+-   bugfix in get_config_env where the name of the named list was wrong
     ([d937419](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/d9374190c81f86d4738e1103e82f4d246512acc3))
 
 #### Refactorings
@@ -457,7 +460,7 @@ Full set of changes:
     ([592d8a6](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/592d8a61dfda39ec10de8b45a042de5983174ba1))
 -   added `tolower` and `toupper` to function `string_replacements`
     ([ff41a43](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/ff41a431b6e2a163e0f3c12d74576d2fd7e9779c))
--   optimized screen texts for combine\_stats demo
+-   optimized screen texts for combine_stats demo
     ([f3ac827](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/f3ac8271951fc96be6d1057bcd0608e982626996))
 
 #### Docs
