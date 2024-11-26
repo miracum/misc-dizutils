@@ -22,7 +22,7 @@ status](https://github.com/miracum/misc-dizutils/workflows/R%20CMD%20Check%20via
 status](https://github.com/miracum/misc-dizutils/workflows/lint/badge.svg)](https://github.com/miracum/misc-dizutils/actions)
 [![R build
 status](https://github.com/miracum/misc-dizutils/workflows/test-coverage/badge.svg)](https://github.com/miracum/misc-dizutils/actions)
-[![](https://app.codecov.io/gh/https://github.com/miracum/misc-dizutils/branch/master/graph/badge.svg)](https://app.app.codecov.io/gh/https://github.com/miracum/misc-dizutils)
+[![](https://codecov.io/gh/https://github.com/miracum/misc-dizutils/branch/master/graph/badge.svg)](https://app.codecov.io/gh/https://github.com/miracum/misc-dizutils)
 
 <!-- badges: end -->
 

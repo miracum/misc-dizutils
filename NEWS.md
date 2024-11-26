@@ -2,7 +2,7 @@
 
 # DIZutils NEWS
 
-## Unreleased (2024-11-22)
+## Unreleased (2024-11-25)
 
 #### Bug fixes
 
@@ -13,6 +13,8 @@
 
 #### Other changes
 
+-   updated news, desc and readme
+    ([6a14f75](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/6a14f75beaad2fa1d10d565053fc72144f5a805e))
 -   cleaning up
     ([8b5f103](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/8b5f103dfedc6fba9f0fecdd6ef827c3ccbc27de))
 -   updated automated generation of readme
@@ -21,7 +23,7 @@
     ([e757336](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/tree/e75733608d37346a18676abf2068de59e367fbf6))
 
 Full set of changes:
-[`v0.1.2...053593f`](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/compare/v0.1.2...053593f)
+[`v0.1.2...6a14f75`](https://git.uk-erlangen.de/mik-diz/mik-diz-tea/r-packages/dizutils/compare/v0.1.2...6a14f75)
 
 ## v0.1.2 (2023-01-23)
 
