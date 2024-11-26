@@ -1,6 +1,6 @@
 Package: DIZutils
 Title: Utilities for 'DIZ' R Package Development
-Version: 0.1.2.9003
+Version: 0.1.3
 Date: 2024-11-26
 Authors@R: c(
     person("Jonathan M.", "Mang", , "jonathan.mang@uk-erlangen.de", role = c("aut", "cre"),
