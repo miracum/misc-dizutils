@@ -26,7 +26,7 @@ the environment. You can load such an env file e.g. by using
 `DIZtools::setenv_file(path_to_file)`.}
 
 \item{db_type}{A character. Type of the database system. Currently
-implemented systems are: 'postgres', 'oracle'.}
+implemented systems are: 'postgres', 'oracle' and 'trino'.}
 
 \item{headless}{A boolean (default: `FALSE`). Indicating, if the function is
 run only in the console (`headless = TRUE`) or on a GUI frontend
@@ -34,14 +34,14 @@ run only in the console (`headless = TRUE`) or on a GUI frontend
 
 \item{from_env}{A boolean (default: `TRUE`). Should database connection
 be read from the environment or from a settings file. All necessary
-parameters must be uppercase and have the prefix of the db_name. E.g.:
+parameters must be uppercase and have the prefix of the dbname. E.g.:
 `I2B2_HOST` or `I2B2_PORT`. See the `settings` parameter for all
 necessary variables.}
 
 \item{settings}{A list. Required if `from_env == FALSE`. A list containing
 settings for the database connection. Required fields are `host`,
-`db_name`, `port`, `user` and `password`.
-Additionally for Oracle DB's: `sid` (instead of `db_name`).
+`dbname`, `port`, `user` and `password`.
+Additionally for Oracle DB's: `sid` (instead of `dbname`).
 If `settings` is set, `from_env` will be set to `FALSE` automatically.}
 
 \item{timeout}{A timeout in sec. for the db-connection establishment.
@@ -66,7 +66,7 @@ Internal function to test and get the database connection of
 \examples{
 \dontrun{
 db_con <- DIZutils::db_connection(
-  db_name = "i2b2",
+  system_name = "i2b2",
   db_type = "postgres"
 )}
 

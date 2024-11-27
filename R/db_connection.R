@@ -1,5 +1,5 @@
 # DIZutils - Utilities for 'DIZ' R Package Development
-# Copyright (C) 2020-2022 Universitätsklinikum Erlangen, Germany
+# Copyright (C) 2020-2024 Universitätsklinikum Erlangen, Germany
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -24,13 +24,13 @@
 #'   (`headless = FALSE`).
 #' @param from_env A boolean (default: `TRUE`). Should database connection
 #'   be read from the environment or from a settings file. All necessary
-#'   parameters must be uppercase and have the prefix of the db_name. E.g.:
+#'   parameters must be uppercase and have the prefix of the dbname. E.g.:
 #'   `I2B2_HOST` or `I2B2_PORT`. See the `settings` parameter for all
 #'   necessary variables.
 #' @param settings A list. Required if `from_env == FALSE`. A list containing
 #'   settings for the database connection. Required fields are `host`,
-#'   `db_name`, `port`, `user` and `password`.
-#'   Additionally for Oracle DB's: `sid` (instead of `db_name`).
+#'   `dbname`, `port`, `user` and `password`.
+#'   Additionally for Oracle DB's: `sid` (instead of `dbname`).
 #'   If `settings` is set, `from_env` will be set to `FALSE` automatically.
 #' @param timeout A timeout in sec. for the db-connection establishment.
 #'   Values below 2 seconds are not recommended.
@@ -44,7 +44,7 @@
 #'   the environment. You can load such an env file e.g. by using
 #'   `DIZtools::setenv_file(path_to_file)`.
 #' @param db_type A character. Type of the database system. Currently
-#'   implemented systems are: 'postgres', 'oracle'.
+#'   implemented systems are: 'postgres', 'oracle' and 'trino'.
 #' @param lib_path A character string. The path to the ojdbc*.jar file.
 #'   If you run one of the R-containers from the UK-Erlangen DIZ, there
 #'   might be a lib for oracle here: `lib_path = "/opt/libs/ojdbc8.jar"`
@@ -56,7 +56,7 @@
 #' @examples
 #' \dontrun{
 #' db_con <- DIZutils::db_connection(
-#'   db_name = "i2b2",
+#'   system_name = "i2b2",
 #'   db_type = "postgres"
 #' )}
 #'
@@ -153,7 +153,7 @@ db_connection <- function(system_name = NULL,
       }
 
       if (is.null(sid) || sid == "") {
-        ## SID is missing, so check if we can use the db_name instead:
+        ## SID is missing, so check if we can use the dbname instead:
         if (is.null(settings$dbname) || settings$dbname == "") {
           DIZtools::feedback(
             print_this = "Missing SID for db-connection to oracle.",

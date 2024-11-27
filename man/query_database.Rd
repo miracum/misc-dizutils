@@ -8,7 +8,8 @@ query_database(
   db_con,
   sql_statement,
   no_result = FALSE,
-  close_connection = FALSE
+  close_connection = FALSE,
+  stringsAsFactors = TRUE
 )
 }
 \arguments{
@@ -25,6 +26,9 @@ to a data.table.}
 
 \item{close_connection}{(boolean, default = FALSE). If TRUE, the connection
 will be closed after the query was sent and the result received.}
+
+\item{stringsAsFactors}{(boolean, default = TRUE). Should character columns
+be automatically be casted to factors?}
 }
 \value{
 Returns the result of the db-query. If `no_result` is `TRUE`,

@@ -1,5 +1,5 @@
 # DIZutils - Utilities for 'DIZ' R Package Development
-# Copyright (C) 2020-2022 Universitätsklinikum Erlangen, Germany
+# Copyright (C) 2020-2024 Universitätsklinikum Erlangen, Germany
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -29,6 +29,8 @@
 #'   to a data.table.
 #' @param close_connection (boolean, default = FALSE). If TRUE, the connection
 #'   will be closed after the query was sent and the result received.
+#' @param stringsAsFactors (boolean, default = TRUE). Should character columns
+#'   be automatically be casted to factors?
 #' @return Returns the result of the db-query. If `no_result` is `TRUE`,
 #'  the return value will be `TRUE` if the query was successfully sent.
 #'  Otherwise (if `no_result` is `FALSE` which is the default), the result
@@ -60,7 +62,8 @@ query_database <-
   function(db_con,
            sql_statement,
            no_result = FALSE,
-           close_connection = FALSE) {
+           close_connection = FALSE,
+           stringsAsFactors = TRUE) {
     stopifnot(!is.null(sql_statement), !is.null(db_con))
 
     ## Remove tailing ";":
@@ -84,7 +87,7 @@ query_database <-
             conn = db_con,
             statement = sql
           )
-          return(data.table::data.table(dat, stringsAsFactors = TRUE))
+          return(data.table::data.table(dat, stringsAsFactors = stringsAsFactors))
 
         }, error = function(e) {
           DIZtools::feedback(

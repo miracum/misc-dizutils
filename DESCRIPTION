@@ -1,12 +1,13 @@
 Package: DIZutils
 Title: Utilities for 'DIZ' R Package Development
-Version: 0.1.3
-Date: 2024-11-26
+Version: 0.1.3.9001
+Date: 2024-11-27
 Authors@R: c(
     person("Jonathan M.", "Mang", , "jonathan.mang@uk-erlangen.de", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-0518-4710")),
     person("Lorenz A.", "Kapsner", role = "aut",
            comment = c(ORCID = "0000-0003-1866-860X")),
+    person("Helene Köster", role = "ctb"),
     person("MIRACUM - Medical Informatics in Research and Care in University Medicine", role = "fnd"),
     person("Universitätsklinikum Erlangen, Germany", role = "cph")
   )

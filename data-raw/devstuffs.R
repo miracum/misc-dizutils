@@ -27,6 +27,7 @@ my_desc$set_authors(c(
     role = c("aut"),
     comment = c(ORCID = "0000-0003-1866-860X")
   ),
+  person("Helene Köster", role = "ctb"),
   person(
     "MIRACUM - Medical Informatics in Research and Care in University Medicine",
     role = c("fnd")
@@ -39,7 +40,7 @@ my_desc$del("Maintainer")
 my_desc$del("LazyData")
 
 # Set the version
-my_desc$set_version("0.1.3")
+my_desc$set_version("0.1.3.9001")
 
 # The title of your package
 my_desc$set(Title = "Utilities for 'DIZ' R Package Development")
