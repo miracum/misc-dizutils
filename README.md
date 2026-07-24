@@ -4,11 +4,6 @@
 
 <!-- badges: start -->
 
-    Warning: `git_branch_default()` was deprecated in usethis 2.1.0.
-    ℹ Please use `git_default_branch()` instead.
-    ℹ The deprecated feature was likely used in the badger package.
-      Please report the issue at <https://github.com/GuangchuangYu/badger/issues>.
-
 [![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![](https://www.r-pkg.org/badges/version/DIZutils)](https://cran.r-project.org/package=DIZutils)
 [![CRAN
@@ -23,7 +18,6 @@ status](https://github.com/miracum/misc-dizutils/workflows/lint/badge.svg)](http
 [![R build
 status](https://github.com/miracum/misc-dizutils/workflows/test-coverage/badge.svg)](https://github.com/miracum/misc-dizutils/actions)
 [![](https://codecov.io/gh/https://github.com/miracum/misc-dizutils/branch/master/graph/badge.svg)](https://app.codecov.io/gh/https://github.com/miracum/misc-dizutils)
-
 <!-- badges: end -->
 
 The R package `DIZutils` provides utility functions used for the R
